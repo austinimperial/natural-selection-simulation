@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ScreenSizesProvider from 'globalState/screenSizes/index'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <ScreenSizesProvider>
+     <App />
+  </ScreenSizesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
