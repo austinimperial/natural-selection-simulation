@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ScreenSizesProvider from 'globalState/screenSizes/index'
+import BugsProvider from 'globalState/bugs/index'
 
 ReactDOM.render(
   <React.StrictMode>
   <ScreenSizesProvider>
+  <BugsProvider>
      <App />
+  </BugsProvider>
   </ScreenSizesProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,11 +1,15 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 //import { ScreenSizesContext } from 'globalState/screenSizes/index'
+import { BugsContext } from 'globalState/bugs/index'
 import { 
     StyledCanvas,
     StyledContainer,
-    StyledFileInput
+    StyledFileInput,
+    StyledCanvasContainer,
+    StyledBgImg
 } from './styles'
-import changeBackgroundImage from './changeBackgroundImage'
+//import changeBackgroundImage from './changeBackgroundImage'
+import drawAllBugs from './drawAllBugs'
 
 function Canvas() {
     // local state
@@ -13,20 +17,30 @@ function Canvas() {
 
     // // global state
     // const {xxs,xs,sm,md,lg,xl} = useContext(ScreenSizesContext)
+    const {bugs,addBug} = useContext(BugsContext)
 
     // refs
     const canvasRef = useRef()
 
     useEffect(() => {
-        changeBackgroundImage(bgImg,canvasRef.current)
-    },[bgImg])
+        drawAllBugs(canvasRef.current,bugs)
+    },[bugs])
+
+    const handleCanvasClick = e => {
+        addBug(e)
+    }
 
     return (
         <StyledContainer>
-            <StyledCanvas 
-                ref={canvasRef} 
-                onClick={e => console.log(e)}
-            /> 
+            <StyledCanvasContainer>
+                <StyledBgImg src={bgImg} />
+                <StyledCanvas 
+                    width="300"
+                    height="300"
+                    ref={canvasRef} 
+                    onClick={handleCanvasClick}
+                /> 
+            </StyledCanvasContainer>
             <StyledFileInput 
                 type="file" 
                 accept="image/*"
