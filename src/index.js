@@ -5,12 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ScreenSizesProvider from 'globalState/screenSizes/index'
 import BugsProvider from 'globalState/bugs/index'
+import BgImageProvider from 'globalState/bgImage/index'
 
 ReactDOM.render(
   <React.StrictMode>
   <ScreenSizesProvider>
   <BugsProvider>
+  <BgImageProvider>
      <App />
+  </BgImageProvider>
   </BugsProvider>
   </ScreenSizesProvider>
   </React.StrictMode>,

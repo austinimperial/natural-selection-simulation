@@ -1,26 +1,19 @@
 import React, { useState } from 'react'
+import getInitialBugs from './getInitialBugs'
+import addBug from './addBug'
 export const BugsContext = React.createContext()
 
 function BugsProvider({children}) {
     const [bugs,setBugs] = useState([])
-
-    const addBug = e => {
-        e.persist()
-        console.log(e)
-        setBugs(prevBugs => ([
-            ...prevBugs,
-            {
-                x:e.pageX - e.target.offsetLeft, 
-                y:e.pageY - e.target.offsetTop
-            }
-        ]))        
-    }
-
-    
+    const [populationSize,setPopulationSize] = useState(20)
 
     const value = {
-        bugs,setBugs,
-        addBug
+        bugs,
+        setBugs,
+        populationSize,
+        setPopulationSize,
+        addBug,
+        getInitialBugs
     }
 
     return (
