@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
-export const BgImageContext = React.createContext()
+import React, { useState } from "react";
+export const BgImageContext = React.createContext();
 
-function BgImageProvider({children}) {
-    const [bgImage,setBgImage] = useState(null)
+function BgImageProvider({ children }) {
+  const [bgImage, setBgImage] = useState(null);
 
-    const value = {
-        bgImage,
-        setBgImage
-    }
+  const value = {
+    bgImage,
+    setBgImage,
+  };
 
-    return (
-        <BgImageContext.Provider value={value}>
-            {children}
-        </BgImageContext.Provider>
-    )
+  return (
+    <BgImageContext.Provider value={value}>{children}</BgImageContext.Provider>
+  );
 }
 
-export default BgImageProvider
+export default BgImageProvider;

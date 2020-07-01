@@ -17,9 +17,9 @@ function ScreenSizesProvider({ children }) {
       window.removeEventListener("resize", _.throttle(updateWidth, 200));
   }, []);
 
-  const getScreenSize = screenSizes => {
+  const getScreenSize = (screenSizes) => {
     // returns the current screen size as a string
-    return Object.entries(screenSizes).filter(entry => entry[1])[0][0];
+    return Object.entries(screenSizes).filter((entry) => entry[1])[0][0];
   };
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function ScreenSizesProvider({ children }) {
     const currentScreenSizes = getScreenSizes(getWidth());
     if (_.isEqual(currentScreenSizes, screenSizes)) return;
 
-    setScreenSizes(prevScreenSizes => {
+    setScreenSizes((prevScreenSizes) => {
       setPrevScreenSize(getScreenSize(prevScreenSizes));
       return currentScreenSizes;
     });

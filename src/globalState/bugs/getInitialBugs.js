@@ -1,24 +1,25 @@
-import getRandomRGB from './getRandomRGB'
+import getRandomRGB from "./getRandomRGB";
+import getRandCoors from "./getRandCoors";
 
-export default function getInitialBugs(canvasDimensions,populationSize,setBugs,bugSize) {
-    var newBugs = []
-    let i
-    for (i=0; i<populationSize; i++) {
+export default function getInitialBugs(
+  canvasDimensions,
+  populationSize,
+  setBugs,
+  bugSize
+) {
+  var newBugs = [];
+  let i;
+  for (i = 0; i < populationSize; i++) {
+    const randCoors = getRandCoors(canvasDimensions, bugSize);
+    newBugs = [
+      ...newBugs,
+      {
+        x: randCoors.x,
+        y: randCoors.y,
+        color: getRandomRGB(),
+      },
+    ];
+  }
 
-        // get random coordinates
-        const randomX = Math.floor(Math.random()*(canvasDimensions.width - bugSize))
-        const randomY = Math.floor(Math.random()*(canvasDimensions.height - bugSize))
-
-        // add to newBugs
-        newBugs = [
-            ...newBugs,
-            {
-                x:randomX,
-                y:randomY,
-                color: getRandomRGB()
-            }
-        ]
-    }
-
-    setBugs(newBugs)
+  setBugs(newBugs);
 }
