@@ -6,6 +6,7 @@ export const BugsContext = React.createContext()
 function BugsProvider({children}) {
     const [bugs,setBugs] = useState([])
     const [populationSize,setPopulationSize] = useState(20)
+    const [bugSize,setBugSize] = useState(20)
 
     const value = {
         bugs,
@@ -13,7 +14,9 @@ function BugsProvider({children}) {
         populationSize,
         setPopulationSize,
         addBug,
-        getInitialBugs
+        getInitialBugs,
+        bugSize,
+        setBugSize
     }
 
     return (

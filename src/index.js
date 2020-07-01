@@ -6,13 +6,16 @@ import * as serviceWorker from './serviceWorker';
 import ScreenSizesProvider from 'globalState/screenSizes/index'
 import BugsProvider from 'globalState/bugs/index'
 import BgImageProvider from 'globalState/bgImage/index'
+import CanvasDimensionsProvider from 'globalState/canvasDimensions/index'
 
 ReactDOM.render(
   <React.StrictMode>
   <ScreenSizesProvider>
   <BugsProvider>
   <BgImageProvider>
+  <CanvasDimensionsProvider>
      <App />
+  </CanvasDimensionsProvider>
   </BgImageProvider>
   </BugsProvider>
   </ScreenSizesProvider>

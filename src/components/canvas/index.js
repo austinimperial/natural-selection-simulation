@@ -1,47 +1,59 @@
-import React, { useContext, useRef, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 //import { ScreenSizesContext } from 'globalState/screenSizes/index'
 import { BugsContext } from 'globalState/bugs/index'
 import { BgImageContext } from 'globalState/bgImage/index'
+import { CanvasDimensionsContext } from 'globalState/canvasDimensions/index'
 import { 
-    StyledCanvas,
-    StyledCanvasContainer,
-    StyledBgImg
+    StyledSvgCanvas,
+    StyledContainer,
+    StyledBgImg,
 } from './styles'
-import drawAllBugs from './drawAllBugs'
+import Bug from 'components/bug/bug'
 
-function Canvas() {
+function SvgCanvas() {
     // // global state
     // const {xxs,xs,sm,md,lg,xl} = useContext(ScreenSizesContext)
-    const {bugs,getInitialBugs,populationSize,setBugs} = useContext(BugsContext)
+    const { 
+        bugs,
+        getInitialBugs,
+        populationSize,
+        setBugs,
+        bugSize
+    } = useContext(BugsContext)
     const { bgImage } = useContext(BgImageContext)
+    const { canvasDimensions } = useContext(CanvasDimensionsContext)
 
     // refs
-    const canvasRef = useRef()
-
-    // local vars
-    const canvasDimensions = {width:400,height:400}
+    const svgCanvasRef = useRef()
 
     useEffect(() => {
-        drawAllBugs(canvasRef.current,bugs)
-    },[bugs])
-
-    useEffect(() => {
-        getInitialBugs(canvasDimensions,populationSize,setBugs)
+        getInitialBugs(canvasDimensions,populationSize,setBugs,bugSize)
     },[])
 
     return (
-        <StyledCanvasContainer>
+        <StyledContainer>
             <StyledBgImg 
                 src={bgImage} 
                 canvasDimensions={canvasDimensions}
             />
-            <StyledCanvas 
-                width={canvasDimensions.width}
-                height={canvasDimensions.height}
-                ref={canvasRef} 
-            /> 
-        </StyledCanvasContainer>
+            <StyledSvgCanvas
+                ref={svgCanvasRef}
+                canvasDimensions={canvasDimensions} 
+                onClick={() => console.log('canvas click')}
+            >
+                {
+                    bugs.map(bug => (
+                        <Bug 
+                            key={bug.x+bug.y+bug.color}
+                            bug={bug}
+                            svgCanvas={svgCanvasRef}
+                        />                           
+                    ))
+                 
+                }
+            </StyledSvgCanvas>
+        </StyledContainer>
     )
 }
 
-export default Canvas
+export default SvgCanvas

@@ -1,14 +1,16 @@
 import React from 'react';
-import Canvas from 'components/canvas/index'
+import SvgCanvas from 'components/canvas/index'
 import FileInput from 'components/fileInput/index'
+import ShuffleButton from 'components/shuffleButton/index'
 import { StyledContainer } from './AppStyles'
 
 function App() {
 
   return (
     <StyledContainer>
-      <Canvas />
+      <SvgCanvas />
       <FileInput />
+      <ShuffleButton />
     </StyledContainer>
   );
 }

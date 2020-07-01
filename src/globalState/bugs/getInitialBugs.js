@@ -1,13 +1,13 @@
 import getRandomRGB from './getRandomRGB'
 
-export default function getInitialBugs (canvasDimensions,populationSize,setBugs) {
+export default function getInitialBugs(canvasDimensions,populationSize,setBugs,bugSize) {
     var newBugs = []
     let i
     for (i=0; i<populationSize; i++) {
 
         // get random coordinates
-        const randomX = Math.floor(Math.random()*(canvasDimensions.width+1))
-        const randomY = Math.floor(Math.random()*(canvasDimensions.height+1))
+        const randomX = Math.floor(Math.random()*(canvasDimensions.width - bugSize))
+        const randomY = Math.floor(Math.random()*(canvasDimensions.height - bugSize))
 
         // add to newBugs
         newBugs = [
