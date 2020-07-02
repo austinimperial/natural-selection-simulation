@@ -12,7 +12,8 @@ function Bug({ bug, i }) {
     setBugs,
     spawnNewOffspring,
     maxOffspringDistance,
-    bugs
+    bugs,
+    populationSize
   } = useContext(BugsContext);
   const { canvasDimensions, canvasOffset } = useContext(CanvasDimensionsContext);
 
@@ -25,7 +26,8 @@ function Bug({ bug, i }) {
       bug,
       bugs,
       bugSize,
-      i
+      i,
+      populationSize
     );
   };
 

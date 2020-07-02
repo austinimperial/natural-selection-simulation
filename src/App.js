@@ -2,12 +2,19 @@ import React from "react";
 import SvgCanvas from "components/svgCanvas/index";
 import FileInput from "components/fileInput/index";
 import ShuffleButton from "components/shuffleButton/index";
-import { StyledContainer } from "./AppStyles";
+import ColorGrid from 'components/colorGrid/index'
+import { 
+  StyledContainer,
+  StyledCanvasAndGridContainer
+ } from "./AppStyles";
 
 function App() {
   return (
     <StyledContainer>
-      <SvgCanvas />
+      <StyledCanvasAndGridContainer>
+        <SvgCanvas />
+        <ColorGrid />        
+      </StyledCanvasAndGridContainer>
       <FileInput />
       <ShuffleButton />
     </StyledContainer>
