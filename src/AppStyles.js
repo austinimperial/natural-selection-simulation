@@ -8,4 +8,4 @@ export const StyledContainer = styled.div`
 
 export const StyledCanvasAndGridContainer = styled.div`
   display: flex;
-`
+`;

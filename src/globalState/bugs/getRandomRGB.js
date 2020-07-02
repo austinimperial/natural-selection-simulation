@@ -4,5 +4,5 @@ export default function getRandomRBG() {
   for (i = 0; i < 3; i++) {
     newColor.push(Math.ceil(Math.random() * 255));
   }
-  return newColor
+  return newColor;
 }

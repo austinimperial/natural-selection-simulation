@@ -2,9 +2,8 @@ export default function getOffspringCoors(
   maxOffspringDistance,
   eatenBug,
   canvasDimensions,
-  bugSize,
+  bugSize
 ) {
-
   // get random point within given radius
   const randRadius = Math.floor(Math.random() * maxOffspringDistance);
   const randDegree = Math.floor(Math.random() * 360);
@@ -13,8 +12,8 @@ export default function getOffspringCoors(
   const yStep = Math.sin(randRadian) * randRadius;
 
   // find bounds of canvas
-  const xMax = canvasDimensions.width - bugSize
-  const yMax = canvasDimensions.height - bugSize
+  const xMax = canvasDimensions.width - bugSize;
+  const yMax = canvasDimensions.height - bugSize;
 
   var newX = eatenBug.x + xStep;
   var newY = eatenBug.y + yStep;

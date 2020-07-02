@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import getInitialBugs from "./getInitialBugs";
 import eatBug from "./eatBug";
 import spawnNewOffspring from "./spawnNewOffspring";
+import getAverageColor from "./getAverageColor";
 export const BugsContext = React.createContext();
-const _ = require('lodash')
 
 function BugsProvider({ children }) {
   const [bugs, setBugs] = useState([]);
@@ -11,6 +11,7 @@ function BugsProvider({ children }) {
   const [bugSize, setBugSize] = useState(20);
   const [maxMutationStep, setMaxMutationStep] = useState(15);
   const [maxOffspringDistance, setMaxOffspringDistance] = useState(80);
+  const [avgColors, setAvgColors] = useState([]);
 
   const value = {
     bugs,
@@ -26,6 +27,9 @@ function BugsProvider({ children }) {
     setMaxMutationStep,
     maxOffspringDistance,
     setMaxOffspringDistance,
+    avgColors,
+    setAvgColors,
+    getAverageColor,
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

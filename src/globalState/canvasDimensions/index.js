@@ -7,13 +7,13 @@ function CanvasDimensionsProvider({ children }) {
     width: 500,
     height: 500,
   });
-  const [canvasOffset,setCanvasOffset] = useState({left:0,top:0})
+  const [canvasOffset, setCanvasOffset] = useState({ left: 0, top: 0 });
 
   const value = {
     canvasDimensions,
     setCanvasDimensions,
     canvasOffset,
-    setCanvasOffset
+    setCanvasOffset,
   };
 
   return (

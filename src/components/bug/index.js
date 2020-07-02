@@ -13,9 +13,11 @@ function Bug({ bug, i }) {
     spawnNewOffspring,
     maxOffspringDistance,
     bugs,
-    populationSize
+    populationSize,
   } = useContext(BugsContext);
-  const { canvasDimensions, canvasOffset } = useContext(CanvasDimensionsContext);
+  const { canvasDimensions, canvasOffset } = useContext(
+    CanvasDimensionsContext
+  );
 
   const hanldleMouseEnter = () => {
     eatBug(i, setBugs);

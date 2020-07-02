@@ -11,12 +11,12 @@ import CanvasDimensionsProvider from "globalState/canvasDimensions/index";
 ReactDOM.render(
   <React.StrictMode>
     <ScreenSizesProvider>
-    <CanvasDimensionsProvider>
-      <BugsProvider>
-        <BgImageProvider>
+      <CanvasDimensionsProvider>
+        <BugsProvider>
+          <BgImageProvider>
             <App />
-        </BgImageProvider>
-      </BugsProvider>
+          </BgImageProvider>
+        </BugsProvider>
       </CanvasDimensionsProvider>
     </ScreenSizesProvider>
   </React.StrictMode>,

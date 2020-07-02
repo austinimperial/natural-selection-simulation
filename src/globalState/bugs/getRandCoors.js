@@ -4,4 +4,3 @@ export default function getRandCoors(canvasDimensions, bugSize) {
     y: Math.floor(Math.random() * (canvasDimensions.height - bugSize)),
   };
 }
-
