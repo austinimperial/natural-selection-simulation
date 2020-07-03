@@ -12,5 +12,5 @@ export const grow = (height) => keyframes`{
 }`;
 
 export const StyledSvg = styled.svg`
-  animation: ${(props) => grow(props.height)} 4s linear;
+  animation: ${(props) => grow(props.height)} 2s linear;
 `;

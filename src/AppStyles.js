@@ -9,3 +9,9 @@ export const StyledContainer = styled.div`
 export const StyledCanvasAndGridContainer = styled.div`
   display: flex;
 `;
+
+export const StyledControlContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;

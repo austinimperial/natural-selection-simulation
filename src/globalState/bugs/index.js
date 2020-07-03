@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import getInitialBugs from "./getInitialBugs";
 import eatBug from "./eatBug";
 import spawnNewOffspring from "./spawnNewOffspring";

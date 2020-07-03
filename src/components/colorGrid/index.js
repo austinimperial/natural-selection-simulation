@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { BugsContext } from "globalState/bugs/index";
 import { StyledContainer } from "./styles";
-import getGradientString from './getGradientString'
+import getGradientString from "./getGradientString";
 
 function ColorGrid() {
   // global state
@@ -22,10 +22,9 @@ function ColorGrid() {
 
   return (
     <StyledContainer
-        isInitial={avgColors.slice(1).length === 1}
-        gradientString={() => getGradientString(avgColors.slice(1))}
-    >
-    </StyledContainer>
+      isInitial={avgColors.slice(1).length === 1}
+      gradientString={() => getGradientString(avgColors.slice(1))}
+    ></StyledContainer>
   );
 }
 

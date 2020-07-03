@@ -3,7 +3,12 @@ import SvgCanvas from "components/svgCanvas/index";
 import FileInput from "components/fileInput/index";
 import ResetButton from "components/resetButton/index";
 import ColorGrid from "components/colorGrid/index";
-import { StyledContainer, StyledCanvasAndGridContainer } from "./AppStyles";
+import PopulationSlider from "components/populationSlider/index";
+import {
+  StyledContainer,
+  StyledCanvasAndGridContainer,
+  StyledControlContainer,
+} from "./AppStyles";
 
 function App() {
   return (
@@ -12,8 +17,11 @@ function App() {
         <SvgCanvas />
         <ColorGrid />
       </StyledCanvasAndGridContainer>
-      <FileInput />
-      <ResetButton />
+      <StyledControlContainer>
+        <FileInput />
+        <ResetButton />
+        <PopulationSlider />
+      </StyledControlContainer>
     </StyledContainer>
   );
 }
