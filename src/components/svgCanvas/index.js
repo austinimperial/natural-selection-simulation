@@ -40,7 +40,7 @@ function SvgCanvas() {
       <StyledBgImg src={bgImage} canvasDimensions={canvasDimensions} />
       <StyledSvgCanvas ref={svgCanvasRef} canvasDimensions={canvasDimensions}>
         {bugs.slice(0, populationSize).map((bug, i) => (
-          <Bug key={bug.x + bug.y + bug.color} i={i} bug={bug} />
+          <Bug key={`${bug.x}${bug.y}${bug.color}`} i={i} bug={bug} />
         ))}
       </StyledSvgCanvas>
     </StyledContainer>

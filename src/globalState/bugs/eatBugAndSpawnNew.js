@@ -13,9 +13,10 @@ export default function eatBugAndSpawnNew(
   setBugs((prevBugs) => {
     const newBugs = [...prevBugs];
 
-    // move eaten bug to end of array
     const eatenBug = newBugs.splice(i, 1);
-    newBugs.push(eatenBug[0]);
+    // turn this on to keep all bugs by pushing eaten bugs to back of the array
+    // otherwise they are removed from the array
+    // newBugs.push(eatenBug[0]);
 
     const offspring = getNewOffspring(
       canvasDimensions,
