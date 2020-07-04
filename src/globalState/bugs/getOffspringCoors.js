@@ -18,17 +18,20 @@ export default function getOffspringCoors(
   var newX = eatenBug.x + xStep;
   var newY = eatenBug.y + yStep;
 
+  // convert out-of-bounds coordinates to on-the-border coordinates
   if (newX > xMax) {
     newX = xMax;
   }
   if (newX < 0) {
-    newX = 0;
+    // so that you don't get multiple bugs stacked up in the corners
+    newX = Math.floor(Math.random() * 10);
   }
   if (newY > yMax) {
     newY = yMax;
   }
   if (newY < 0) {
-    newY = 0;
+    // so that you don't get multiple bugs stacked up in the corners
+    newY = Math.floor(Math.random() * 10);
   }
 
   const result = {

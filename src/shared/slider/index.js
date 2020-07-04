@@ -32,7 +32,7 @@ function Slider({
   const handleOnChange = (e) => {
     setRangeValue(e.target.value);
     setIsChanging(true);
-    if (doSomethingOnChange !== undefined) doSomethingOnChange(e.target.value)
+    if (doSomethingOnChange !== undefined) doSomethingOnChange(e.target.value);
   };
 
   return (

@@ -6,7 +6,7 @@ import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
 
 function Bug({ bug, i }) {
   // local state
-  const [isGrowing,setIsGrowing] = useState(true)
+  const [isGrowing, setIsGrowing] = useState(true);
 
   // global state
   const {
@@ -26,8 +26,8 @@ function Bug({ bug, i }) {
   // set isGrowing to false once bug is done growing
   // this is done so that the growing animation is only triggered when the bug first mounts
   useEffect(() => {
-    setTimeout(() => setIsGrowing(false), growSpeed*1000)
-  },[])
+    setTimeout(() => setIsGrowing(false), growSpeed * 1000);
+  }, []);
 
   const hanldleMouseEnter = () => {
     eatBugAndSpawnNew(

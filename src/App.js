@@ -7,7 +7,7 @@ import PopulationSlider from "components/sliders/populationSlider/index";
 import BugSizeSlider from "components/sliders/bugSizeSlider/index";
 import OffspringDistanceSlider from "components/sliders/offspringDistanceSlider/index";
 import GrowSpeedSlider from "components/sliders/growSpeedSlider/index";
-import MaxMutationSlider from 'components/sliders/maxMutationSlider/index'
+import MaxMutationSlider from "components/sliders/maxMutationSlider/index";
 import {
   StyledContainer,
   StyledCanvasAndGridContainer,
