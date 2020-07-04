@@ -12,6 +12,7 @@ export const StyledCanvasAndGridContainer = styled.div`
 
 export const StyledControlContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
 `;

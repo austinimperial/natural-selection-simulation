@@ -31,8 +31,9 @@ export default function getOffspringCoors(
     newY = 0;
   }
 
-  return {
+  const result = {
     x: Math.floor(newX),
     y: Math.floor(newY),
   };
+  return result;
 }

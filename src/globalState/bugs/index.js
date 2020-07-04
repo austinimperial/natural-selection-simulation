@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import getInitialBugs from "./getInitialBugs";
-import eatBug from "./eatBug";
-import spawnNewOffspring from "./spawnNewOffspring";
+import eatBugAndSpawnNew from "./eatBugAndSpawnNew";
+import getNewOffspring from "./getNewOffspring";
 import getAverageColor from "./getAverageColor";
 export const BugsContext = React.createContext();
 
@@ -9,9 +9,10 @@ function BugsProvider({ children }) {
   const [bugs, setBugs] = useState([]);
   const [populationSize, setPopulationSize] = useState(20);
   const [bugSize, setBugSize] = useState(20);
-  const [maxMutationStep, setMaxMutationStep] = useState(15);
+  const [maxMutationStep, setMaxMutationStep] = useState(27);
   const [maxOffspringDistance, setMaxOffspringDistance] = useState(80);
   const [avgColors, setAvgColors] = useState([]);
+  const [growSpeed, setGrowSpeed] = useState(2);
 
   const value = {
     bugs,
@@ -21,8 +22,8 @@ function BugsProvider({ children }) {
     getInitialBugs,
     bugSize,
     setBugSize,
-    eatBug,
-    spawnNewOffspring,
+    eatBugAndSpawnNew,
+    getNewOffspring,
     maxMutationStep,
     setMaxMutationStep,
     maxOffspringDistance,
@@ -30,6 +31,8 @@ function BugsProvider({ children }) {
     avgColors,
     setAvgColors,
     getAverageColor,
+    growSpeed,
+    setGrowSpeed,
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

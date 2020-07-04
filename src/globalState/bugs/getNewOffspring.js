@@ -9,32 +9,29 @@ const getRandomSurvivor = (allBugs, indexOfEatenBug, populationSize) => {
 
 // picks a random surviving bug (aka not the just-eaten bug) as the parent bug for color mutation
 // mutates color, chooses new random coordinates within the given radius of the just-eaten bug
-export default function spawnNewOffspring(
-  setBugs,
+export default function getNewOffspring(
   canvasDimensions,
   maxOffspringDistance,
   eatenBug,
   allBugs,
   bugSize,
   i,
-  populationSize
+  populationSize,
+  maxMutationStep
 ) {
-  setBugs((prevBugs) => {
-    const offSpringCoors = getOffspringCoors(
-      maxOffspringDistance,
-      eatenBug,
-      canvasDimensions,
-      bugSize
-    );
-    const newBug = {
-      x: offSpringCoors.x,
-      y: offSpringCoors.y,
-      color: getColorMutation(
-        getRandomSurvivor(allBugs, i, populationSize),
-        maxOffspringDistance
-      ),
-    };
-    const newBugs = [newBug, ...prevBugs];
-    return newBugs;
-  });
+  const offSpringCoors = getOffspringCoors(
+    maxOffspringDistance,
+    eatenBug,
+    canvasDimensions,
+    bugSize
+  );
+  const newBug = {
+    x: offSpringCoors.x,
+    y: offSpringCoors.y,
+    color: getColorMutation(
+      getRandomSurvivor(allBugs, i, populationSize),
+      maxMutationStep
+    ),
+  };
+  return newBug;
 }

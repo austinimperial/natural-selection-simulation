@@ -11,14 +11,9 @@ const _ = require("lodash");
 function SvgCanvas() {
   // // global state
   // const {xxs,xs,sm,md,lg,xl} = useContext(ScreenSizesContext)
-  const {
-    bugs,
-    getInitialBugs,
-    populationSize,
-    setBugs,
-    bugSize,
-    setAvgColors,
-  } = useContext(BugsContext);
+  const { bugs, getInitialBugs, populationSize, setBugs, bugSize } = useContext(
+    BugsContext
+  );
   const { bgImage } = useContext(BgImageContext);
   const { canvasDimensions, setCanvasOffset } = useContext(
     CanvasDimensionsContext
@@ -28,6 +23,7 @@ function SvgCanvas() {
   const svgCanvasRef = useRef();
 
   useEffect(() => {
+    setCanvasOffset(getCanvasOffset(svgCanvasRef));
     const resetCanvasOffset = () =>
       setCanvasOffset(getCanvasOffset(svgCanvasRef));
     window.addEventListener("resize", _.throttle(resetCanvasOffset, 200));
@@ -37,18 +33,7 @@ function SvgCanvas() {
 
   useEffect(() => {
     getInitialBugs(canvasDimensions, populationSize, setBugs, bugSize);
-    setCanvasOffset(getCanvasOffset(svgCanvasRef));
-    setAvgColors([]);
-  }, [
-    populationSize,
-    canvasDimensions,
-    bugSize,
-    setBugs,
-    svgCanvasRef,
-    getInitialBugs,
-    setCanvasOffset,
-    setAvgColors,
-  ]);
+  }, []);
 
   return (
     <StyledContainer>
