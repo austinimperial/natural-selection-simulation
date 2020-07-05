@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  padding: 20px;
   display: flex;
   justify-content: center;
+  padding: 20px 0px 0px 0px;
 `;
 export const StyledSvgCanvas = styled.div`
+  border: 1px solid black;
+  outline: none;
   height: ${(props) => props.canvasDimensions.height}px;
   width: ${(props) => props.canvasDimensions.width}px;
-  border: 1px solid red;
 `;
 
 export const StyledBgImg = styled.img`
-  border: 1px solid black;
+  outline: none;
+  border: none;
   position: absolute;
   height: ${(props) => props.canvasDimensions.height}px;
   width: ${(props) => props.canvasDimensions.width}px;

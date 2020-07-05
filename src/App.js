@@ -7,11 +7,14 @@ import PopulationSlider from "components/sliders/populationSlider/index";
 import BugSizeSlider from "components/sliders/bugSizeSlider/index";
 import OffspringDistanceSlider from "components/sliders/offspringDistanceSlider/index";
 import GrowSpeedSlider from "components/sliders/growSpeedSlider/index";
-import MaxMutationSlider from 'components/sliders/maxMutationSlider/index'
+import MaxMutationSlider from "components/sliders/maxMutationSlider/index";
+import DomColors from "components/domColors/index";
+import PresetImageSelect from "components/presetImageSelect/index";
 import {
   StyledContainer,
   StyledCanvasAndGridContainer,
   StyledControlContainer,
+  StyledCanvasAndDomColorsContainer,
 } from "./AppStyles";
 
 function App() {
@@ -26,8 +29,12 @@ function App() {
           <MaxMutationSlider />
           <FileInput />
           <ResetButton />
+          <PresetImageSelect />
         </StyledControlContainer>
-        <SvgCanvas />
+        <StyledCanvasAndDomColorsContainer>
+          <SvgCanvas />
+          <DomColors />
+        </StyledCanvasAndDomColorsContainer>
         <ColorGrid />
       </StyledCanvasAndGridContainer>
     </StyledContainer>

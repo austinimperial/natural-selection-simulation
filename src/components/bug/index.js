@@ -3,10 +3,11 @@ import { StyledSvg } from "./styles";
 import { bugPath } from "./bugPath";
 import { BugsContext } from "globalState/bugs/index";
 import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
+import getAverageColor from "globalState/bugs/getAverageColor";
 
 function Bug({ bug, i }) {
   // local state
-  const [isGrowing,setIsGrowing] = useState(true)
+  const [isGrowing, setIsGrowing] = useState(true);
 
   // global state
   const {
@@ -18,6 +19,7 @@ function Bug({ bug, i }) {
     populationSize,
     growSpeed,
     maxMutationStep,
+    setAvgColors,
   } = useContext(BugsContext);
   const { canvasDimensions, canvasOffset } = useContext(
     CanvasDimensionsContext
@@ -26,13 +28,12 @@ function Bug({ bug, i }) {
   // set isGrowing to false once bug is done growing
   // this is done so that the growing animation is only triggered when the bug first mounts
   useEffect(() => {
-    setTimeout(() => setIsGrowing(false), growSpeed*1000)
-  },[])
+    setTimeout(() => setIsGrowing(false), growSpeed * 1000);
+  }, []);
 
   const hanldleMouseEnter = () => {
-    eatBugAndSpawnNew(
+    const newBugs = eatBugAndSpawnNew(
       i,
-      setBugs,
       canvasDimensions,
       maxOffspringDistance,
       bugs,
@@ -40,6 +41,10 @@ function Bug({ bug, i }) {
       populationSize,
       maxMutationStep
     );
+    setBugs(newBugs);
+
+    const newAvgColor = getAverageColor(newBugs, populationSize);
+    setAvgColors((prevAvgColors) => [...prevAvgColors, newAvgColor]);
   };
 
   return (
@@ -60,6 +65,8 @@ function Bug({ bug, i }) {
         onMouseEnter={hanldleMouseEnter}
         // growSpeed defaults to zero unless the bug isGrowing immediately after mount
         growSpeed={isGrowing ? growSpeed : 0}
+        transform={`rotate(${bug.orientation})`}
+        transform-origin={"center"}
       >
         <path d={bugPath} />
       </StyledSvg>

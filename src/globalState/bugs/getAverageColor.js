@@ -1,4 +1,5 @@
 export default function getAverageColor(allBugs, populationSize) {
+  if (allBugs.length === 0) return undefined;
   const livingBugs = allBugs.slice(0, populationSize);
   const sumColor = livingBugs.reduce(
     (acc, bug) => {

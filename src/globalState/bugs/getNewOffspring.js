@@ -1,5 +1,6 @@
 import getOffspringCoors from "./getOffspringCoors";
 import getColorMutation from "./getColorMutation";
+import uuid from "react-uuid";
 
 const getRandomSurvivor = (allBugs, indexOfEatenBug, populationSize) => {
   const onlySurvivors = allBugs.slice(0, populationSize);
@@ -32,6 +33,8 @@ export default function getNewOffspring(
       getRandomSurvivor(allBugs, i, populationSize),
       maxMutationStep
     ),
+    id: uuid(),
+    orientation: Math.floor(Math.random() * 360),
   };
   return newBug;
 }

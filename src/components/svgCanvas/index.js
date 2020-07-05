@@ -6,14 +6,20 @@ import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
 import { StyledSvgCanvas, StyledContainer, StyledBgImg } from "./styles";
 import Bug from "components/bug/index";
 import getCanvasOffset from "./getCanvasOffset";
+import getAverageColor from "globalState/bugs/getAverageColor";
 const _ = require("lodash");
 
 function SvgCanvas() {
   // // global state
   // const {xxs,xs,sm,md,lg,xl} = useContext(ScreenSizesContext)
-  const { bugs, getInitialBugs, populationSize, setBugs, bugSize } = useContext(
-    BugsContext
-  );
+  const {
+    bugs,
+    getInitialBugs,
+    populationSize,
+    setBugs,
+    bugSize,
+    setAvgColors,
+  } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
   const { canvasDimensions, setCanvasOffset } = useContext(
     CanvasDimensionsContext
@@ -32,7 +38,9 @@ function SvgCanvas() {
   }, []);
 
   useEffect(() => {
-    getInitialBugs(canvasDimensions, populationSize, setBugs, bugSize);
+    const newBugs = getInitialBugs(canvasDimensions, populationSize, bugSize);
+    setBugs(newBugs);
+    setAvgColors([getAverageColor(newBugs, populationSize)]);
   }, []);
 
   return (
@@ -40,7 +48,7 @@ function SvgCanvas() {
       <StyledBgImg src={bgImage} canvasDimensions={canvasDimensions} />
       <StyledSvgCanvas ref={svgCanvasRef} canvasDimensions={canvasDimensions}>
         {bugs.slice(0, populationSize).map((bug, i) => (
-          <Bug key={bug.x + bug.y + bug.color} i={i} bug={bug} />
+          <Bug key={bug.id} i={i} bug={bug} />
         ))}
       </StyledSvgCanvas>
     </StyledContainer>

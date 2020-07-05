@@ -1,15 +1,14 @@
 import getRandomRGB from "./getRandomRGB";
 import getRandCoors from "./getRandCoors";
+import uuid from "react-uuid";
 
 export default function getInitialBugs(
   canvasDimensions,
   populationSize,
-  setBugs,
   bugSize
 ) {
   var newBugs = [];
-  let i;
-  for (i = 0; i < populationSize; i++) {
+  for (let i = 0; i < populationSize; i++) {
     const randCoors = getRandCoors(canvasDimensions, bugSize);
     newBugs = [
       ...newBugs,
@@ -17,9 +16,10 @@ export default function getInitialBugs(
         x: randCoors.x,
         y: randCoors.y,
         color: getRandomRGB(),
+        id: uuid(),
+        orientation: Math.floor(Math.random() * 360),
       },
     ];
   }
-
-  setBugs(newBugs);
+  return newBugs;
 }

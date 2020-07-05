@@ -9,7 +9,7 @@ function BugSizeSlider() {
   return (
     <Slider
       min={4}
-      max={50}
+      max={70}
       step={2}
       initial={bugSize}
       name={"bug size"}

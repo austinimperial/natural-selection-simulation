@@ -12,13 +12,14 @@ function ResetButton() {
     bugSize,
     getAverageColor,
     setAvgColors,
-    bugs,
   } = useContext(BugsContext);
   const { canvasDimensions } = useContext(CanvasDimensionsContext);
 
   const handleClick = () => {
-    getInitialBugs(canvasDimensions, populationSize, setBugs, bugSize);
-    setAvgColors([getAverageColor(bugs, populationSize)]);
+    const newBugs = getInitialBugs(canvasDimensions, populationSize, bugSize);
+    setBugs(newBugs);
+    const newAvgColor = getAverageColor(newBugs, populationSize);
+    setAvgColors([newAvgColor]);
   };
 
   return (

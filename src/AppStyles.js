@@ -16,3 +16,9 @@ export const StyledControlContainer = styled.div`
   align-items: flex-start;
   flex: 1;
 `;
+
+export const StyledCanvasAndDomColorsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;

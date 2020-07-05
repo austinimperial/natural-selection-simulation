@@ -7,10 +7,10 @@ export const BugsContext = React.createContext();
 
 function BugsProvider({ children }) {
   const [bugs, setBugs] = useState([]);
-  const [populationSize, setPopulationSize] = useState(20);
-  const [bugSize, setBugSize] = useState(20);
+  const [populationSize, setPopulationSize] = useState(50);
+  const [bugSize, setBugSize] = useState(14);
   const [maxMutationStep, setMaxMutationStep] = useState(27);
-  const [maxOffspringDistance, setMaxOffspringDistance] = useState(80);
+  const [maxOffspringDistance, setMaxOffspringDistance] = useState(150);
   const [avgColors, setAvgColors] = useState([]);
   const [growSpeed, setGrowSpeed] = useState(2);
 
