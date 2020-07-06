@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import uuid from "react-uuid";
 import { StyledContainer, StyledSelect } from "./styles";
 import { BgImageContext } from "globalState/bgImage/index";
+import white from "./pics/white.jpg";
 import candy from "./pics/candy.jpg";
 import carpet from "./pics/carpet.jpg";
 import cork from "./pics/cork.jpg";
@@ -12,6 +13,7 @@ import leaves from "./pics/leaves.jpg";
 import moon from "./pics/moon.jpg";
 import space from "./pics/space.jpg";
 const pics = [
+  { url: white, name: "white" },
   { url: candy, name: "candy" },
   { url: carpet, name: "carpet" },
   { url: cork, name: "cork" },
@@ -25,10 +27,18 @@ const pics = [
 
 function PresetImageSelect() {
   // global state
-  const { setBgImage } = useContext(BgImageContext);
+  const { setBgImage, bgImage } = useContext(BgImageContext);
+
+  useEffect(() => {
+    setBgImage(white);
+  }, []);
+
   return (
     <StyledContainer>
-      <StyledSelect onChange={(e) => setBgImage(e.target.value)}>
+      <StyledSelect
+        value={bgImage || ''}
+        onChange={(e) => setBgImage(e.target.value)}
+      >
         {pics.map((pic) => (
           <option key={uuid()} value={pic.url}>
             {pic.name}

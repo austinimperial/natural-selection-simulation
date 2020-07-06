@@ -20,6 +20,7 @@ function Bug({ bug, i }) {
     growSpeed,
     maxMutationStep,
     setAvgColors,
+    setPopulationSnapshots,
   } = useContext(BugsContext);
   const { canvasDimensions, canvasOffset } = useContext(
     CanvasDimensionsContext
@@ -41,9 +42,14 @@ function Bug({ bug, i }) {
       populationSize,
       maxMutationStep
     );
-    setBugs(newBugs);
-
     const newAvgColor = getAverageColor(newBugs, populationSize);
+    const newPopulationSnapshot = newBugs.map((bug) => bug.color);
+
+    setPopulationSnapshots((prevPopulationSnapshots) => [
+      ...prevPopulationSnapshots,
+      newPopulationSnapshot,
+    ]);
+    setBugs(newBugs);
     setAvgColors((prevAvgColors) => [...prevAvgColors, newAvgColor]);
   };
 

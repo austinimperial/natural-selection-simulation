@@ -7,6 +7,7 @@ import ScreenSizesProvider from "globalState/screenSizes/index";
 import BugsProvider from "globalState/bugs/index";
 import BgImageProvider from "globalState/bgImage/index";
 import CanvasDimensionsProvider from "globalState/canvasDimensions/index";
+import SnapshotsCanvasProvider from 'globalState/snapshotsCanvas/index'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,9 @@ ReactDOM.render(
       <CanvasDimensionsProvider>
         <BugsProvider>
           <BgImageProvider>
-            <App />
+            <SnapshotsCanvasProvider>
+              <App />
+            </SnapshotsCanvasProvider>
           </BgImageProvider>
         </BugsProvider>
       </CanvasDimensionsProvider>

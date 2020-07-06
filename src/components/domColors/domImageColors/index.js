@@ -25,8 +25,6 @@ function DomImageColors({ maxColorCount }) {
     );
   }, [bgImage, canvasDimensions, maxColorCount]);
 
-  useEffect(() => {}, [palette]);
-
   return (
     <StyledContainer>
       dominant colors in image:

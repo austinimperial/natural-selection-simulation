@@ -4,7 +4,7 @@ import getGradientString from "./getGradientString";
 import { StyledContainer } from "./styles";
 import uuid from "react-uuid";
 
-function ColorGrid() {
+function AverageColor() {
   // global state
   const { avgColors } = useContext(BugsContext);
 
@@ -16,4 +16,4 @@ function ColorGrid() {
   );
 }
 
-export default ColorGrid;
+export default AverageColor; 

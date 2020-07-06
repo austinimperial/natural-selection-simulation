@@ -5,7 +5,7 @@ import { StyledContainer } from "./styles";
 
 function DomColors() {
   // const
-  const MAX_COLOR_COUNT = 6;
+  const MAX_COLOR_COUNT = 8;
 
   return (
     <StyledContainer>

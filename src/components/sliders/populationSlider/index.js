@@ -13,18 +13,19 @@ function PopulationSlider() {
     getInitialBugs,
     setAvgColors,
     getAverageColor,
+    setPopulationSnapshots
   } = useContext(BugsContext);
   const { canvasDimensions } = useContext(CanvasDimensionsContext);
 
   const handleMouseUp = useCallback(
     (newValue) => {
-      setPopulationSize(newValue);
-
       const newBugs = getInitialBugs(canvasDimensions, newValue, bugSize);
-      setBugs(newBugs);
-
       const newAvgColor = getAverageColor(newBugs, populationSize);
+
+      setBugs(newBugs);
+      setPopulationSize(newValue);
       setAvgColors([newAvgColor]);
+      setPopulationSnapshots([])
     },
     [
       canvasDimensions,
@@ -35,6 +36,7 @@ function PopulationSlider() {
       getAverageColor,
       setPopulationSize,
       populationSize,
+      setPopulationSnapshots
     ]
   );
 
