@@ -19,6 +19,8 @@ function SvgCanvas() {
     setBugs,
     bugSize,
     setAvgColors,
+    setBugs2,
+    getInitialBugs2
   } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
   const { canvasDimensions, setCanvasOffset } = useContext(
@@ -41,6 +43,10 @@ function SvgCanvas() {
     const newBugs = getInitialBugs(canvasDimensions, populationSize, bugSize);
     setBugs(newBugs);
     setAvgColors([getAverageColor(newBugs, populationSize)]);
+
+    // bugs2
+    const newBugs2 = getInitialBugs2(canvasDimensions, populationSize, bugSize);
+    setBugs2(newBugs2)
   }, []);
 
   return (
@@ -53,6 +59,8 @@ function SvgCanvas() {
       </StyledSvgCanvas>
     </StyledContainer>
   );
+
+  // bugs2
 }
 
 export default SvgCanvas;

@@ -12,7 +12,9 @@ function ResetButton() {
     bugSize,
     getAverageColor,
     setAvgColors,
-    setPopulationSnapshots
+    setPopulationSnapshots,
+    setBugs2,
+    getInitialBugs2
   } = useContext(BugsContext);
   const { canvasDimensions } = useContext(CanvasDimensionsContext);
 
@@ -23,6 +25,10 @@ function ResetButton() {
     setBugs(newBugs);
     setAvgColors([newAvgColor]);
     setPopulationSnapshots([])
+
+    // bugs2
+    const newBugs2 = getInitialBugs2(canvasDimensions, populationSize, bugSize);
+    setBugs2(newBugs2)
   };
 
   return (

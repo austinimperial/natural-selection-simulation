@@ -21,6 +21,8 @@ function Bug({ bug, i }) {
     maxMutationStep,
     setAvgColors,
     setPopulationSnapshots,
+    eatAndSpawn2,
+    bugs2
   } = useContext(BugsContext);
   const { canvasDimensions, canvasOffset } = useContext(
     CanvasDimensionsContext
@@ -33,6 +35,9 @@ function Bug({ bug, i }) {
   }, []);
 
   const hanldleMouseEnter = () => {
+    // bugs2
+    const newBugs2 = eatAndSpawn2(bug.id,bugs2)
+
     const newBugs = eatBugAndSpawnNew(
       i,
       canvasDimensions,
@@ -43,7 +48,10 @@ function Bug({ bug, i }) {
       maxMutationStep
     );
     const newAvgColor = getAverageColor(newBugs, populationSize);
-    const newPopulationSnapshot = newBugs.map((bug) => bug.color);
+    const newPopulationSnapshot = newBugs.map((bug) => ({
+      color: bug.color,
+      ancestor: bug.ancestor
+    }));
 
     setPopulationSnapshots((prevPopulationSnapshots) => [
       ...prevPopulationSnapshots,

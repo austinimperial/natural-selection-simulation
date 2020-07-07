@@ -26,11 +26,14 @@ export default function getNewOffspring(
     canvasDimensions,
     bugSize
   );
+  const randomSurvivor = getRandomSurvivor(allBugs, i, populationSize)
+
   const newBug = {
     x: offSpringCoors.x,
     y: offSpringCoors.y,
+    ancestor: randomSurvivor.ancestor,
     color: getColorMutation(
-      getRandomSurvivor(allBugs, i, populationSize),
+      randomSurvivor,
       maxMutationStep
     ),
     id: uuid(),

@@ -11,7 +11,6 @@ import MaxMutationSlider from "components/sliders/maxMutationSlider/index";
 import DomColors from "components/domColors/index";
 import PresetImageSelect from "components/presetImageSelect/index";
 import PopulationSnapshots from "components/populationSnapshots/index"
-import GenerateSnapButton from 'components/generateSnapButton/index'
 import {
   StyledContainer,
   StyledControlContainer,
@@ -31,7 +30,6 @@ function App() {
             <FileInput />
             <ResetButton />
             <PresetImageSelect />
-            <GenerateSnapButton />
           </StyledControlContainer>
           <StyledCanvasAndDomColorsContainer>
             <SvgCanvas />
