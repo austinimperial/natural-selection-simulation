@@ -1,7 +1,7 @@
 import getRandomRGB from "./getRandomRGB";
 import getRandCoors from "./getRandCoors";
 import uuid from "react-uuid";
-import { Node, flatten } from './tree'
+import { Node, addChild } from './tree'
 
 export default function getInitialBugs2(
   canvasDimensions,
@@ -9,20 +9,17 @@ export default function getInitialBugs2(
   bugSize
 ) {
 
-  let root = new Node()
+  let root = new Node({isRoot:true})
   for (let i=0; i < populationSize; i++) {
     const randCoors = getRandCoors(canvasDimensions, bugSize);
-
-    root.addChild({
+    addChild(root,{
         x: randCoors.x,
         y: randCoors.y,
-        ancestor: i,
+        isAlive: true,
         color: getRandomRGB(),
         id: uuid(),
         orientation: Math.floor(Math.random() * 360)
     })
   }
-
-  console.log(flatten(root))
   return root
 }

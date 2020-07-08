@@ -1,36 +1,47 @@
 export class Node 
 { 
-    constructor(data,firstChild,rightSibling) 
+    constructor({data=null,firstChild=null,rightSibling=null,isRoot=false}) 
     { 
-        this.data = data || null;
-        this.firstChild = firstChild || null;
-        this.rightSibling = rightSibling || null;
-    }
-
-    addSibling = (data) => {
-        const newNode = new Node(data)
-        if (this.rightSibling === null) return this.rightSibling = newNode
-        return this.rightSibling.addSibling(data)
-    }
-
-    addChild = (data) => {
-        const newNode = new Node(data)
-        if (this.firstChild) return this.firstChild.addSibling(data)
-        return this.firstChild = newNode
+        this.isRoot = isRoot
+        this.data = data
+        this.firstChild = firstChild 
+        this.rightSibling = rightSibling
     }
 } 
 
-export const flatten = (node) => {
-    if (!node.firstChild && !node.rightSibling) return [node.data]
-    if (!node.firstChild && node.rightSibling) return [node.data, ...flatten(node.rightSibling)]
-    if (node.firstChild && !node.rightSibling) return [node.data, ...flatten(node.firstChild)]
-    return [node.data, ...flatten(node.firstChild), ...flatten(node.rightSibling)]
+export const addSibling = (node,data) => {
+    const newNode = new Node({data})
+    if  (node.rightSibling === null) return node.rightSibling = newNode
+    return addSibling(node.rightSibling,data)
 }
 
-export const changeData = (root,nodeId,changes) => {
-    if (!root || !root.data) return 
-    if (root.data.id === nodeId) return root.data = {...root.data, ...changes}
-    changeData(root.firstChild,nodeId,changes)
-    changeData(root.rightSibling,nodeId,changes)
-    return root
+export const addChild = (node,data) => {
+    const newNode = new Node({data})
+    if (node.firstChild) return addSibling(node.firstChild,data)
+    return node.firstChild = newNode
+}
+
+export const flatten = (node) => {
+    if (!node) return []
+    if (node.isRoot) return [...flatten(node.firstChild), ...flatten(node.rightSibling)]
+    if (!node.firstChild && !node.rightSibling) return [node]
+    if (!node.firstChild && node.rightSibling) return [node, ...flatten(node.rightSibling)]
+    if (node.firstChild && !node.rightSibling) return [node, ...flatten(node.firstChild)]
+    return [node, ...flatten(node.firstChild), ...flatten(node.rightSibling)]
+}
+
+export const changeNodeData = (node,dataId,changes) => {
+    if (!node) return false
+    if (!node.isRoot && node.data.id === dataId) {
+        return node.data = {...node.data, ...changes}
+    }
+    return changeNodeData(node.firstChild,dataId,changes) || changeNodeData(node.rightSibling,dataId,changes)
+}
+
+export const getNode = (node,dataId) => {
+    if (!node) return false
+    if (!node.isRoot && node.data.id === dataId) {
+        return node
+    }
+    return getNode(node.firstChild,dataId) || getNode(node.rightSibling,dataId)
 }

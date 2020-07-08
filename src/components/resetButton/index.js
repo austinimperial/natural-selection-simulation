@@ -6,29 +6,24 @@ import { StyledButton, StyledContainer } from "./styles";
 function ResetButton() {
   // global state
   const {
-    getInitialBugs,
-    setBugs,
     populationSize,
     bugSize,
     getAverageColor,
     setAvgColors,
     setPopulationSnapshots,
     setBugs2,
-    getInitialBugs2
+    getInitialBugs2,
+    getLivingBugs
   } = useContext(BugsContext);
   const { canvasDimensions } = useContext(CanvasDimensionsContext);
 
   const handleClick = () => {
-    const newBugs = getInitialBugs(canvasDimensions, populationSize, bugSize);
-    const newAvgColor = getAverageColor(newBugs, populationSize);
+    const newBugs = getInitialBugs2(canvasDimensions, populationSize, bugSize);
+    const newAvgColor = getAverageColor(getLivingBugs(newBugs), populationSize);
 
-    setBugs(newBugs);
+    setBugs2(newBugs);
     setAvgColors([newAvgColor]);
     setPopulationSnapshots([])
-
-    // bugs2
-    const newBugs2 = getInitialBugs2(canvasDimensions, populationSize, bugSize);
-    setBugs2(newBugs2)
   };
 
   return (
