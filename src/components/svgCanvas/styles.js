@@ -10,18 +10,35 @@ export const StyledImgAndCanvasContainer = styled.div`
   justify-content: center;
   padding: 20px 0px 0px 0px;
 `;
+
 export const StyledSvgCanvas = styled.div`
+  ${props => props.small && `
+    width: 100vw;
+    height: 100vw;
+  `}
+
+  ${props => props.big && `
+    height: 500px;
+    width: 500px;
+  `}
   border: 1px solid black;
   outline: none;
-  height: ${(props) => props.canvasDimensions.height}px;
-  width: ${(props) => props.canvasDimensions.width}px;
 `;
 
 export const StyledBgImg = styled.img`
+
+  ${props => props.small && `
+    width: 100vw;
+    height: 100vw;
+  `}
+
+  ${props => props.big && `
+    height: 500px;
+    width: 500px;
+  `}
+
   outline: none;
   border: none;
   position: absolute;
-  height: ${(props) => props.canvasDimensions.height}px;
-  width: ${(props) => props.canvasDimensions.width}px;
   z-index: -1;
 `;

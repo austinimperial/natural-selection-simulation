@@ -18,49 +18,49 @@ function SvgCanvas() {
   // // global state
   const {xxs,xs,sm,md,lg,xl} = useContext(ScreenSizesContext)
   const {
-    populationSize,
-    bugSize,
-    setBugs2,
-    getInitialBugs2,
     bugs2,
     getLivingBugNodes,
   } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
-  const { canvasDimensions, setCanvasOffset } = useContext(
+  const { setCanvasOffset, setCanvasDimensions } = useContext(
     CanvasDimensionsContext
   );
 
   // refs
   const svgCanvasRef = useRef();
 
-  const set = useCallback(() => {
+  const handleResize = useCallback(() => {
     const newCanvasOffset = getCanvasOffset(svgCanvasRef)
     setCanvasOffset(newCanvasOffset);
-  },[svgCanvasRef,setCanvasOffset])
+    setCanvasDimensions({
+      height: svgCanvasRef.current.clientHeight,
+      width: svgCanvasRef.current.clientWidth
+    })
+  },[svgCanvasRef,setCanvasOffset,setCanvasDimensions])
 
   useEffect(() => {
-    set()
-  },[])
-
-  useEffect(() => {
-    window.addEventListener("resize", _.throttle(set, 150));
+    window.addEventListener("resize", _.throttle(handleResize, 150));
     return () =>
-      window.removeEventListener("resize", _.throttle(set, 150));
+      window.removeEventListener("resize", _.throttle(handleResize, 150));
   }, []);
 
   useEffect(() => {
-    const newBugs2 = getInitialBugs2(canvasDimensions, populationSize, bugSize);
-    setBugs2(newBugs2);
-  }, []);
+    handleResize()
+  },[handleResize])
 
   return (
     <StyledContainer>
-      <StyledImgAndCanvasContainer
-        small={xxs || xs || sm}
-        big={md || lg || xl}
-      >
-        <StyledBgImg src={bgImage} canvasDimensions={canvasDimensions} />
-        <StyledSvgCanvas ref={svgCanvasRef} canvasDimensions={canvasDimensions}>
+      <StyledImgAndCanvasContainer>
+        <StyledBgImg 
+          src={bgImage} 
+          small={xxs || xs || sm}
+          big={md || lg || xl}
+        />
+        <StyledSvgCanvas 
+          ref={svgCanvasRef}
+          small={xxs || xs || sm}
+          big={md || lg || xl}
+        >
           {getLivingBugNodes(bugs2, true).map((bug, i) => (
             <Bug key={bug.id} i={i} bug={bug} />
           ))}

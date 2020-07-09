@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from "react";
+import React, { useState, useCallback, useContext, useEffect } from "react";
 import { CanvasDimensionsContext } from 'globalState/canvasDimensions/index'
 import getNewOffspring from "./getNewOffspring";
 import eatAndSpawnNew from "./eatAndSpawnNew";
@@ -24,6 +24,11 @@ function BugsProvider({ children }) {
 
   // global state
   const { canvasDimensions } = useContext(CanvasDimensionsContext)
+
+  useEffect(() => {
+    const newBugs2 = getInitialBugs2(canvasDimensions, populationSize, bugSize);
+    setBugs2(newBugs2);
+  }, []);
 
   const step = useCallback((eatenBug) => {
     if (stepCount > MAX_STEP_COUNT) return (

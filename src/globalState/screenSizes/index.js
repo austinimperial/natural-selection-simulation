@@ -33,8 +33,23 @@ function ScreenSizesProvider({ children }) {
     });
   }, [width, setScreenSizes]);
 
+  const sizeRanges = {
+    xxs: [0, 468],
+    xs: [468, 576],
+    sm: [576, 768],
+    md: [768, 992],
+    lg: [992, 1200],
+    xl: [1200, 100000],
+  };
+
+  const value = { 
+    ...screenSizes, 
+    prevScreenSize,
+    sizeRanges 
+  }
+
   return (
-    <ScreenSizesContext.Provider value={{ ...screenSizes, prevScreenSize }}>
+    <ScreenSizesContext.Provider value={value}>
       {children}
     </ScreenSizesContext.Provider>
   );
