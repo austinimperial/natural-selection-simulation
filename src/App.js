@@ -1,45 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ScreenSizesContext } from 'globalState/screenSizes/index'
 import SvgCanvas from "components/svgCanvas/index";
 import FileInput from "components/fileInput/index";
 import ResetButton from "components/resetButton/index";
-import AverageColor from "components/averageColor/index";
 import PopulationSlider from "components/sliders/populationSlider/index";
 import BugSizeSlider from "components/sliders/bugSizeSlider/index";
 import OffspringDistanceSlider from "components/sliders/offspringDistanceSlider/index";
 import GrowSpeedSlider from "components/sliders/growSpeedSlider/index";
 import MaxMutationSlider from "components/sliders/maxMutationSlider/index";
-import DomColors from "components/domColors/index";
 import PresetImageSelect from "components/presetImageSelect/index";
-import PopulationSnapshots from "components/populationSnapshots/index"
-import {
-  StyledContainer,
-  StyledControlContainer,
-  StyledCanvasAndDomColorsContainer,
-} from "./AppStyles";
+import PopulationSnapshots from "components/populationSnapshots/index";
+import RandomStep from 'components/randomStep/index'
+import {  StyledContainer, StyledControlContainer, StyledSubContainer1 } from "./AppStyles";
 
 function App() {
+  // gloabl state
+  const {xxs, xs, sm, md, lg, xl} = useContext(ScreenSizesContext)
+  
   return (
-    <>
-      <StyledContainer>
-          <StyledControlContainer>
-            <PopulationSlider />
-            <BugSizeSlider />
-            <OffspringDistanceSlider />
-            <GrowSpeedSlider />
-            <MaxMutationSlider />
-            <FileInput />
-            <ResetButton />
-            <PresetImageSelect />
-          </StyledControlContainer>
-          <StyledCanvasAndDomColorsContainer>
-            <SvgCanvas />
-            <DomColors />
-          </StyledCanvasAndDomColorsContainer>
-          <AverageColor />
-      </StyledContainer>
+    <StyledContainer 
+      small={xxs || xs || sm}
+      big={md || lg || xl}
+    >
+      <StyledSubContainer1
+          small={xxs || xs || sm}
+          big={md || lg || xl}
+      >
+        <StyledControlContainer>
+          <PopulationSlider />
+          <BugSizeSlider />
+          <OffspringDistanceSlider />
+          <GrowSpeedSlider />
+          <MaxMutationSlider />
+          <FileInput />
+          <ResetButton />
+          <PresetImageSelect />
+          <RandomStep />
+        </StyledControlContainer>
+        <SvgCanvas />
+      </StyledSubContainer1>
       <PopulationSnapshots />
-    </>
-  );
+    </StyledContainer>
+  )
+
+
 }
 
 export default App;

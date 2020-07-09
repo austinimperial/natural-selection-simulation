@@ -1,22 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useContext } from "react";
+import { CanvasDimensionsContext } from 'globalState/canvasDimensions/index'
 import getNewOffspring from "./getNewOffspring";
-import getAverageColor from "./getAverageColor";
-import eatAndSpawn2 from './eatAndSpawn2'
-import getInitialBugs2 from './getInitialBugs2'
-import getLivingBugs from './getLivingBugs'
-import getRandomSurvivor from './getRandomSurvivor'
-import { Node, flatten } from './tree'
+import eatAndSpawnNew from "./eatAndSpawnNew";
+import getInitialBugs2 from "./getInitialBugs2";
+import getRandomLivingBugNode from "./getRandomLivingBugNode";
+import { Node, flatten, getLivingBugNodes } from "./tree";
 export const BugsContext = React.createContext();
+const _ = require('lodash')
 
 function BugsProvider({ children }) {
-  const [bugs2,setBugs2] = useState(null)
+  // const
+  const MAX_STEP_COUNT = 2000
+
+  // local state
+  const [bugs2, setBugs2] = useState(null);
   const [populationSize, setPopulationSize] = useState(50);
   const [bugSize, setBugSize] = useState(14);
   const [maxMutationStep, setMaxMutationStep] = useState(27);
   const [maxOffspringDistance, setMaxOffspringDistance] = useState(190);
-  const [avgColors, setAvgColors] = useState([]);
   const [growSpeed, setGrowSpeed] = useState(2);
   const [populationSnapshots, setPopulationSnapshots] = useState([]);
+  const [stepCount,setStepCount] = useState(0)
+
+  // global state
+  const { canvasDimensions } = useContext(CanvasDimensionsContext)
+
+  const step = useCallback((eatenBug) => {
+    if (stepCount > MAX_STEP_COUNT) return (
+      alert(`maximum step count of ${MAX_STEP_COUNT} reached`)
+    )
+
+    const newBugs = eatAndSpawnNew(
+        eatenBug,
+        bugs2,
+        getRandomLivingBugNode,
+        maxOffspringDistance,
+        canvasDimensions,
+        bugSize,
+        maxMutationStep
+    );
+
+    const livingBugs = getLivingBugNodes(bugs2, true);
+    const newPopulationSnapshot = livingBugs.map((eatenBug) => ({
+        color: eatenBug.color
+    }));
+
+    setStepCount(prev => prev + 1)
+    setBugs2(newBugs);
+    setPopulationSnapshots((prevPopulationSnapshots) => [
+        ...prevPopulationSnapshots,
+        newPopulationSnapshot,
+    ]);
+  },[
+    bugs2,
+    maxMutationStep,
+    maxOffspringDistance,
+    canvasDimensions,
+    bugSize,
+    stepCount
+  ])
 
   const value = {
     populationSize,
@@ -28,21 +70,22 @@ function BugsProvider({ children }) {
     setMaxMutationStep,
     maxOffspringDistance,
     setMaxOffspringDistance,
-    avgColors,
-    setAvgColors,
-    getAverageColor,
     growSpeed,
     setGrowSpeed,
     populationSnapshots,
     setPopulationSnapshots,
     bugs2,
     setBugs2,
-    eatAndSpawn2,
+    eatAndSpawnNew,
     getInitialBugs2,
     Node,
     flatten,
-    getLivingBugs,
-    getRandomSurvivor
+    getRandomLivingBugNode,
+    getLivingBugNodes,
+    step,
+    stepCount,
+    setStepCount,
+    MAX_STEP_COUNT
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

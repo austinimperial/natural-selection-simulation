@@ -16,4 +16,4 @@ function AverageColor() {
   );
 }
 
-export default AverageColor; 
+export default AverageColor;

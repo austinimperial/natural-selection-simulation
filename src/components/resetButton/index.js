@@ -8,22 +8,18 @@ function ResetButton() {
   const {
     populationSize,
     bugSize,
-    getAverageColor,
-    setAvgColors,
     setPopulationSnapshots,
     setBugs2,
     getInitialBugs2,
-    getLivingBugs
+    setStepCount
   } = useContext(BugsContext);
   const { canvasDimensions } = useContext(CanvasDimensionsContext);
 
   const handleClick = () => {
     const newBugs = getInitialBugs2(canvasDimensions, populationSize, bugSize);
-    const newAvgColor = getAverageColor(getLivingBugs(newBugs), populationSize);
-
     setBugs2(newBugs);
-    setAvgColors([newAvgColor]);
-    setPopulationSnapshots([])
+    setPopulationSnapshots([]);
+    setStepCount(0)
   };
 
   return (

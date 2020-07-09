@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from "react";
-import getDocumentDimensions from './getDocumentDimensions'
-import updateCanvas from './updateCanvas'
+import getDocumentDimensions from "./getDocumentDimensions";
+import updateCanvas from "./updateCanvas";
 export const SnapshotsCanvasContext = React.createContext();
-const _ = require('lodash')
+const _ = require("lodash");
 
 function SnapshotsCanvasProvider({ children }) {
   // local state
-  const [snapshotsCanvasRef,setSnapshotsCanvasRef] = useState(null);
-  const [canvasDimensions,setCanvasDimensions] = useState(getDocumentDimensions())
+  const [snapshotsCanvasRef, setSnapshotsCanvasRef] = useState(null);
+  const [canvasDimensions, setCanvasDimensions] = useState(
+    getDocumentDimensions()
+  );
 
   useEffect(() => {
     const resizeCanvas = () => {
-        setCanvasDimensions(getDocumentDimensions())
-    }
-    window.addEventListener("resize", _.throttle(resizeCanvas, 500));
+      setCanvasDimensions(getDocumentDimensions());
+    };
+    window.addEventListener("resize", _.throttle(resizeCanvas, 200));
     return () =>
-      window.removeEventListener("resize", _.throttle(resizeCanvas, 500));
+      window.removeEventListener("resize", _.throttle(resizeCanvas, 200));
   }, []);
 
   const value = {
     snapshotsCanvasRef,
     setSnapshotsCanvasRef,
-    canvasDimensions,setCanvasDimensions,
-    updateCanvas
-};
+    canvasDimensions,
+    setCanvasDimensions,
+    updateCanvas,
+  };
 
   return (
     <SnapshotsCanvasContext.Provider value={value}>

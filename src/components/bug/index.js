@@ -3,30 +3,18 @@ import { StyledSvg } from "./styles";
 import { bugPath } from "./bugPath";
 import { BugsContext } from "globalState/bugs/index";
 import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
-import getAverageColor from "globalState/bugs/getAverageColor";
 
-function Bug({ bug, i }) {
+function Bug({ bug }) {
   // local state
   const [isGrowing, setIsGrowing] = useState(true);
 
   // global state
   const {
     bugSize,
-    maxOffspringDistance,
-    populationSize,
     growSpeed,
-    maxMutationStep,
-    setAvgColors,
-    setPopulationSnapshots,
-    eatAndSpawn2,
-    bugs2,
-    getLivingBugs,
-    setBugs2,
-    getRandomSurvivor
+    step
   } = useContext(BugsContext);
-  const { canvasDimensions, canvasOffset } = useContext(
-    CanvasDimensionsContext
-  );
+  const { canvasOffset } = useContext(CanvasDimensionsContext);
 
   // set isGrowing to false once bug is done growing
   // this is done so that the growing animation is only triggered when the bug first mounts
@@ -35,31 +23,8 @@ function Bug({ bug, i }) {
   }, []);
 
   const hanldleMouseEnter = () => {
-
-    const newBugs2 = eatAndSpawn2(
-      bug,
-      bugs2,
-      getRandomSurvivor,
-      maxOffspringDistance,
-      canvasDimensions,
-      bugSize,
-      maxMutationStep
-    )
-
-    const livingBugs = getLivingBugs(bugs2)
-    const newAvgColor = getAverageColor(livingBugs, populationSize);
-    const newPopulationSnapshot = livingBugs.map((bug) => ({
-      color: bug.color,
-      ancestor: bug.ancestor
-    }));
-
-    setBugs2(newBugs2)
-    setPopulationSnapshots((prevPopulationSnapshots) => [
-      ...prevPopulationSnapshots,
-      newPopulationSnapshot,
-    ]);
-    setAvgColors((prevAvgColors) => [...prevAvgColors, newAvgColor]);
-  };
+    step(bug)
+  }
 
   return (
     <div

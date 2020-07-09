@@ -36,7 +36,7 @@ function PresetImageSelect() {
   return (
     <StyledContainer>
       <StyledSelect
-        value={bgImage || ''}
+        value={bgImage || ""}
         onChange={(e) => setBgImage(e.target.value)}
       >
         {pics.map((pic) => (

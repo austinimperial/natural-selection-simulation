@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
+
+`
+
+export const StyledImgAndCanvasContainer = styled.div`
+  border: 1px solid red;
   display: flex;
   justify-content: center;
   padding: 20px 0px 0px 0px;
