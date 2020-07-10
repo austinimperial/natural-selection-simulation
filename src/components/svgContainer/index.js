@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useCallback } from "react";
 import { ScreenSizesContext } from 'globalState/screenSizes/index'
 import { BugsContext } from "globalState/bugs/index";
 import { BgImageContext } from "globalState/bgImage/index";
-import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
+import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import { 
   StyledSvgCanvas, 
   StyledContainer, 
@@ -10,38 +10,33 @@ import {
   StyledImgAndCanvasContainer
 } from "./styles";
 import Bug from "components/bug/index";
-import getCanvasOffset from "./getCanvasOffset";
+import getContainerOffset from "./getContainerOffset";
 import DomColors from 'components/domColors/index'
 const _ = require("lodash");
 
-function SvgCanvas() {
+function SvgContainer() {
   // // global state
   const {xxs,xs,sm,md,lg,xl} = useContext(ScreenSizesContext)
-  const {
-    bugs2,
-    getLivingBugNodes,
-  } = useContext(BugsContext);
+  const { bugs2, getLivingBugNodes } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
-  const { setCanvasOffset, setCanvasDimensions } = useContext(
-    CanvasDimensionsContext
-  );
+  const { setCanvasOffset, setSvgContainerDimensions } = useContext(SvgDimensionsContext);
 
   // refs
-  const svgCanvasRef = useRef();
+  const svgContainerRef = useRef();
 
-  const handleResize = useCallback(() => {
-    const newCanvasOffset = getCanvasOffset(svgCanvasRef)
+  const handleResize = useCallback(_.throttle(() => {
+    const newCanvasOffset = getContainerOffset(svgContainerRef)
     setCanvasOffset(newCanvasOffset);
-    setCanvasDimensions({
-      height: svgCanvasRef.current.clientHeight,
-      width: svgCanvasRef.current.clientWidth
+    setSvgContainerDimensions({
+      height: svgContainerRef.current.clientHeight,
+      width: svgContainerRef.current.clientWidth
     })
-  },[svgCanvasRef,setCanvasOffset,setCanvasDimensions])
+  },300),[svgContainerRef,setCanvasOffset,setSvgContainerDimensions])
 
   useEffect(() => {
-    window.addEventListener("resize", _.throttle(handleResize, 150));
-    return () =>
-      window.removeEventListener("resize", _.throttle(handleResize, 150));
+    window.addEventListener("resize", handleResize);
+    return () => 
+      window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -57,7 +52,7 @@ function SvgCanvas() {
           big={md || lg || xl}
         />
         <StyledSvgCanvas 
-          ref={svgCanvasRef}
+          ref={svgContainerRef}
           small={xxs || xs || sm}
           big={md || lg || xl}
         >
@@ -71,4 +66,4 @@ function SvgCanvas() {
   );
 }
 
-export default SvgCanvas;
+export default SvgContainer;

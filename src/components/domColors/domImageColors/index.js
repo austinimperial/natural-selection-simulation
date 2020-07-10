@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BgImageContext } from "globalState/bgImage/index";
-import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
+import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import computeImgPalette from "./computeImgPalette";
 import uuid from "react-uuid";
 import { StyledContainer, StyledSwatch } from "./styles";
@@ -13,17 +13,17 @@ function DomImageColors({ maxColorCount }) {
 
   // global state
   const { bgImage } = useContext(BgImageContext);
-  const { canvasDimensions } = useContext(CanvasDimensionsContext);
+  const { svgContainerDimensions } = useContext(SvgDimensionsContext);
 
   useEffect(() => {
     computeImgPalette(
       bgImage,
-      canvasDimensions.width,
-      canvasDimensions.height,
+      svgContainerDimensions.width,
+      svgContainerDimensions.height,
       maxColorCount,
       setPalette
     );
-  }, [bgImage, canvasDimensions, maxColorCount]);
+  }, [bgImage, svgContainerDimensions, maxColorCount]);
 
   return (
     <StyledContainer>

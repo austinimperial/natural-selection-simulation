@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useContext, useEffect } from "react";
-import { CanvasDimensionsContext } from 'globalState/canvasDimensions/index'
+import { SvgDimensionsContext } from 'globalState/svgContainerDimensions/index'
 import getNewOffspring from "./getNewOffspring";
 import eatAndSpawnNew from "./eatAndSpawnNew";
-import getInitialBugs2 from "./getInitialBugs2";
+import getInitialBugs from "./getInitialBugs";
 import getRandomLivingBugNode from "./getRandomLivingBugNode";
 import { Node, flatten, getLivingBugNodes } from "./tree";
 export const BugsContext = React.createContext();
@@ -10,7 +10,7 @@ const _ = require('lodash')
 
 function BugsProvider({ children }) {
   // const
-  const MAX_STEP_COUNT = 2000
+  const MAX_STEP_COUNT = 3000
 
   // local state
   const [bugs2, setBugs2] = useState(null);
@@ -23,10 +23,10 @@ function BugsProvider({ children }) {
   const [stepCount,setStepCount] = useState(0)
 
   // global state
-  const { canvasDimensions } = useContext(CanvasDimensionsContext)
+  const { svgContainerDimensions } = useContext(SvgDimensionsContext)
 
   useEffect(() => {
-    const newBugs2 = getInitialBugs2(canvasDimensions, populationSize, bugSize);
+    const newBugs2 = getInitialBugs(svgContainerDimensions, populationSize, bugSize);
     setBugs2(newBugs2);
   }, []);
 
@@ -40,7 +40,7 @@ function BugsProvider({ children }) {
         bugs2,
         getRandomLivingBugNode,
         maxOffspringDistance,
-        canvasDimensions,
+        svgContainerDimensions,
         bugSize,
         maxMutationStep
     );
@@ -60,7 +60,7 @@ function BugsProvider({ children }) {
     bugs2,
     maxMutationStep,
     maxOffspringDistance,
-    canvasDimensions,
+    svgContainerDimensions,
     bugSize,
     stepCount
   ])
@@ -82,7 +82,7 @@ function BugsProvider({ children }) {
     bugs2,
     setBugs2,
     eatAndSpawnNew,
-    getInitialBugs2,
+    getInitialBugs,
     Node,
     flatten,
     getRandomLivingBugNode,

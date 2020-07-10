@@ -9,7 +9,7 @@ export default function eatAndSpawnNew(
   bugs2,
   getRandomLivingBugNode,
   maxOffspringDistance,
-  canvasDimensions,
+  svgContainerDimensions,
   bugSize,
   maxMutationStep
 ) {
@@ -23,7 +23,7 @@ export default function eatAndSpawnNew(
   const offspringCoors = getOffspringCoors(
     maxOffspringDistance,
     eatenBug,
-    canvasDimensions,
+    svgContainerDimensions,
     bugSize
   );
 

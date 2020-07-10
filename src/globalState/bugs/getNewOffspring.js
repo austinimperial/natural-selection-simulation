@@ -11,7 +11,7 @@ const getRandomLivingBugNode = (allBugs, indexOfEatenBug, populationSize) => {
 // picks a random surviving bug (aka not the just-eaten bug) as the parent bug for color mutation
 // mutates color, chooses new random coordinates within the given radius of the just-eaten bug
 export default function getNewOffspring(
-  canvasDimensions,
+  svgContainerDimensions,
   maxOffspringDistance,
   eatenBug,
   allBugs,
@@ -23,7 +23,7 @@ export default function getNewOffspring(
   const offSpringCoors = getOffspringCoors(
     maxOffspringDistance,
     eatenBug,
-    canvasDimensions,
+    svgContainerDimensions,
     bugSize
   );
   const randomSurvivor = getRandomLivingBugNode(allBugs, i, populationSize);

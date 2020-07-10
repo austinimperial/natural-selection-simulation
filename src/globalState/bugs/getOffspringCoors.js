@@ -1,7 +1,7 @@
 export default function getOffspringCoors(
   maxOffspringDistance,
   eatenBug,
-  canvasDimensions,
+  svgContainerDimensions,
   bugSize
 ) {
   // get random point within given radius
@@ -12,11 +12,12 @@ export default function getOffspringCoors(
   const yStep = Math.sin(randRadian) * randRadius;
 
   // find bounds of canvas
-  const xMax = canvasDimensions.width - bugSize;
-  const yMax = canvasDimensions.height - bugSize;
+  const xMax = svgContainerDimensions.width - bugSize;
+  const yMax = svgContainerDimensions.height - bugSize;
 
-  var newX = eatenBug.x + xStep;
-  var newY = eatenBug.y + yStep;
+  // eatenBug coors are ratio
+  var newX = eatenBug.x * svgContainerDimensions.width + xStep;
+  var newY = eatenBug.y * svgContainerDimensions.height + yStep;
 
   // convert out-of-bounds coordinates to on-the-border coordinates
   if (newX > xMax) {
@@ -35,8 +36,8 @@ export default function getOffspringCoors(
   }
 
   const result = {
-    x: Math.floor(newX),
-    y: Math.floor(newY),
+    x: Math.floor(newX) / svgContainerDimensions.width,
+    y: Math.floor(newY) / svgContainerDimensions.height,
   };
   return result;
 }

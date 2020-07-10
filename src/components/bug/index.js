@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { StyledSvg } from "./styles";
 import { bugPath } from "./bugPath";
 import { BugsContext } from "globalState/bugs/index";
-import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
+import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 
 function Bug({ bug }) {
   // local state
@@ -14,7 +14,7 @@ function Bug({ bug }) {
     growSpeed,
     step
   } = useContext(BugsContext);
-  const { canvasOffset } = useContext(CanvasDimensionsContext);
+  const { canvasOffset, svgContainerDimensions } = useContext(SvgDimensionsContext);
 
   // set isGrowing to false once bug is done growing
   // this is done so that the growing animation is only triggered when the bug first mounts
@@ -29,9 +29,9 @@ function Bug({ bug }) {
   return (
     <div
       style={{
-        position: "absolute",
-        left: `${bug.x + canvasOffset.left}px`,
-        top: `${bug.y + canvasOffset.top}px`,
+        "position": "absolute",
+        left: `${bug.x * svgContainerDimensions.width + canvasOffset.left}px`,
+        top: `${bug.y * svgContainerDimensions.height + canvasOffset.top}px`,
       }}
     >
       <StyledSvg

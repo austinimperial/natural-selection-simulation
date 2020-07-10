@@ -11,7 +11,7 @@ function OffspringDistanceSlider() {
   return (
     <Slider
       min={10}
-      max={300}
+      max={500}
       step={5}
       initial={maxOffspringDistance}
       name={"max offspring distance"}

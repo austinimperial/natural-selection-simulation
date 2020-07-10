@@ -14,14 +14,12 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledControlContainer = styled.div`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
 
 export const StyledCanvasAndDomColorsContainer = styled.div`
-  border: 3px solid yellow;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -37,7 +35,6 @@ export const StyledCanvasAndDomColorsContainer = styled.div`
 
 export const StyledSubContainer1 = styled.div`
   display: flex;
-  border: 3px solid blue;
 
   ${props => props.small && `
     flex-direction: column;

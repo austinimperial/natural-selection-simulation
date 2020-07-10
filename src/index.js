@@ -6,13 +6,13 @@ import * as serviceWorker from "./serviceWorker";
 import ScreenSizesProvider from "globalState/screenSizes/index";
 import BugsProvider from "globalState/bugs/index";
 import BgImageProvider from "globalState/bgImage/index";
-import CanvasDimensionsProvider from "globalState/canvasDimensions/index";
+import SvgDimensionsProvider from "globalState/svgContainerDimensions/index";
 import SnapshotsCanvasProvider from "globalState/snapshotsCanvas/index";
 
 ReactDOM.render(
   <React.StrictMode>
     <ScreenSizesProvider>
-      <CanvasDimensionsProvider>
+      <SvgDimensionsProvider>
         <BugsProvider>
           <BgImageProvider>
             <SnapshotsCanvasProvider>
@@ -20,7 +20,7 @@ ReactDOM.render(
             </SnapshotsCanvasProvider>
           </BgImageProvider>
         </BugsProvider>
-      </CanvasDimensionsProvider>
+      </SvgDimensionsProvider>
     </ScreenSizesProvider>
   </React.StrictMode>,
   document.getElementById("root")

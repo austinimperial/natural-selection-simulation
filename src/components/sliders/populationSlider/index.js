@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from "react";
 import { BugsContext } from "globalState/bugs/index";
-import { CanvasDimensionsContext } from "globalState/canvasDimensions/index";
+import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import Slider from "shared/slider/index";
 
 function PopulationSlider() {
@@ -11,26 +11,26 @@ function PopulationSlider() {
     bugSize,
     setPopulationSnapshots,
     setBugs2,
-    getInitialBugs2,
+    getInitialBugs,
     setStepCount
   } = useContext(BugsContext);
-  const { canvasDimensions } = useContext(CanvasDimensionsContext);
+  const { svgContainerDimensions } = useContext(SvgDimensionsContext);
 
   const handleMouseUp = useCallback(
     (newValue) => {
-      const newBugs2 = getInitialBugs2(canvasDimensions, newValue, bugSize);
+      const newBugs2 = getInitialBugs(svgContainerDimensions, newValue, bugSize);
       setBugs2(newBugs2);
       setPopulationSize(newValue);
       setPopulationSnapshots([]);
       setStepCount(0)
     },
     [
-      canvasDimensions,
+      svgContainerDimensions,
       bugSize,
       setPopulationSize,
       setPopulationSnapshots,
       setBugs2,
-      getInitialBugs2,
+      getInitialBugs,
       setStepCount
     ]
   );

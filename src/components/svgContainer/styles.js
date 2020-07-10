@@ -1,35 +1,37 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-
+  position: relative;
 `
 
 export const StyledImgAndCanvasContainer = styled.div`
-  border: 1px solid red;
   display: flex;
-  justify-content: center;
-  padding: 20px 0px 0px 0px;
+  justify-content: flex-start;
+  padding: 0px;
+  overflow: hidden;
 `;
 
 export const StyledSvgCanvas = styled.div`
+  outline: none;
+  overflow: hidden;
+  position: relative;
+
   ${props => props.small && `
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
   `}
 
   ${props => props.big && `
     height: 500px;
     width: 500px;
   `}
-  border: 1px solid black;
-  outline: none;
 `;
 
 export const StyledBgImg = styled.img`
 
   ${props => props.small && `
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
   `}
 
   ${props => props.big && `

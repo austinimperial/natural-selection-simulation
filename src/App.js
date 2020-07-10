@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ScreenSizesContext } from 'globalState/screenSizes/index'
-import SvgCanvas from "components/svgCanvas/index";
+import SvgContainer from "components/svgContainer/index";
 import FileInput from "components/fileInput/index";
 import ResetButton from "components/resetButton/index";
 import PopulationSlider from "components/sliders/populationSlider/index";
@@ -37,7 +37,7 @@ function App() {
           <PresetImageSelect />
           <RandomStep />
         </StyledControlContainer>
-        <SvgCanvas />
+        <SvgContainer />
       </StyledSubContainer1>
       <PopulationSnapshots />
     </StyledContainer>

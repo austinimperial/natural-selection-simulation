@@ -1,47 +1,25 @@
 import React, { useContext, useRef, useEffect } from "react";
-import { BugsContext } from "globalState/bugs/index";
 import { SnapshotsCanvasContext } from "globalState/snapshotsCanvas/index";
+import { BugsContext } from 'globalState/bugs/index'
 
 function PopulationSnapshots() {
   // global state
-  const { populationSnapshots, populationSize } = useContext(BugsContext);
-  const {
-    setSnapshotsCanvasRef,
-    canvasDimensions,
-    updateCanvas,
-    snapshotsCanvasRef,
-  } = useContext(SnapshotsCanvasContext);
+  const { setSnapshotsCanvasRef, canvasDimensions } = useContext(SnapshotsCanvasContext);
+  const { populationSnapshots } = useContext(BugsContext)
 
   // ref
   const canvasRef = useRef();
 
   useEffect(() => {
     setSnapshotsCanvasRef(canvasRef);
-  }, []);
+  },[]);
 
-  useEffect(() => {
-    if (snapshotsCanvasRef === null) return;
-    updateCanvas(
-      populationSnapshots,
-      canvasDimensions,
-      populationSize,
-      snapshotsCanvasRef.current
-    );
-  }, [
-    populationSnapshots,
-    updateCanvas,
-    canvasDimensions,
-    snapshotsCanvasRef,
-    populationSize,
-  ]);
+  if (populationSnapshots.length === 0) return <></>
 
   return (
     <canvas
       width={canvasDimensions.width}
       height={canvasDimensions.height}
-      style={{
-        border: "1px solid black",
-      }}
       ref={canvasRef}
     ></canvas>
   );

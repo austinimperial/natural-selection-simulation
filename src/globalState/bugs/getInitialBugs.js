@@ -3,14 +3,14 @@ import getRandCoors from "./getRandCoors";
 import uuid from "react-uuid";
 import { Node, addChild } from "./tree";
 
-export default function getInitialBugs2(
-  canvasDimensions,
+export default function getInitialBugs(
+  svgContainerDimensions,
   populationSize,
   bugSize
 ) {
   let root = new Node({ isRoot: true });
   for (let i = 0; i < populationSize; i++) {
-    const randCoors = getRandCoors(canvasDimensions, bugSize);
+    const randCoors = getRandCoors(svgContainerDimensions, bugSize);
     addChild(root, {
       x: randCoors.x,
       y: randCoors.y,
