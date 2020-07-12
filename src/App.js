@@ -12,6 +12,7 @@ import PresetImageSelect from "components/presetImageSelect/index";
 import PopulationSnapshots from "components/populationSnapshots/index";
 import RandomStep from "components/randomStep/index";
 import AdjustSnapshotsButton from "components/adjustSnapshotsButton/index";
+import StretchFactorSlider from 'components/sliders/stretchFactorSlider/index'
 import {
   StyledContainer,
   StyledControlContainer,
@@ -36,6 +37,7 @@ function App() {
           <PresetImageSelect />
           <RandomStep />
           <AdjustSnapshotsButton />
+          <StretchFactorSlider />
         </StyledControlContainer>
         <SvgContainer />
       </StyledSubContainer1>

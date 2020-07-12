@@ -2,15 +2,16 @@ const _ = require("lodash");
 
 export const drawSnapshotsHorizontal = ({
   populationSnapshots,
-  canvasDimensions,
+  screenDimensions,
   populationSize,
   canvas,
+  stretchFactor
 }) => {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  const colWidth = canvasDimensions.width / populationSnapshots.length;
-  const rowHeight = canvasDimensions.height / populationSize;
-  ctx.clearRect(0, 0, canvasDimensions.width, canvasDimensions.height);
+  const colWidth = screenDimensions.width * parseInt(stretchFactor) / populationSnapshots.length;
+  const rowHeight = screenDimensions.height / populationSize;
+  ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
   populationSnapshots.forEach((ps, rowIndex) => {
     ps.forEach((bug, columnIndex) => {
       ctx.fillStyle = `rgb(${bug.color[0]},${bug.color[1]},${bug.color[2]})`;
@@ -26,15 +27,16 @@ export const drawSnapshotsHorizontal = ({
 
 export const drawSnapshotsVertical = ({
   populationSnapshots,
-  canvasDimensions,
+  screenDimensions,
   populationSize,
   canvas,
+  stretchFactor
 }) => {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  const colWidth = canvasDimensions.width / populationSize;
-  const rowHeight = canvasDimensions.height / populationSnapshots.length;
-  ctx.clearRect(0, 0, canvasDimensions.width, canvasDimensions.height);
+  const colWidth = screenDimensions.width / populationSize;
+  const rowHeight = screenDimensions.height * parseInt(stretchFactor) / populationSnapshots.length;
+  ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
   populationSnapshots.forEach((ps, rowIndex) => {
     ps.forEach((bug, columnIndex) => {
       ctx.fillStyle = `rgb(${bug.color[0]},${bug.color[1]},${bug.color[2]})`;

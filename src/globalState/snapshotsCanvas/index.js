@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import getDocumentDimensions from "./getDocumentDimensions";
 import drawCanvas from "./drawCanvas";
 import { BugsContext } from "globalState/bugs/index";
@@ -8,8 +8,9 @@ const _ = require("lodash");
 function SnapshotsCanvasProvider({ children }) {
   // local state
   const [isVertical, setIsVertical] = useState(false);
+  const [stretchFactor,setStretchFactor] = useState(1)
   const [snapshotsCanvasRef, setSnapshotsCanvasRef] = useState(null);
-  const [canvasDimensions, setCanvasDimensions] = useState(
+  const [screenDimensions, setScreenDimensions] = useState(
     getDocumentDimensions()
   );
 
@@ -19,40 +20,41 @@ function SnapshotsCanvasProvider({ children }) {
   // The drawing is split between two useEffect fuctions so that I can conditionally
   // change the parameters of drawCanvas depending on which dependency/ies changed.
   // Between the two useEffects, all dependencies are covered. This is an unusual
-  // case to be sure. The logic boils down to this: If the screen is resizing
-  // (i.e. canvasDimensions is changing) then do NOT throttle drawCanvas.
-  // Under the normal conditions of usage, however, I do need to throttle drawCanvas.
-  // At first, I tried creating an 'isResizing' local state to condionally call drawCanvas 
-  // off of, thereby allowing me to group all drawCanvas calls into one usEffect.
-  // But the result, although a bit more readable here, was choppier for the user.
+  // case to be sure. The logic boils down to this: If populationSnapshots is changing,
+  // throttle drawCanvas. Don't otherwise. At first, I tried creating an 'isResizing' 
+  // local state to use to condionally call drawCanvas, thereby allowing me to group 
+  // all drawCanvas calls into one usEffect. But the result, although a bit more 
+  // readable here, was choppier for the user.
   useEffect(() => {
     drawCanvas({
       snapshotsCanvasRef,
       populationSize,
       populationSnapshots,
-      canvasDimensions,
+      screenDimensions,
       isVertical,
-      throttle:false,
+      stretchFactor,
+      throttle:true,
     });
-  }, [populationSnapshots, snapshotsCanvasRef, populationSize, isVertical]);
+  }, [populationSnapshots]);
 
   useEffect(() => {
     drawCanvas({
       snapshotsCanvasRef,
       populationSize,
       populationSnapshots,
-      canvasDimensions,
+      screenDimensions,
       isVertical,
-      throttle:true,
+      stretchFactor,
+      throttle:false,
     });
-  }, [canvasDimensions]);
+  }, [screenDimensions,stretchFactor,isVertical,snapshotsCanvasRef,populationSize]);
 
   const handleResize = _.throttle(() => {
     const { width, height } = getDocumentDimensions();
-    if (width < height) return setIsVertical(true);
+    setScreenDimensions({ width, height });
     setIsVertical(false);
-    setCanvasDimensions({ width, height });
-  }, 200);
+    if (width < height) return setIsVertical(true)
+  }, 300);
 
   useEffect(() => {
     handleResize();
@@ -62,12 +64,12 @@ function SnapshotsCanvasProvider({ children }) {
 
   const resetCanvasDimens = () => {
     const docDimens = getDocumentDimensions();
-    setCanvasDimensions(docDimens);
+    setScreenDimensions(docDimens);
   };
 
   const makeThin = () => {
     const { width, height } = getDocumentDimensions();
-    setCanvasDimensions({
+    setScreenDimensions({
       width,
       height: height / 3,
     });
@@ -76,12 +78,14 @@ function SnapshotsCanvasProvider({ children }) {
   const value = {
     snapshotsCanvasRef,
     setSnapshotsCanvasRef,
-    canvasDimensions,
-    setCanvasDimensions,
+    screenDimensions,
+    setScreenDimensions,
     isVertical,
     setIsVertical,
     resetCanvasDimens,
     makeThin,
+    stretchFactor,
+    setStretchFactor
   };
 
   return (

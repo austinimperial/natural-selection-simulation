@@ -1,10 +1,11 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { SnapshotsCanvasContext } from "globalState/snapshotsCanvas/index";
 import { BugsContext } from "globalState/bugs/index";
+import { StyledScrollBox } from './styles'
 
 function PopulationSnapshots() {
   // global state
-  const { setSnapshotsCanvasRef, canvasDimensions } = useContext(
+  const { setSnapshotsCanvasRef, screenDimensions, stretchFactor, isVertical } = useContext(
     SnapshotsCanvasContext
   );
   const { populationSnapshots } = useContext(BugsContext);
@@ -19,11 +20,16 @@ function PopulationSnapshots() {
   if (populationSnapshots.length === 0) return <></>;
 
   return (
+    <StyledScrollBox
+      width={screenDimensions.width}
+      height={screenDimensions.height}
+    >
     <canvas
-      width={canvasDimensions.width}
-      height={canvasDimensions.height}
+      width={screenDimensions.width * (isVertical ? 1 : stretchFactor)}
+      height={screenDimensions.height * (isVertical ? stretchFactor : 1)}
       ref={canvasRef}
     ></canvas>
+    </StyledScrollBox>
   );
 }
 

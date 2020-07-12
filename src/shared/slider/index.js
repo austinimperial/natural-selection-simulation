@@ -14,6 +14,7 @@ function Slider({
   step,
   name,
   unit,
+  value,
   containerStyle,
   doSomethingOnMouseUp,
   doSomethingOnChange,

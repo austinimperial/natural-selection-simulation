@@ -9,40 +9,45 @@ export default function drawCanvas({
   snapshotsCanvasRef,
   populationSize,
   populationSnapshots,
-  canvasDimensions,
+  screenDimensions,
   isVertical,
   throttle,
+  stretchFactor
 }) {
   if (snapshotsCanvasRef === null) return;
 
-  if (throttle && !isVertical)
+  if (!throttle && !isVertical)
     return drawSnapshotsHorizontal({
       populationSnapshots,
-      canvasDimensions,
+      screenDimensions,
       populationSize,
       canvas: snapshotsCanvasRef.current,
+      stretchFactor
     });
 
   if (!throttle && isVertical)
     return drawSnapshotsVertical({
       populationSnapshots,
-      canvasDimensions,
+      screenDimensions,
       populationSize,
       canvas: snapshotsCanvasRef.current,
+      stretchFactor,
     });
 
   if (!isVertical)
     return throttledDrawSnapshotsHorizontal({
       populationSnapshots,
-      canvasDimensions,
+      screenDimensions,
       populationSize,
       canvas: snapshotsCanvasRef.current,
+      stretchFactor,
     });
 
   throttledDrawSnapshotsVertical({
     populationSnapshots,
-    canvasDimensions,
+    screenDimensions,
     populationSize,
     canvas: snapshotsCanvasRef.current,
+    stretchFactor,
   });
 }
