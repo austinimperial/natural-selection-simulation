@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
-export const StyledContainer = styled.div`
+export const StyledContainer1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StyledContainer2 = styled.div`
   position: relative;
-`
+`;
 
 export const StyledImgAndCanvasContainer = styled.div`
   display: flex;
@@ -16,31 +23,48 @@ export const StyledSvgCanvas = styled.div`
   overflow: hidden;
   position: relative;
 
-  ${props => props.small && `
+  height: 500px;
+  width: 500px;
+
+  ${(props) =>
+    props.small &&
+    props.isVertical &&
+    `
     width: 100vw;
-    height: 100vh;
+    height: 100vw;
   `}
 
-  ${props => props.big && `
-    height: 500px;
-    width: 500px;
-  `}
+  ${(props) =>
+    props.small &&
+    !props.isVertical &&
+    `
+      width: 97vh;
+      height: 97vh;
+    `}
 `;
 
 export const StyledBgImg = styled.img`
-
-  ${props => props.small && `
-    width: 100vw;
-    height: 100vh;
-  `}
-
-  ${props => props.big && `
-    height: 500px;
-    width: 500px;
-  `}
-
   outline: none;
   border: none;
   position: absolute;
   z-index: -1;
+
+  height: 500px;
+  width: 500px;
+
+  ${(props) =>
+    props.small &&
+    props.isVertical &&
+    `
+    width: 100vw;
+    height: 100vw;
+  `}
+
+  ${(props) =>
+    props.small &&
+    !props.isVertical &&
+    `
+    width: 97vh;
+    height: 97vh;
+  `}
 `;

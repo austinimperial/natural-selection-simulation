@@ -2,7 +2,12 @@ import React, { useContext, useState, useEffect } from "react";
 import { BugsContext } from "globalState/bugs/index";
 import getBugPalette from "./getBugPalette";
 import uuid from "react-uuid";
-import { StyledContainer, StyledSwatch } from "./styles";
+import { StyledSwatch } from "./styles";
+import {
+  StyledSwatchContainer,
+  StyledTitle,
+  StyledContainer,
+} from "../shared/styles";
 
 function DomPopulationColors({ maxColorCount }) {
   // local state
@@ -21,14 +26,16 @@ function DomPopulationColors({ maxColorCount }) {
 
   return (
     <StyledContainer>
-      dominant colors in population:
-      {palette.map((color) => (
-        <StyledSwatch
-          key={uuid()}
-          color={color}
-          veryLight={color[0] > 240 && color[1] > 240 && color[2] > 240}
-        ></StyledSwatch>
-      ))}
+      <StyledTitle>dominant colors in population</StyledTitle>
+      <StyledSwatchContainer>
+        {palette.map((color) => (
+          <StyledSwatch
+            key={uuid()}
+            color={color}
+            veryLight={color[0] > 240 && color[1] > 240 && color[2] > 240}
+          ></StyledSwatch>
+        ))}
+      </StyledSwatchContainer>
     </StyledContainer>
   );
 }

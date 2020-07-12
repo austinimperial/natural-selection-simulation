@@ -12,17 +12,21 @@ function PopulationSlider() {
     setPopulationSnapshots,
     setBugs2,
     getInitialBugs,
-    setStepCount
+    setStepCount,
   } = useContext(BugsContext);
   const { svgContainerDimensions } = useContext(SvgDimensionsContext);
 
   const handleMouseUp = useCallback(
     (newValue) => {
-      const newBugs2 = getInitialBugs(svgContainerDimensions, newValue, bugSize);
+      const newBugs2 = getInitialBugs(
+        svgContainerDimensions,
+        newValue,
+        bugSize
+      );
       setBugs2(newBugs2);
       setPopulationSize(newValue);
       setPopulationSnapshots([]);
-      setStepCount(0)
+      setStepCount(0);
     },
     [
       svgContainerDimensions,
@@ -31,7 +35,7 @@ function PopulationSlider() {
       setPopulationSnapshots,
       setBugs2,
       getInitialBugs,
-      setStepCount
+      setStepCount,
     ]
   );
 

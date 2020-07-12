@@ -8,6 +8,7 @@ function FileInput() {
 
   return (
     <StyledFileInput
+      title=""
       type="file"
       accept="image/*"
       onChange={(e) => setBgImage(URL.createObjectURL(e.target.files[0]))}

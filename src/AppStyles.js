@@ -4,11 +4,15 @@ export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${props => props.small && `
+  ${(props) =>
+    props.small &&
+    `
 
   `}
 
-  ${props => props.big && `
+  ${(props) =>
+    props.big &&
+    `
   
   `}
 `;
@@ -24,11 +28,15 @@ export const StyledCanvasAndDomColorsContainer = styled.div`
   flex-direction: column;
   flex-grow: 1;
 
-  ${props => props.small && `
+  ${(props) =>
+    props.small &&
+    `
     align-items: center;
   `}
 
-  ${props => props.big && `
+  ${(props) =>
+    props.big &&
+    `
     align-items: flex-start;
   `}
 `;
@@ -36,11 +44,15 @@ export const StyledCanvasAndDomColorsContainer = styled.div`
 export const StyledSubContainer1 = styled.div`
   display: flex;
 
-  ${props => props.small && `
+  ${(props) =>
+    props.small &&
+    `
     flex-direction: column;
   `}
 
-  ${props => props.big && `
+  ${(props) =>
+    props.big &&
+    `
 
   `}
-`
+`;

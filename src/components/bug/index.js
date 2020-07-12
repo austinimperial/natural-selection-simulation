@@ -9,12 +9,10 @@ function Bug({ bug }) {
   const [isGrowing, setIsGrowing] = useState(true);
 
   // global state
-  const {
-    bugSize,
-    growSpeed,
-    step
-  } = useContext(BugsContext);
-  const { canvasOffset, svgContainerDimensions } = useContext(SvgDimensionsContext);
+  const { bugSize, growSpeed, step } = useContext(BugsContext);
+  const { canvasOffset, svgContainerDimensions } = useContext(
+    SvgDimensionsContext
+  );
 
   // set isGrowing to false once bug is done growing
   // this is done so that the growing animation is only triggered when the bug first mounts
@@ -23,13 +21,13 @@ function Bug({ bug }) {
   }, []);
 
   const hanldleMouseEnter = () => {
-    step(bug)
-  }
+    step(bug);
+  };
 
   return (
     <div
       style={{
-        "position": "absolute",
+        position: "absolute",
         left: `${bug.x * svgContainerDimensions.width + canvasOffset.left}px`,
         top: `${bug.y * svgContainerDimensions.height + canvasOffset.top}px`,
       }}

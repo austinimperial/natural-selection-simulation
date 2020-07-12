@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-export const StyledContainer = styled.div`
-  margin: 5px;
-  display: flex;
-`;
-
 export const StyledSwatch = styled.div`
-  flex-grow: 1;
   border-radius: 50%;
   margin: 0px 5px 0px 5px;
   height: 20px;

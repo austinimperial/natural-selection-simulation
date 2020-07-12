@@ -42,11 +42,11 @@ function ScreenSizesProvider({ children }) {
     xl: [1200, 100000],
   };
 
-  const value = { 
-    ...screenSizes, 
+  const value = {
+    ...screenSizes,
     prevScreenSize,
-    sizeRanges 
-  }
+    sizeRanges,
+  };
 
   return (
     <ScreenSizesContext.Provider value={value}>

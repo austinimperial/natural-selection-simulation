@@ -3,7 +3,12 @@ import { BgImageContext } from "globalState/bgImage/index";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import computeImgPalette from "./computeImgPalette";
 import uuid from "react-uuid";
-import { StyledContainer, StyledSwatch } from "./styles";
+import { StyledSwatch } from "./styles";
+import {
+  StyledSwatchContainer,
+  StyledTitle,
+  StyledContainer,
+} from "../shared/styles";
 
 function DomImageColors({ maxColorCount }) {
   // local state
@@ -27,14 +32,16 @@ function DomImageColors({ maxColorCount }) {
 
   return (
     <StyledContainer>
-      dominant colors in image:
-      {palette.map((color) => (
-        <StyledSwatch
-          key={uuid()}
-          color={color}
-          veryLight={color[0] > 240 && color[1] > 240 && color[2] > 240}
-        ></StyledSwatch>
-      ))}
+      <StyledTitle>dominant colors in image</StyledTitle>
+      <StyledSwatchContainer>
+        {palette.map((color) => (
+          <StyledSwatch
+            key={uuid()}
+            color={color}
+            veryLight={color[0] > 240 && color[1] > 240 && color[2] > 240}
+          ></StyledSwatch>
+        ))}
+      </StyledSwatchContainer>
     </StyledContainer>
   );
 }

@@ -7,7 +7,7 @@
 
 import { getLivingBugNodes } from "./tree";
 export default function getRandomLivingBugNode(bugNode) {
-  const livingBugs = getLivingBugNodes(bugNode)
+  const livingBugs = getLivingBugNodes(bugNode);
   const randIndex = Math.floor(Math.random() * livingBugs.length);
   return livingBugs[randIndex];
 }

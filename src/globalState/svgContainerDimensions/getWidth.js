@@ -4,4 +4,4 @@ export default function getWidth() {
     document.documentElement.clientWidth ||
     document.body.clientWidth;
   return w;
-};
+}
