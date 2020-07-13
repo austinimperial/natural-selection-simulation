@@ -9,6 +9,7 @@ function SnapshotsCanvasProvider({ children }) {
   // local state
   const [isVertical, setIsVertical] = useState(false);
   const [stretchFactor,setStretchFactor] = useState(1)
+  const [thickness,setThickness] = useState(0.5)
   const [snapshotsCanvasRef, setSnapshotsCanvasRef] = useState(null);
   const [screenDimensions, setScreenDimensions] = useState(
     getDocumentDimensions()
@@ -21,10 +22,7 @@ function SnapshotsCanvasProvider({ children }) {
   // change the parameters of drawCanvas depending on which dependency/ies changed.
   // Between the two useEffects, all dependencies are covered. This is an unusual
   // case to be sure. The logic boils down to this: If populationSnapshots is changing,
-  // throttle drawCanvas. Don't otherwise. At first, I tried creating an 'isResizing' 
-  // local state to use to condionally call drawCanvas, thereby allowing me to group 
-  // all drawCanvas calls into one usEffect. But the result, although a bit more 
-  // readable here, was choppier for the user.
+  // throttle drawCanvas. Don't otherwise.
   useEffect(() => {
     drawCanvas({
       snapshotsCanvasRef,
@@ -33,6 +31,7 @@ function SnapshotsCanvasProvider({ children }) {
       screenDimensions,
       isVertical,
       stretchFactor,
+      thickness,
       throttle:true,
     });
   }, [populationSnapshots]);
@@ -45,9 +44,10 @@ function SnapshotsCanvasProvider({ children }) {
       screenDimensions,
       isVertical,
       stretchFactor,
+      thickness,
       throttle:false,
     });
-  }, [screenDimensions,stretchFactor,isVertical,snapshotsCanvasRef,populationSize]);
+  }, [screenDimensions,stretchFactor,isVertical,snapshotsCanvasRef,populationSize,thickness]);
 
   const handleResize = _.throttle(() => {
     const { width, height } = getDocumentDimensions();
@@ -67,14 +67,6 @@ function SnapshotsCanvasProvider({ children }) {
     setScreenDimensions(docDimens);
   };
 
-  const makeThin = () => {
-    const { width, height } = getDocumentDimensions();
-    setScreenDimensions({
-      width,
-      height: height / 3,
-    });
-  };
-
   const value = {
     snapshotsCanvasRef,
     setSnapshotsCanvasRef,
@@ -83,9 +75,10 @@ function SnapshotsCanvasProvider({ children }) {
     isVertical,
     setIsVertical,
     resetCanvasDimens,
-    makeThin,
     stretchFactor,
-    setStretchFactor
+    setStretchFactor,
+    thickness,
+    setThickness
   };
 
   return (

@@ -11,8 +11,8 @@ import MaxMutationSlider from "components/sliders/maxMutationSlider/index";
 import PresetImageSelect from "components/presetImageSelect/index";
 import PopulationSnapshots from "components/populationSnapshots/index";
 import RandomStep from "components/randomStep/index";
-import AdjustSnapshotsButton from "components/adjustSnapshotsButton/index";
 import StretchFactorSlider from 'components/sliders/stretchFactorSlider/index'
+import ThicknessSlider from 'components/sliders/thicknessSlider/index'
 import {
   StyledContainer,
   StyledControlContainer,
@@ -36,11 +36,11 @@ function App() {
           <ResetButton />
           <PresetImageSelect />
           <RandomStep />
-          <AdjustSnapshotsButton />
-          <StretchFactorSlider />
         </StyledControlContainer>
         <SvgContainer />
       </StyledSubContainer1>
+      <StretchFactorSlider />
+      <ThicknessSlider />
       <PopulationSnapshots />
     </StyledContainer>
   );

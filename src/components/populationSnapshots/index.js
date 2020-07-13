@@ -5,7 +5,7 @@ import { StyledScrollBox } from './styles'
 
 function PopulationSnapshots() {
   // global state
-  const { setSnapshotsCanvasRef, screenDimensions, stretchFactor, isVertical } = useContext(
+  const { setSnapshotsCanvasRef, screenDimensions, stretchFactor, isVertical, thickness } = useContext(
     SnapshotsCanvasContext
   );
   const { populationSnapshots } = useContext(BugsContext);
@@ -20,16 +20,17 @@ function PopulationSnapshots() {
   if (populationSnapshots.length === 0) return <></>;
 
   return (
-    <StyledScrollBox
-      width={screenDimensions.width}
-      height={screenDimensions.height}
-    >
-    <canvas
-      width={screenDimensions.width * (isVertical ? 1 : stretchFactor)}
-      height={screenDimensions.height * (isVertical ? stretchFactor : 1)}
-      ref={canvasRef}
-    ></canvas>
-    </StyledScrollBox>
+      <StyledScrollBox
+        width={screenDimensions.width}
+        height={screenDimensions.height}
+        isVertical={isVertical}
+      >
+      <canvas
+        width={screenDimensions.width * (isVertical ? thickness : stretchFactor)}
+        height={screenDimensions.height * (isVertical ? stretchFactor : thickness)}
+        ref={canvasRef}
+      ></canvas>
+      </StyledScrollBox>
   );
 }
 

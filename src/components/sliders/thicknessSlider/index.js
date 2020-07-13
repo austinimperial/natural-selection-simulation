@@ -4,19 +4,19 @@ import Slider from "shared/slider/index";
 
 function StretchFactorSlider() {
   // global state
-  const { setStretchFactor } = useContext(SnapshotsCanvasContext);
+  const { setThickness } = useContext(SnapshotsCanvasContext);
 
-  const handleMouseUp = newValue => {
-      setStretchFactor(newValue)
-  }
+    const handleMouseUp = newValue => {
+        setThickness(newValue)
+    }
 
   return (
     <Slider
-      min={1}
-      max={20}
-      step={1}
-      initial={1}
-      name={"stretch factor"}
+      min={0.1}
+      max={1}
+      step={0.1}
+      initial={0.5}
+      name={"thickness"}
       doSomethingOnMouseUp={handleMouseUp}
       containerStyle={{
         margin: "20px",
