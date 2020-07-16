@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import getDocumentDimensions from "./getDocumentDimensions";
 import drawCanvas from "./drawCanvas";
 import { BugsContext } from "globalState/bugs/index";
+import { getLinePaths, getOrganismList } from './lineSnapshots'
 export const SnapshotsCanvasContext = React.createContext();
 const _ = require("lodash");
 
@@ -14,6 +15,9 @@ function SnapshotsCanvasProvider({ children }) {
   const [screenDimensions, setScreenDimensions] = useState(
     getDocumentDimensions()
   );
+  const [organismLinePaths,setOrganismLinePaths] = useState([])
+  const [lineWidth,setLineWidth] = useState(5)
+
 
   // global state
   const { populationSize, populationSnapshots } = useContext(BugsContext);
@@ -67,6 +71,25 @@ function SnapshotsCanvasProvider({ children }) {
     setScreenDimensions(docDimens);
   };
 
+  useEffect(() => {
+    const orgList = getOrganismList(populationSnapshots )
+    const linePaths = getLinePaths({
+      organismList: orgList,
+      populationSnapshots,
+      stretchFactor,
+      thickness,
+      populationSize,
+      screenDimensions,
+    })
+    setOrganismLinePaths(linePaths)
+  },[
+    populationSnapshots,
+    populationSize,
+    stretchFactor,
+    thickness,
+    screenDimensions
+  ])
+
   const value = {
     snapshotsCanvasRef,
     setSnapshotsCanvasRef,
@@ -78,7 +101,10 @@ function SnapshotsCanvasProvider({ children }) {
     stretchFactor,
     setStretchFactor,
     thickness,
-    setThickness
+    setThickness,
+    organismLinePaths,
+    lineWidth,
+    setLineWidth
   };
 
   return (

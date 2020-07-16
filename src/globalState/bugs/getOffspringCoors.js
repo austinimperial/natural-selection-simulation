@@ -1,6 +1,6 @@
 export default function getOffspringCoors(
   maxOffspringDistance,
-  eatenBug,
+  parent,
   svgContainerDimensions,
   bugSize
 ) {
@@ -15,9 +15,9 @@ export default function getOffspringCoors(
   const xMax = svgContainerDimensions.width - bugSize;
   const yMax = svgContainerDimensions.height - bugSize;
 
-  // eatenBug coors are ratio
-  var newX = eatenBug.x * svgContainerDimensions.width + xStep;
-  var newY = eatenBug.y * svgContainerDimensions.height + yStep;
+  // parent coors are ratio
+  var newX = parent.x * svgContainerDimensions.width + xStep;
+  var newY = parent.y * svgContainerDimensions.height + yStep;
 
   // convert out-of-bounds coordinates to on-the-border coordinates
   if (newX > xMax) {

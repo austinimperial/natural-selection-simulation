@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useContext, useEffect } from "react";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
-import getNewOffspring from "./getNewOffspring";
 import eatAndSpawnNew from "./eatAndSpawnNew";
 import getInitialBugs from "./getInitialBugs";
 import getRandomLivingBugNode from "./getRandomLivingBugNode";
@@ -15,9 +14,9 @@ function BugsProvider({ children }) {
   // local state
   const [bugs2, setBugs2] = useState(null);
   const [populationSize, setPopulationSize] = useState(50);
-  const [bugSize, setBugSize] = useState(14);
+  const [bugSize, setBugSize] = useState(12);
   const [maxMutationStep, setMaxMutationStep] = useState(27);
-  const [maxOffspringDistance, setMaxOffspringDistance] = useState(190);
+  const [maxOffspringDistance, setMaxOffspringDistance] = useState(250);
   const [growSpeed, setGrowSpeed] = useState(2);
   const [populationSnapshots, setPopulationSnapshots] = useState([]);
   const [stepCount, setStepCount] = useState(0);
@@ -52,6 +51,7 @@ function BugsProvider({ children }) {
       const livingBugs = getLivingBugNodes(bugs2, true);
       const newPopulationSnapshot = livingBugs.map((eatenBug) => ({
         color: eatenBug.color,
+        id: eatenBug.id
       }));
 
       setStepCount((prev) => prev + 1);
@@ -76,7 +76,6 @@ function BugsProvider({ children }) {
     setPopulationSize,
     bugSize,
     setBugSize,
-    getNewOffspring,
     maxMutationStep,
     setMaxMutationStep,
     maxOffspringDistance,

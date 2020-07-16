@@ -13,6 +13,8 @@ import PopulationSnapshots from "components/populationSnapshots/index";
 import RandomStep from "components/randomStep/index";
 import StretchFactorSlider from 'components/sliders/stretchFactorSlider/index'
 import ThicknessSlider from 'components/sliders/thicknessSlider/index'
+import LineWidthSlider from 'components/sliders/lineWidthSlider/index'
+import LineSnapshots from 'components/lineSnapshots/index'
 import {
   StyledContainer,
   StyledControlContainer,
@@ -40,8 +42,10 @@ function App() {
         <SvgContainer />
       </StyledSubContainer1>
       <StretchFactorSlider />
+      <LineWidthSlider />
       <ThicknessSlider />
-      <PopulationSnapshots />
+      {/* <PopulationSnapshots />  */}
+      <LineSnapshots />
     </StyledContainer>
   );
 }

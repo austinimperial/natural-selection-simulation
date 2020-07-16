@@ -8,10 +8,9 @@ export const drawSnapshotsHorizontal = ({
   stretchFactor,
   thickness
 }) => {
-  console.log(thickness)
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  const colWidth = (screenDimensions.width / populationSnapshots.length) * parseInt(stretchFactor);
+  const colWidth = screenDimensions.width * parseInt(stretchFactor) / populationSnapshots.length;
   const rowHeight = (screenDimensions.height / populationSize) * parseFloat(thickness);
   ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
   populationSnapshots.forEach((ps, rowIndex) => {
@@ -20,8 +19,8 @@ export const drawSnapshotsHorizontal = ({
       ctx.fillRect(
         rowIndex * colWidth,
         columnIndex * rowHeight,
-        colWidth + 1,
-        rowHeight + 1
+        colWidth +1,
+        rowHeight +1
       );
     });
   });
@@ -38,7 +37,7 @@ export const drawSnapshotsVertical = ({
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
   const colWidth = (screenDimensions.width / populationSize) * parseFloat(thickness);
-  const rowHeight = (screenDimensions.height / populationSnapshots.length) * parseInt(stretchFactor);
+  const rowHeight = screenDimensions.height * parseInt(stretchFactor) / populationSnapshots.length;
   ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
   populationSnapshots.forEach((ps, rowIndex) => {
     ps.forEach((bug, columnIndex) => {
@@ -46,8 +45,8 @@ export const drawSnapshotsVertical = ({
       ctx.fillRect(
         columnIndex * colWidth,
         rowIndex * rowHeight,
-        colWidth + 1,
-        rowHeight + 1
+        colWidth +1,
+        rowHeight +1
       );
     });
   });

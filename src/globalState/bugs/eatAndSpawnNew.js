@@ -22,7 +22,7 @@ export default function eatAndSpawnNew(
   const randomSurvivor = getRandomLivingBugNode(newBugs2);
   const offspringCoors = getOffspringCoors(
     maxOffspringDistance,
-    eatenBug,
+    randomSurvivor.data,
     svgContainerDimensions,
     bugSize
   );
