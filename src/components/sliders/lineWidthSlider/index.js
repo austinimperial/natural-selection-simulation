@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { SnapshotsCanvasContext } from "globalState/snapshotsCanvas/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
 import Slider from "shared/slider/index";
 
 function LineWidthSlider() {
   // global state
-  const { setLineWidth } = useContext(SnapshotsCanvasContext);
+  const { setLineWidth } = useContext(SnapshotsDisplayContext);
 
-    const handleMouseUp = newValue => {
-        setLineWidth(newValue)
-    }
+  const handleMouseUp = (newValue) => {
+    setLineWidth(newValue);
+  };
 
   return (
     <Slider

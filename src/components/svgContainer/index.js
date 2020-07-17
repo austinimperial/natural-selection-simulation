@@ -3,7 +3,7 @@ import { ScreenSizesContext } from "globalState/screenSizes/index";
 import { BugsContext } from "globalState/bugs/index";
 import { BgImageContext } from "globalState/bgImage/index";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
-import { SnapshotsCanvasContext } from "globalState/snapshotsCanvas/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
 import {
   StyledSvgCanvas,
   StyledContainer2,
@@ -24,7 +24,7 @@ function SvgContainer() {
   const { setCanvasOffset, setSvgContainerDimensions } = useContext(
     SvgDimensionsContext
   );
-  const { isVertical } = useContext(SnapshotsCanvasContext);
+  const { isVertical } = useContext(SnapshotsDisplayContext);
 
   // refs
   const svgContainerRef = useRef();

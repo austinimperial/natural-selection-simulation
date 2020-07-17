@@ -1,33 +1,34 @@
 import React, { useState, useEffect, useContext } from "react";
-import getDocumentDimensions from "./getDocumentDimensions";
-import drawCanvas from "./drawCanvas";
+import getDocumentDimensions from "./canvas/getDocumentDimensions";
+import drawCanvas from "./canvas/drawCanvas";
 import { BugsContext } from "globalState/bugs/index";
-import { getLinePaths, getOrganismList } from './lineSnapshots'
-export const SnapshotsCanvasContext = React.createContext();
+import getOrganisms from "./svg/getOrganisms";
+export const SnapshotsDisplayContext = React.createContext();
 const _ = require("lodash");
 
-function SnapshotsCanvasProvider({ children }) {
+function SnapshotsDisplayProvider({ children }) {
   // local state
   const [isVertical, setIsVertical] = useState(false);
-  const [stretchFactor,setStretchFactor] = useState(1)
-  const [thickness,setThickness] = useState(0.5)
+  const [stretchFactor, setStretchFactor] = useState(1);
+  const [thickness, setThickness] = useState(0.5);
   const [snapshotsCanvasRef, setSnapshotsCanvasRef] = useState(null);
   const [screenDimensions, setScreenDimensions] = useState(
     getDocumentDimensions()
   );
-  const [organismLinePaths,setOrganismLinePaths] = useState([])
-  const [lineWidth,setLineWidth] = useState(5)
-
+  const [organisms, setOrganisms] = useState([]);
+  const [lineWidth, setLineWidth] = useState(5);
+  const [displaySvg, setDisplaySvg] = useState(true);
 
   // global state
   const { populationSize, populationSnapshots } = useContext(BugsContext);
 
   // The drawing is split between two useEffect fuctions so that I can conditionally
-  // change the parameters of drawCanvas depending on which dependency/ies changed.
+  // change the parameters of the draw function depending on which dependency/ies changed.
   // Between the two useEffects, all dependencies are covered. This is an unusual
   // case to be sure. The logic boils down to this: If populationSnapshots is changing,
-  // throttle drawCanvas. Don't otherwise.
+  // throttle the draw function. Don't otherwise.
   useEffect(() => {
+    if (displaySvg) return;
     drawCanvas({
       snapshotsCanvasRef,
       populationSize,
@@ -36,11 +37,12 @@ function SnapshotsCanvasProvider({ children }) {
       isVertical,
       stretchFactor,
       thickness,
-      throttle:true,
+      throttle: true,
     });
   }, [populationSnapshots]);
 
   useEffect(() => {
+    if (displaySvg) return;
     drawCanvas({
       snapshotsCanvasRef,
       populationSize,
@@ -49,16 +51,23 @@ function SnapshotsCanvasProvider({ children }) {
       isVertical,
       stretchFactor,
       thickness,
-      throttle:false,
+      throttle: false,
     });
-  }, [screenDimensions,stretchFactor,isVertical,snapshotsCanvasRef,populationSize,thickness]);
+  }, [
+    screenDimensions,
+    stretchFactor,
+    isVertical,
+    snapshotsCanvasRef,
+    populationSize,
+    thickness,
+  ]);
 
   const handleResize = _.throttle(() => {
     const { width, height } = getDocumentDimensions();
     setScreenDimensions({ width, height });
     setIsVertical(false);
-    if (width < height) return setIsVertical(true)
-  }, 300);
+    if (width < height) return setIsVertical(true);
+  }, 200);
 
   useEffect(() => {
     handleResize();
@@ -72,23 +81,32 @@ function SnapshotsCanvasProvider({ children }) {
   };
 
   useEffect(() => {
-    const orgList = getOrganismList(populationSnapshots )
-    const linePaths = getLinePaths({
-      organismList: orgList,
-      populationSnapshots,
+    if (!displaySvg) return;
+    const organisms = getOrganisms({
+      populationSize,
       stretchFactor,
       thickness,
-      populationSize,
       screenDimensions,
-    })
-    setOrganismLinePaths(linePaths)
-  },[
-    populationSnapshots,
-    populationSize,
-    stretchFactor,
-    thickness,
-    screenDimensions
-  ])
+      populationSnapshots,
+      isVertical,
+      throttle: true,
+    });
+    setOrganisms(organisms);
+  }, [populationSnapshots]);
+
+  useEffect(() => {
+    if (!displaySvg) return;
+    const organisms = getOrganisms({
+      populationSize,
+      stretchFactor,
+      thickness,
+      screenDimensions,
+      populationSnapshots,
+      isVertical,
+      throttle: false,
+    });
+    setOrganisms(organisms);
+  }, [screenDimensions, stretchFactor, isVertical, populationSize, thickness]);
 
   const value = {
     snapshotsCanvasRef,
@@ -102,16 +120,18 @@ function SnapshotsCanvasProvider({ children }) {
     setStretchFactor,
     thickness,
     setThickness,
-    organismLinePaths,
     lineWidth,
-    setLineWidth
+    setLineWidth,
+    organisms,
+    displaySvg,
+    setDisplaySvg,
   };
 
   return (
-    <SnapshotsCanvasContext.Provider value={value}>
+    <SnapshotsDisplayContext.Provider value={value}>
       {children}
-    </SnapshotsCanvasContext.Provider>
+    </SnapshotsDisplayContext.Provider>
   );
 }
 
-export default SnapshotsCanvasProvider;
+export default SnapshotsDisplayProvider;

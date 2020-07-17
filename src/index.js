@@ -7,7 +7,7 @@ import ScreenSizesProvider from "globalState/screenSizes/index";
 import BugsProvider from "globalState/bugs/index";
 import BgImageProvider from "globalState/bgImage/index";
 import SvgDimensionsProvider from "globalState/svgContainerDimensions/index";
-import SnapshotsCanvasProvider from "globalState/snapshotsCanvas/index";
+import SnapshotsDisplayProvider from "globalState/snapshotsDisplay/index";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,9 +15,9 @@ ReactDOM.render(
       <SvgDimensionsProvider>
         <BugsProvider>
           <BgImageProvider>
-            <SnapshotsCanvasProvider>
+            <SnapshotsDisplayProvider>
               <App />
-            </SnapshotsCanvasProvider>
+            </SnapshotsDisplayProvider>
           </BgImageProvider>
         </BugsProvider>
       </SvgDimensionsProvider>

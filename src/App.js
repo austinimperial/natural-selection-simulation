@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
 import SvgContainer from "components/svgContainer/index";
 import FileInput from "components/fileInput/index";
 import ResetButton from "components/resetButton/index";
@@ -9,12 +10,13 @@ import OffspringDistanceSlider from "components/sliders/offspringDistanceSlider/
 import GrowSpeedSlider from "components/sliders/growSpeedSlider/index";
 import MaxMutationSlider from "components/sliders/maxMutationSlider/index";
 import PresetImageSelect from "components/presetImageSelect/index";
-import PopulationSnapshots from "components/populationSnapshots/index";
+import CanvasSnapshots from "components/canvasSnapshots/index";
 import RandomStep from "components/randomStep/index";
-import StretchFactorSlider from 'components/sliders/stretchFactorSlider/index'
-import ThicknessSlider from 'components/sliders/thicknessSlider/index'
-import LineWidthSlider from 'components/sliders/lineWidthSlider/index'
-import LineSnapshots from 'components/lineSnapshots/index'
+import StretchFactorSlider from "components/sliders/stretchFactorSlider/index";
+import ThicknessSlider from "components/sliders/thicknessSlider/index";
+import LineWidthSlider from "components/sliders/lineWidthSlider/index";
+import SnapshotSwitchButton from "components/snapshotSwitchButton/index";
+import SvgSnapshots from "components/svgSnapshots/index";
 import {
   StyledContainer,
   StyledControlContainer,
@@ -24,6 +26,7 @@ import {
 function App() {
   // gloabl state
   const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext);
+  const { displaySvg } = useContext(SnapshotsDisplayContext);
 
   return (
     <StyledContainer small={xxs || xs || sm} big={md || lg || xl}>
@@ -44,8 +47,8 @@ function App() {
       <StretchFactorSlider />
       <LineWidthSlider />
       <ThicknessSlider />
-      {/* <PopulationSnapshots />  */}
-      <LineSnapshots />
+      <SnapshotSwitchButton />
+      {displaySvg ? <SvgSnapshots /> : <CanvasSnapshots />}
     </StyledContainer>
   );
 }

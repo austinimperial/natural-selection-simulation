@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { SnapshotsCanvasContext } from "globalState/snapshotsCanvas/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
 import Slider from "shared/slider/index";
 
 function StretchFactorSlider() {
   // global state
-  const { setStretchFactor } = useContext(SnapshotsCanvasContext);
+  const { setStretchFactor } = useContext(SnapshotsDisplayContext);
 
-  const handleMouseUp = newValue => {
-      setStretchFactor(newValue)
-  }
+  const handleMouseUp = (newValue) => {
+    setStretchFactor(newValue);
+  };
 
   return (
     <Slider

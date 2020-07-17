@@ -51,7 +51,7 @@ function BugsProvider({ children }) {
       const livingBugs = getLivingBugNodes(bugs2, true);
       const newPopulationSnapshot = livingBugs.map((eatenBug) => ({
         color: eatenBug.color,
-        id: eatenBug.id
+        id: eatenBug.id,
       }));
 
       setStepCount((prev) => prev + 1);

@@ -13,7 +13,7 @@ export default function drawCanvas({
   isVertical,
   throttle,
   stretchFactor,
-  thickness
+  thickness,
 }) {
   if (snapshotsCanvasRef === null) return;
 
@@ -24,7 +24,7 @@ export default function drawCanvas({
       populationSize,
       canvas: snapshotsCanvasRef.current,
       stretchFactor,
-      thickness
+      thickness,
     });
 
   if (!throttle && isVertical)
@@ -34,7 +34,7 @@ export default function drawCanvas({
       populationSize,
       canvas: snapshotsCanvasRef.current,
       stretchFactor,
-      thickness
+      thickness,
     });
 
   if (!isVertical)
@@ -44,7 +44,7 @@ export default function drawCanvas({
       populationSize,
       canvas: snapshotsCanvasRef.current,
       stretchFactor,
-      thickness
+      thickness,
     });
 
   throttledDrawSnapshotsVertical({
@@ -53,6 +53,6 @@ export default function drawCanvas({
     populationSize,
     canvas: snapshotsCanvasRef.current,
     stretchFactor,
-    thickness
+    thickness,
   });
 }
