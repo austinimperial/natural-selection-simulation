@@ -1,6 +1,6 @@
 import {
   throttledFormatOrganismPath,
-  slightlyThrottledFormatOrganismPath,
+  formatOrganismPath,
 } from "./formatOrganismPath";
 import getOrganismList from "./getOrganismList";
 
@@ -16,7 +16,7 @@ const getOrganisms = ({
   const orgList = getOrganismList(populationSnapshots);
 
   if (!throttle) {
-    return slightlyThrottledFormatOrganismPath({
+    return formatOrganismPath({
       organismList: orgList,
       populationSnapshots,
       stretchFactor,

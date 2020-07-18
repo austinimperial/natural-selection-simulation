@@ -2,20 +2,13 @@ import { getMidpoints } from "./getMidpoints";
 
 //outputs a string that can be assigned to the 'd' property of an SVG <path /> element
 // lines travel top to bottom
-function getPathVertical({
-  pointList,
-  screenDimensions,
-  populationSize,
-  thickness,
-  stretchFactor,
-  populationSnapshots,
-}) {
-  const colWidth =
-    (screenDimensions.width / populationSize) * parseFloat(thickness);
-  const rowHeight =
-    (screenDimensions.height * parseInt(stretchFactor)) /
-    (populationSnapshots.length - 1);
+function getPathVertical({ pointList, colWidth, rowHeight }) {
   const midpoints = getMidpoints(pointList);
+
+  // if pointlist is of length 1, just draw lines straight down
+  const x = pointList[0].y * colWidth
+  if (pointList.length === 1 && pointList[0].x === 0) 
+    return `M ${x} 0 L ${x} ${rowHeight} `;
 
   const path = pointList.reduce((acc, current, i) => {
     const yCoor = current.x * rowHeight;
@@ -24,6 +17,7 @@ function getPathVertical({
     const midpointY = midpoints[i].x * rowHeight;
 
     if (i === 0) return `M ${xCoor} ${yCoor} L ${midpointX} ${midpointY} `;
+    if (i === pointList.lenghth - 1) return (acc += `L ${xCoor} ${yCoor}`);
     return (acc += `Q ${xCoor} ${yCoor} ${midpointX} ${midpointY} `);
   }, "");
   return path;

@@ -60,13 +60,14 @@ function SnapshotsDisplayProvider({ children }) {
     snapshotsCanvasRef,
     populationSize,
     thickness,
+    displaySvg,
   ]);
 
   const handleResize = _.throttle(() => {
     const { width, height } = getDocumentDimensions();
     setScreenDimensions({ width, height });
-    setIsVertical(false);
     if (width < height) return setIsVertical(true);
+    if (height <= width) return setIsVertical(false);
   }, 200);
 
   useEffect(() => {
@@ -106,7 +107,14 @@ function SnapshotsDisplayProvider({ children }) {
       throttle: false,
     });
     setOrganisms(organisms);
-  }, [screenDimensions, stretchFactor, isVertical, populationSize, thickness]);
+  }, [
+    screenDimensions,
+    stretchFactor,
+    isVertical,
+    populationSize,
+    thickness,
+    displaySvg,
+  ]);
 
   const value = {
     snapshotsCanvasRef,
