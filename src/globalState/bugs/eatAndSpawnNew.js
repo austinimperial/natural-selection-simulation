@@ -34,6 +34,7 @@ export default function eatAndSpawnNew(
     color: getColorMutation(randomSurvivor.data, maxMutationStep),
     id: uuid(),
     orientation: Math.floor(Math.random() * 360),
+    clone: randomSurvivor.data.clone,
   };
 
   addChild(randomSurvivor, newBug);

@@ -4,6 +4,7 @@ export const StyledScrollBox = styled.div`
   display: flex;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  overflow: scroll;
   overflow-x: scroll;
 
   ${(props) =>

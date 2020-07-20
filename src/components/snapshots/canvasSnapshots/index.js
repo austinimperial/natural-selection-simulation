@@ -26,6 +26,9 @@ function CanvasSnapshots() {
       isVertical={isVertical}
     >
       <canvas
+        style={{
+          'flexShrink':'0'
+        }}
         width={
           screenDimensions.width * (isVertical ? thickness : stretchFactor)
         }

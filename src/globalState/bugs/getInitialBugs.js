@@ -18,6 +18,7 @@ export default function getInitialBugs(
       color: getRandomRGB(),
       id: uuid(),
       orientation: Math.floor(Math.random() * 360),
+      clone: false,
     });
   }
   return root;

@@ -14,9 +14,10 @@ export default function getCustomInitialBugs(
       x: randCoors.x,
       y: randCoors.y,
       isAlive: true,
-      color: customColorArray[i],
+      color: customColorArray[i].color,
       id: uuid(),
       orientation: Math.floor(Math.random() * 360),
+      clone: customColorArray[i].clone,
     });
   }
   return root;
