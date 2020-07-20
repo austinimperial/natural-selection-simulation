@@ -16,13 +16,13 @@ function DomPopulationColors({ maxColorCount }) {
   );
 
   // global state
-  const { bugs2, populationSize, getLivingBugNodes } = useContext(BugsContext);
+  const { bugs, populationSize, getLivingBugNodes } = useContext(BugsContext);
 
   useEffect(() => {
-    const livingBugs = getLivingBugNodes(bugs2, true);
+    const livingBugs = getLivingBugNodes(bugs, true);
     const bugPalette = getBugPalette(livingBugs, maxColorCount);
     setPalette(bugPalette);
-  }, [bugs2, setPalette, populationSize, maxColorCount, getLivingBugNodes]);
+  }, [bugs, setPalette, populationSize, maxColorCount, getLivingBugNodes]);
 
   return (
     <StyledContainer>

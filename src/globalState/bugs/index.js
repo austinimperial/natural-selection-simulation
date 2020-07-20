@@ -2,6 +2,7 @@ import React, { useState, useCallback, useContext, useEffect } from "react";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import eatAndSpawnNew from "./eatAndSpawnNew";
 import getInitialBugs from "./getInitialBugs";
+import getCustomInitialBugs from "./getCustomInitialBugs"
 import getRandomLivingBugNode from "./getRandomLivingBugNode";
 import { Node, flatten, getLivingBugNodes } from "./tree";
 export const BugsContext = React.createContext();
@@ -12,7 +13,7 @@ function BugsProvider({ children }) {
   const MAX_STEP_COUNT = 3000;
 
   // local state
-  const [bugs2, setBugs2] = useState(null);
+  const [bugs, setBugs] = useState(null);
   const [populationSize, setPopulationSize] = useState(50);
   const [bugSize, setBugSize] = useState(12);
   const [maxMutationStep, setMaxMutationStep] = useState(27);
@@ -25,12 +26,12 @@ function BugsProvider({ children }) {
   const { svgContainerDimensions } = useContext(SvgDimensionsContext);
 
   useEffect(() => {
-    const newBugs2 = getInitialBugs(
+    const newbugs = getInitialBugs(
       svgContainerDimensions,
       populationSize,
       bugSize
     );
-    setBugs2(newBugs2);
+    setBugs(newbugs);
   }, []);
 
   const step = useCallback(
@@ -40,7 +41,7 @@ function BugsProvider({ children }) {
 
       const newBugs = eatAndSpawnNew(
         eatenBug,
-        bugs2,
+        bugs,
         getRandomLivingBugNode,
         maxOffspringDistance,
         svgContainerDimensions,
@@ -48,21 +49,21 @@ function BugsProvider({ children }) {
         maxMutationStep
       );
 
-      const livingBugs = getLivingBugNodes(bugs2, true);
+      const livingBugs = getLivingBugNodes(bugs, true);
       const newPopulationSnapshot = livingBugs.map((eatenBug) => ({
         color: eatenBug.color,
         id: eatenBug.id,
       }));
 
       setStepCount((prev) => prev + 1);
-      setBugs2(newBugs);
+      setBugs(newBugs);
       setPopulationSnapshots((prevPopulationSnapshots) => [
         ...prevPopulationSnapshots,
         newPopulationSnapshot,
       ]);
     },
     [
-      bugs2,
+      bugs,
       maxMutationStep,
       maxOffspringDistance,
       svgContainerDimensions,
@@ -84,8 +85,8 @@ function BugsProvider({ children }) {
     setGrowSpeed,
     populationSnapshots,
     setPopulationSnapshots,
-    bugs2,
-    setBugs2,
+    bugs,
+    setBugs,
     eatAndSpawnNew,
     getInitialBugs,
     Node,
@@ -96,6 +97,7 @@ function BugsProvider({ children }) {
     stepCount,
     setStepCount,
     MAX_STEP_COUNT,
+    getCustomInitialBugs
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

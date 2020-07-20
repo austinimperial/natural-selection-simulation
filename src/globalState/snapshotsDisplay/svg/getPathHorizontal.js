@@ -6,8 +6,8 @@ function getPathHorizontal({ pointList, colWidth, rowHeight }) {
   const midpoints = getMidpoints(pointList);
 
   // if pointlist is of length 1, just draw lines straight across
-  const firstXCoor = pointList[0].x
-  const firstYCoor = pointList[0].y * rowHeight + rowHeight / 2
+  const firstXCoor = pointList[0].x;
+  const firstYCoor = pointList[0].y * rowHeight + rowHeight / 2;
   if (pointList.length === 1 && firstXCoor === 0)
     return `M ${firstXCoor} ${firstYCoor} L ${colWidth} ${firstYCoor} `;
 

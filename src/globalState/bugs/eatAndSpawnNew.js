@@ -6,20 +6,20 @@ import getColorMutation from "./getColorMutation";
 
 export default function eatAndSpawnNew(
   eatenBug,
-  bugs2,
+  bugs,
   getRandomLivingBugNode,
   maxOffspringDistance,
   svgContainerDimensions,
   bugSize,
   maxMutationStep
 ) {
-  let newBugs2 = Object.assign(new Node({}), bugs2);
+  let newbugs = Object.assign(new Node({}), bugs);
 
   // eat bug
-  changeNodeData(newBugs2, eatenBug.id, { isAlive: false });
+  changeNodeData(newbugs, eatenBug.id, { isAlive: false });
 
   // spawn new
-  const randomSurvivor = getRandomLivingBugNode(newBugs2);
+  const randomSurvivor = getRandomLivingBugNode(newbugs);
   const offspringCoors = getOffspringCoors(
     maxOffspringDistance,
     randomSurvivor.data,
@@ -38,5 +38,5 @@ export default function eatAndSpawnNew(
 
   addChild(randomSurvivor, newBug);
 
-  return newBugs2;
+  return newbugs;
 }

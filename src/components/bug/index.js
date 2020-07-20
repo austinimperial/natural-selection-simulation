@@ -41,6 +41,7 @@ function Bug({ bug }) {
         fill={`rgb(${bug.color[0]},${bug.color[1]},${bug.color[2]})`}
         onMouseEnter={hanldleMouseEnter}
         // growSpeed defaults to zero unless the bug isGrowing immediately after mount
+        // this is so that changes to bugSize do not trigger grow animation.
         growSpeed={isGrowing ? growSpeed : 0}
         transform={`rotate(${bug.orientation})`}
         transform-origin={"center"}

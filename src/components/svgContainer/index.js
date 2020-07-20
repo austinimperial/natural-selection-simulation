@@ -19,7 +19,7 @@ const _ = require("lodash");
 function SvgContainer() {
   // // global state
   const { xxs, xs, sm } = useContext(ScreenSizesContext);
-  const { bugs2, getLivingBugNodes } = useContext(BugsContext);
+  const { bugs, getLivingBugNodes } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
   const { setCanvasOffset, setSvgContainerDimensions } = useContext(
     SvgDimensionsContext
@@ -65,7 +65,7 @@ function SvgContainer() {
             small={xxs || xs || sm}
             isVertical={isVertical}
           >
-            {getLivingBugNodes(bugs2, true).map((bug, i) => (
+            {getLivingBugNodes(bugs, true).map((bug, i) => (
               <Bug key={bug.id} i={i} bug={bug} />
             ))}
           </StyledSvgCanvas>

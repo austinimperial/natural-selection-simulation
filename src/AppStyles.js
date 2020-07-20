@@ -17,12 +17,6 @@ export const StyledContainer = styled.div`
   `}
 `;
 
-export const StyledControlContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
 export const StyledCanvasAndDomColorsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,6 +37,7 @@ export const StyledCanvasAndDomColorsContainer = styled.div`
 
 export const StyledSubContainer1 = styled.div`
   display: flex;
+  flex-wrap: wrap;
 
   ${(props) =>
     props.small &&

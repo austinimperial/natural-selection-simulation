@@ -1,7 +1,7 @@
 import getPathHorizontal from "./getPathHorizontal";
 import getPathVertical from "./getPathVertical";
 import getColWidthHorizontal from "./getColWidthHorizontal";
-import getRowHeightVertical from './getRowHeightVertical'
+import getRowHeightVertical from "./getRowHeightVertical";
 const _ = require("lodash");
 
 // consumes a list of Organisms and formats the path and color for use in SVG element
@@ -15,7 +15,7 @@ export const formatOrganismPath = ({
   populationSnapshots,
 }) => {
   if (isVertical) {
-    const colWidth = 
+    const colWidth =
       (screenDimensions.width / populationSize) * parseFloat(thickness);
 
     const rowHeight = getRowHeightVertical(

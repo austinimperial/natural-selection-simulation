@@ -6,8 +6,8 @@ function getPathVertical({ pointList, colWidth, rowHeight }) {
   const midpoints = getMidpoints(pointList);
 
   // if pointlist is of length 1, just draw lines straight down
-  const x = pointList[0].y * colWidth
-  if (pointList.length === 1 && pointList[0].x === 0) 
+  const x = pointList[0].y * colWidth;
+  if (pointList.length === 1 && pointList[0].x === 0)
     return `M ${x} 0 L ${x} ${rowHeight} `;
 
   const path = pointList.reduce((acc, current, i) => {
