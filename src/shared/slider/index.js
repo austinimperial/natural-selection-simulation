@@ -4,8 +4,9 @@ import {
   StyledValueDisplay,
   StyledName,
   StyledInputAndValueContainer,
+  StyledInput
 } from "./styles";
-import { StyledInput } from "shared/styles";
+//import { StyledInput } from "shared/styles";
 
 function Slider({
   min,
@@ -14,7 +15,7 @@ function Slider({
   step,
   name,
   unit,
-  value,
+  sliderWidth,
   containerStyle,
   doSomethingOnMouseUp,
   doSomethingOnChange,
@@ -48,6 +49,7 @@ function Slider({
           value={rangeValue}
           onMouseUp={handleMouseUp}
           onChange={handleOnChange}
+          sliderWidth={sliderWidth}
         ></StyledInput>
         <StyledValueDisplay>
           {rangeValue}

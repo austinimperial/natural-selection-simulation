@@ -4,7 +4,7 @@ import StretchFactorSlider from "components/snapshots/snapshotsControls/stretchF
 import ThicknessSlider from "components/snapshots/snapshotsControls/thicknessSlider/index";
 import LineWidthSlider from "components/snapshots/snapshotsControls/lineWidthSlider/index";
 import SnapshotSwitchButton from "components/snapshots/snapshotsControls/snapshotSwitchButton/index";
-import { StyledContainer } from "./styles";
+import { StyledContainer, StyledInnerContainer } from "./styles";
 
 function SnapshotsControls() {
   // global state
@@ -12,10 +12,12 @@ function SnapshotsControls() {
 
   return (
     <StyledContainer small={xxs || xs || sm} big={md || lg || xl}>
-      <SnapshotSwitchButton />
-      <StretchFactorSlider />
-      <ThicknessSlider />
-      <LineWidthSlider />
+      <StyledInnerContainer small={xxs || xs || sm} big={md || lg || xl}>
+        <SnapshotSwitchButton />
+        <StretchFactorSlider />
+        <ThicknessSlider />
+        <LineWidthSlider />
+      </StyledInnerContainer>
     </StyledContainer>
   );
 }

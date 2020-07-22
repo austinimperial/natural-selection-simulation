@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  padding: 0px 0px 0px 10px;
-
-  ${(props) =>
-    props.small &&
-    `
-        flex-direction: row;
-        flex-wrap: wrap;
-    `}
+    display: flex;
+    flex-direction: column;
 
   ${(props) =>
     props.big &&
     `
-        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 0px 0px 10px;
     `}
 `;
+
+export const StyledSliderContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const StyledButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`

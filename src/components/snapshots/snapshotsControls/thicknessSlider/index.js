@@ -18,8 +18,9 @@ function StretchFactorSlider() {
       initial={thickness}
       name={"thickness"}
       doSomethingOnMouseUp={handleMouseUp}
+      sliderWidth="150px"
       containerStyle={{
-        margin: "0px 10px 0px 10px",
+        width: "200px",
       }}
     />
   );

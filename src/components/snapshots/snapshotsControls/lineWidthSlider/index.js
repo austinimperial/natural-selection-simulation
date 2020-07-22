@@ -18,9 +18,10 @@ function LineWidthSlider() {
       initial={lineWidth}
       name={"line width"}
       doSomethingOnMouseUp={handleMouseUp}
-      // containerStyle={{
-      //   margin: "20px",
-      // }}
+      sliderWidth="150px"
+      containerStyle={{
+        width: "200px",
+      }}
     />
   );
 }

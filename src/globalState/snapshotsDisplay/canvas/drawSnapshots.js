@@ -11,7 +11,7 @@ export const drawSnapshotsHorizontal = ({
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
   const colWidth =
-    (screenDimensions.width * parseInt(stretchFactor)) /
+    (screenDimensions.width * parseFloat(stretchFactor)) /
     populationSnapshots.length;
   const rowHeight =
     (screenDimensions.height / populationSize) * parseFloat(thickness);
@@ -42,7 +42,7 @@ export const drawSnapshotsVertical = ({
   const colWidth =
     (screenDimensions.width / populationSize) * parseFloat(thickness);
   const rowHeight =
-    (screenDimensions.height * parseInt(stretchFactor)) /
+    (screenDimensions.height * parseFloat(stretchFactor)) /
     populationSnapshots.length;
   ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
   populationSnapshots.forEach((ps, rowIndex) => {

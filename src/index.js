@@ -8,21 +8,24 @@ import BugsProvider from "globalState/bugs/index";
 import BgImageProvider from "globalState/bgImage/index";
 import SvgDimensionsProvider from "globalState/svgContainerDimensions/index";
 import SnapshotsDisplayProvider from "globalState/snapshotsDisplay/index";
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ScreenSizesProvider>
-      <SvgDimensionsProvider>
-        <BugsProvider>
-          <BgImageProvider>
-            <SnapshotsDisplayProvider>
-              <App />
-            </SnapshotsDisplayProvider>
-          </BgImageProvider>
-        </BugsProvider>
-      </SvgDimensionsProvider>
-    </ScreenSizesProvider>
-  </React.StrictMode>,
+    <React.StrictMode>
+      <BrowserRouter>
+        <ScreenSizesProvider>
+          <SvgDimensionsProvider>
+            <BugsProvider>
+              <BgImageProvider>
+                <SnapshotsDisplayProvider>
+                  <App />
+                </SnapshotsDisplayProvider>
+              </BgImageProvider>
+            </BugsProvider>
+          </SvgDimensionsProvider>
+        </ScreenSizesProvider>
+      </BrowserRouter>
+    </React.StrictMode>,
   document.getElementById("root")
 );
 

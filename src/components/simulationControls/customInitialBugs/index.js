@@ -5,6 +5,7 @@ import { getArrayFromText } from './getArrayFromText'
 import { BugsContext } from "globalState/bugs/index";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index"
 import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index"
+import { ScreenSizesContext } from "globalState/screenSizes/index"
 import {
   StyledContainer,
   StyledTextArea,
@@ -24,10 +25,15 @@ function CustomInitialBugs() {
   } = useContext(BugsContext);
   const { svgContainerDimensions } = useContext(SvgDimensionsContext)
   const { resetCanvasDimens } = useContext(SnapshotsDisplayContext);
+  const {xxs, xs, sm, md, lg, xl} = useContext(ScreenSizesContext)
 
   // local state
   const [isInvalid, setIsInvalid] = useState(false);
   const [text, setText] = useState("");
+
+  // screen sizes
+  const small = (xxs || xs || sm)
+  const big = (md || lg || xl)
 
   useEffect(() => {
     if (text.match(colorListRegExp) || text === '') {
@@ -47,22 +53,28 @@ function CustomInitialBugs() {
         resetCanvasDimens();
     }
   };
-
-  return (
-    <StyledContainer>
-      <StyledP>custom initial bugs</StyledP>
-      <StyledTextArea
-        isInvalid={isInvalid}
-        type="textarea"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      ></StyledTextArea>
-      <StyledButton isInvalid={isInvalid} onClick={handleOnClick}>
-        set initial bugs
-      </StyledButton>
-      <StyledP>{example}</StyledP>
-    </StyledContainer>
-  );
+    return (
+      <StyledContainer
+        small={small}
+        big={big}
+      >
+        { big && <StyledP>custom initial bugs</StyledP> }
+        <StyledTextArea
+          small={small}
+          big={big}
+          isInvalid={isInvalid}
+          type="textarea"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        ></StyledTextArea>
+        <StyledP>{example}</StyledP>
+        <div>
+          <StyledButton isInvalid={isInvalid} onClick={handleOnClick}>
+            set initial bugs
+          </StyledButton>
+        </div>
+      </StyledContainer>
+    );    
 }
 
 export default CustomInitialBugs;

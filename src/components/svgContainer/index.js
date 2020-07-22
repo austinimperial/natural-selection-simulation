@@ -18,7 +18,7 @@ const _ = require("lodash");
 
 function SvgContainer() {
   // // global state
-  const { xxs, xs, sm } = useContext(ScreenSizesContext);
+  const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext);
   const { bugs, getLivingBugNodes } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
   const { setCanvasOffset, setSvgContainerDimensions } = useContext(
@@ -52,7 +52,10 @@ function SvgContainer() {
   }, [handleResize]);
 
   return (
-    <StyledContainer1>
+    <StyledContainer1
+      small={xxs || xs || sm}
+      big={md || lg || xl}
+    >
       <StyledContainer2>
         <StyledImgAndCanvasContainer>
           <StyledBgImg

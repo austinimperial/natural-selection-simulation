@@ -1,22 +1,21 @@
-import React, { useContext } from "react";
-import { ScreenSizesContext } from "globalState/screenSizes/index";
-import SvgContainer from "components/svgContainer/index";
-import Snapshots from "components/snapshots/index";
-import SimulationControls from "components/simulationControls/index";
-import { StyledContainer, StyledSubContainer1 } from "./AppStyles";
+import React from "react";
+import { Switch, Route, Redirect } from 'react-router-dom'
+import Simulation from "components/simulation/index";
+import { StyledAppContainer, StyledP } from './AppStyles'
 
 function App() {
-  // gloabl state
-  const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext);
-
   return (
-    <StyledContainer small={xxs || xs || sm} big={md || lg || xl}>
-      <StyledSubContainer1 small={xxs || xs || sm} big={md || lg || xl}>
-        <SimulationControls />
-        <SvgContainer />
-      </StyledSubContainer1>
-      <Snapshots />
-    </StyledContainer>
+    <StyledAppContainer>
+
+      <StyledP>Bug Hunt Camoflage</StyledP>
+
+      <Switch>
+        <Route exact path="/" render={() => <Simulation />} />
+        <Route exact path="/not_found" render={() => <p>page not found</p>} />
+        <Redirect to="/not_found"/>
+      </Switch>
+
+    </StyledAppContainer>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { BugsContext } from "globalState/bugs/index";
+import { ScreenSizesContext } from "globalState/screenSizes/index"
 import { StyledContainer, StyledButton, StyledSelect } from "./styles";
 
 function RandomStep() {
@@ -14,6 +15,7 @@ function RandomStep() {
     stepCount,
     MAX_STEP_COUNT,
   } = useContext(BugsContext);
+  const { xxs, xs, sm } = useContext(ScreenSizesContext)
 
   const handleOnClick = useCallback(() => {
     if (parseInt(stepInput) + parseInt(stepCount) > MAX_STEP_COUNT)
@@ -33,7 +35,9 @@ function RandomStep() {
   ]);
 
   return (
-    <StyledContainer>
+    <StyledContainer
+      small={xxs || xs || sm}
+    >
       <StyledButton onClick={handleOnClick}>random step</StyledButton>
       <StyledSelect
         value={stepInput}

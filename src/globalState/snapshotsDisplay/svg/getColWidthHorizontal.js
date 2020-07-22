@@ -4,9 +4,9 @@ const getColWidthHorizontal = (
   screenDimensions
 ) => {
   if (populationSnapshots.length === 0 || populationSnapshots.length === 1)
-    return screenDimensions.width * parseInt(stretchFactor);
+    return screenDimensions.width * parseFloat(stretchFactor);
   return (
-    (screenDimensions.width * parseInt(stretchFactor)) /
+    (screenDimensions.width * parseFloat(stretchFactor)) /
     (populationSnapshots.length - 1)
   );
 };

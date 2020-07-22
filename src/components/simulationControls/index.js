@@ -1,6 +1,12 @@
 import React, { useContext } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
-import { StyledContainer } from "./styles";
+import { 
+  StyledContainer,
+  // StyledSliderContainer,
+  // StyledButtonContainer
+} from "./styles";
+import ControlCollapse from "components/simulationControls/controlCollapse/index"
+import CustomBugCollapse from "components/simulationControls/customBugsCollapse/index"
 import FileInput from "components/simulationControls/fileInput/index";
 import ResetButton from "components/simulationControls/resetButton/index";
 import PopulationSlider from "components/simulationControls/populationSlider/index";
@@ -16,20 +22,35 @@ function SimulationControls() {
   // global state
   const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext);
 
-  return (
-    <StyledContainer small={xxs || xs || sm} big={md || lg || xl}>
+  if (xxs || xs || sm) return (
+    <StyledContainer >
+      <ControlCollapse />
+      <CustomBugCollapse />
+      <div
+        style={{
+          display: 'flex'
+        }}
+      >
+        <ResetButton />
+        <RandomStep />        
+      </div>
+    </StyledContainer>
+  )
+
+  if (md || lg || xl) return (
+    <StyledContainer big >
       <PopulationSlider />
       <BugSizeSlider />
       <OffspringDistanceSlider />
       <GrowSpeedSlider />
-      <MaxMutationSlider />
+      <MaxMutationSlider />     
       <PresetImageSelect />
       <FileInput />
       <ResetButton />
       <RandomStep />
       <CustomInitialBugs />
     </StyledContainer>
-  );
+  )
 }
 
 export default SimulationControls;

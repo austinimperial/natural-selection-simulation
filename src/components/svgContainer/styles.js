@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
 export const StyledContainer1 = styled.div`
-  padding: 10px 0px 0px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  ${props => props.small && `
+    padding: 0px;
+  `}
+
+  ${props => props.big && `
+    padding: 10px 0px 0px 0px;
+  `}
 `;
 
 export const StyledContainer2 = styled.div`

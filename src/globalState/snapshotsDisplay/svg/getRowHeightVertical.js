@@ -4,9 +4,9 @@ const getRowHeightVertical = (
   screenDimensions
 ) => {
   if (populationSnapshots.length === 0 || populationSnapshots.length === 1)
-    return screenDimensions.height * parseInt(stretchFactor);
+    return screenDimensions.height * parseFloat(stretchFactor);
   return (
-    (screenDimensions.height * parseInt(stretchFactor)) /
+    (screenDimensions.height * parseFloat(stretchFactor)) /
     (populationSnapshots.length - 1)
   );
 };

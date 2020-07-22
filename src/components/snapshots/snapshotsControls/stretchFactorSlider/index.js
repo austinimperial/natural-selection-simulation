@@ -13,13 +13,14 @@ function StretchFactorSlider() {
   return (
     <Slider
       min={1}
-      max={20}
-      step={1}
+      max={25}
+      step={0.5}
       initial={stretchFactor}
       name={"stretch factor"}
       doSomethingOnMouseUp={handleMouseUp}
+      sliderWidth="150px"
       containerStyle={{
-        margin: "0px 10px 0px 10px",
+        width: "200px",
       }}
     />
   );
