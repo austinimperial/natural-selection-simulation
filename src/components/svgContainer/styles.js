@@ -46,8 +46,16 @@ export const StyledSvgCanvas = styled.div`
     props.small &&
     !props.isVertical &&
     `
-      width: 97vh;
-      height: 97vh;
+      width: 84vh;
+      height: 84vh;
+    `}
+
+    ${(props) =>
+      props.big &&
+      !props.isVertical &&
+      `
+        width: 75vh;
+        height: 75vh;
     `}
 `;
 
@@ -72,7 +80,15 @@ export const StyledBgImg = styled.img`
     props.small &&
     !props.isVertical &&
     `
-    width: 97vh;
-    height: 97vh;
+    width: 84vh;
+    height: 84vh;
+  `}
+
+  ${(props) =>
+    props.big &&
+    !props.isVertical &&
+    `
+      width: 75vh;
+      height: 75vh;
   `}
 `;

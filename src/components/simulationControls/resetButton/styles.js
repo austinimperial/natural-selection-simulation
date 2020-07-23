@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledButton = styled.button`
   appearance: none;
   border: 1px solid black;
-  fill: white;
+  background-color: white;
 `;
 
 export const StyledContainer = styled.div`

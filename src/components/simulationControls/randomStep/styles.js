@@ -11,7 +11,7 @@ export const StyledContainer = styled.div`
 export const StyledButton = styled.button`
   appearance: none;
   border: 1px solid black;
-  fill: white;
+  background-color: white;
 `;
 
 export const StyledSelect = styled.select``;

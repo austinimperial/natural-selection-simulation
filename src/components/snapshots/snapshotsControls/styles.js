@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledContainer = styled.div`
   display: flex;
-  margin: 20px;
+  flex-direction: column;
+  align-items: center;
 
   ${props => props.small && `
     justify-content: center;
@@ -14,8 +15,9 @@ export const StyledContainer = styled.div`
 `;
 
 
-export const StyledInnerContainer = styled.div`
+export const StyledSliderContainer = styled.div`
   display: flex;
+  margin: 0px 0px 20px 0px;
 
   ${props => props.small && `
     flex-direction: column;

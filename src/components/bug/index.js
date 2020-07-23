@@ -17,7 +17,8 @@ function Bug({ bug }) {
   // set isGrowing to false once bug is done growing
   // this is done so that the growing animation is only triggered when the bug first mounts
   useEffect(() => {
-    setTimeout(() => setIsGrowing(false), growSpeed * 1000);
+    let timer = setTimeout(() => setIsGrowing(false), growSpeed * 1000);
+    return () => clearTimeout(timer)
   }, []);
 
   const hanldleMouseEnter = () => {

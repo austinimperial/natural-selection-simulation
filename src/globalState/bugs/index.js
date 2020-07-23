@@ -17,7 +17,7 @@ function BugsProvider({ children }) {
   const [populationSize, setPopulationSize] = useState(50);
   const [bugSize, setBugSize] = useState(12);
   const [maxMutationStep, setMaxMutationStep] = useState(27);
-  const [maxOffspringDistance, setMaxOffspringDistance] = useState(250);
+  const [maxOffspringDistance, setMaxOffspringDistance] = useState(150);
   const [growSpeed, setGrowSpeed] = useState(2);
   const [populationSnapshots, setPopulationSnapshots] = useState([]);
   const [stepCount, setStepCount] = useState(0);

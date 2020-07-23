@@ -12,13 +12,5 @@ export const StyledP = styled.p`
 
 export const StyledTitleContainer = styled.div`
     display: flex;
-    justify-content: flex-start;
-
-    ${props => props.small && `
-        justify-content: center;
-    `}
-
-    ${props => props.big && `
-        margin: 0px 0px 0px 20px;
-    `}
+    justify-content: center;
 `

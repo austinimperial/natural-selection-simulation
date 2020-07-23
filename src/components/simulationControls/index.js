@@ -38,7 +38,7 @@ function SimulationControls() {
   )
 
   if (md || lg || xl) return (
-    <StyledContainer big >
+    <StyledContainer >
       <PopulationSlider />
       <BugSizeSlider />
       <OffspringDistanceSlider />

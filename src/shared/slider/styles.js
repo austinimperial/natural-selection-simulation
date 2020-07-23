@@ -18,6 +18,7 @@ export const StyledInputAndValueContainer = styled.div`
 `;
 
 export const StyledInput = styled.input`
+    height: 20px;
     width: ${props => props.sliderWidth};
     border: 1px solid black;
     appearance: none;

@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 export const StyledAppContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
-export const StyledP = styled.p`
-    margin: 10px;
-    font-size: 50px;
-    font-family: 'Barrio', cursive;
+export const StyledSubContainer1 = styled.div`
+    min-height: 100vh;
 `
-

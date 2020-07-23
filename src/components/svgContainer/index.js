@@ -31,6 +31,7 @@ function SvgContainer() {
 
   const handleResize = useCallback(
     _.throttle(() => {
+      if (!svgContainerRef.current) return
       const newCanvasOffset = getContainerOffset(svgContainerRef);
       setCanvasOffset(newCanvasOffset);
       setSvgContainerDimensions({
@@ -61,11 +62,13 @@ function SvgContainer() {
           <StyledBgImg
             src={bgImage}
             small={xxs || xs || sm}
+            big={md || lg || xl}
             isVertical={isVertical}
           />
           <StyledSvgCanvas
             ref={svgContainerRef}
             small={xxs || xs || sm}
+            big={md || lg || xl}
             isVertical={isVertical}
           >
             {getLivingBugNodes(bugs, true).map((bug, i) => (
