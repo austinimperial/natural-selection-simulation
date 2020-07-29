@@ -13,9 +13,9 @@ function getPathHorizontal({ pointList, colWidth, rowHeight }) {
 
   const path = pointList.reduce((acc, current, i) => {
     const xCoor = current.x * colWidth;
-    const yCoor = current.y * rowHeight + rowHeight / 2;
+    const yCoor = current.y * rowHeight + (rowHeight * 0.75);
     const midpointX = midpoints[i].x * colWidth;
-    const midpointY = midpoints[i].y * rowHeight + rowHeight / 2;
+    const midpointY = midpoints[i].y * rowHeight + (rowHeight * 0.75);
 
     // i === 0 means the point is the first in the organism pointlist, could start
     // anywhere along the display graphic

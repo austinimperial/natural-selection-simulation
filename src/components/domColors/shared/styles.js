@@ -13,4 +13,6 @@ export const StyledSwatchContainer = styled.div`
 
 export const StyledTitle = styled.p`
   margin: 0px;
+  font-family: ${props => props.theme.secondaryFont}, sans-serif;
+  font-size: 12px;
 `;

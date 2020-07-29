@@ -9,22 +9,26 @@ import BgImageProvider from "globalState/bgImage/index";
 import SvgDimensionsProvider from "globalState/svgContainerDimensions/index";
 import SnapshotsDisplayProvider from "globalState/snapshotsDisplay/index";
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from "styled-components";
+import { mainTheme } from './mainTheme'
 
 ReactDOM.render(
     <React.StrictMode>
-      <BrowserRouter>
-        <ScreenSizesProvider>
-          <SvgDimensionsProvider>
-            <BugsProvider>
-              <BgImageProvider>
-                <SnapshotsDisplayProvider>
-                  <App />
-                </SnapshotsDisplayProvider>
-              </BgImageProvider>
-            </BugsProvider>
-          </SvgDimensionsProvider>
-        </ScreenSizesProvider>
-      </BrowserRouter>
+      <ThemeProvider theme={mainTheme}>
+        <BrowserRouter>
+          <ScreenSizesProvider>
+            <SvgDimensionsProvider>
+              <BugsProvider>
+                <BgImageProvider>
+                  <SnapshotsDisplayProvider>
+                    <App />
+                  </SnapshotsDisplayProvider>
+                </BgImageProvider>
+              </BugsProvider>
+            </SvgDimensionsProvider>
+          </ScreenSizesProvider>
+        </BrowserRouter>
+      </ThemeProvider>
     </React.StrictMode>,
   document.getElementById("root")
 );

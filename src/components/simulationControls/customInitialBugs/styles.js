@@ -20,6 +20,7 @@ export const StyledTextArea = styled.textarea`
   height: 50px;
   border: 1px solid black;
   box-sizing: border-box;
+  margin: 3px 0px 3px 0px;
   ${(props) =>
     props.isInvalid &&
     `
@@ -34,19 +35,25 @@ export const StyledTextArea = styled.textarea`
 export const StyledP = styled.p`
   margin: 0px;
   font-size: 12px;
+  ${props => props.subtext && `font-size: 10px`}
 `;
 
 export const StyledButton = styled.button`
   color: black;
   appearance: none;
+  cursor: pointer;
+  height: 20px;
   border: 1px solid black;
   background-color: white;
   border-radius: none;
   margin: 10px 0px 10px 0px;
+  font-family: ${props => props.theme.secondaryFont}, sans-serif;
+  font-size: 12px;
 
   ${(props) =>
     props.isInvalid &&
     `
+        cursor: not-allowed;
         color: gray;
     `}
 `;

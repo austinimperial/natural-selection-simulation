@@ -12,7 +12,7 @@ function getPathVertical({ pointList, colWidth, rowHeight }) {
 
   const path = pointList.reduce((acc, current, i) => {
     const yCoor = current.x * rowHeight;
-    const xCoor = current.y * colWidth + colWidth / 2;
+    const xCoor = current.y * colWidth + (colWidth / 2);
     const midpointX = midpoints[i].y * colWidth + colWidth / 2;
     const midpointY = midpoints[i].x * rowHeight;
 

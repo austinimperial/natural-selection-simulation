@@ -17,7 +17,7 @@ function SnapshotsDisplayProvider({ children }) {
   );
   const [organisms, setOrganisms] = useState([]);
   const [lineWidth, setLineWidth] = useState(5);
-  const [displaySvg, setDisplaySvg] = useState(true);
+  const [displaySvg, setDisplaySvg] = useState(false);
 
   // global state
   const { populationSize, populationSnapshots } = useContext(BugsContext);

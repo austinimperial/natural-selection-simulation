@@ -8,9 +8,14 @@ export const StyledContainer = styled.div`
 
 export const StyledValueDisplay = styled.div`
   margin: 0px 0px 0px 5px;
+  font-family: ${props => props.theme.secondaryFont}, sans-serif;
+  font-size: 14px;
 `;
 
-export const StyledName = styled.div``;
+export const StyledName = styled.div`
+    font-family: ${props => props.theme.secondaryFont}, sans-serif;
+    font-size: 14px;
+`;
 
 export const StyledInputAndValueContainer = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyledFileInput } from "./styles";
+import { StyledFileInput, StyledLabel } from "./styles";
 import { BgImageContext } from "globalState/bgImage/index";
 
 function FileInput() {
@@ -7,12 +7,15 @@ function FileInput() {
   const { setBgImage } = useContext(BgImageContext);
 
   return (
-    <StyledFileInput
-      title=""
-      type="file"
-      accept="image/*"
-      onChange={(e) => setBgImage(URL.createObjectURL(e.target.files[0]))}
-    />
+      <StyledLabel >
+        choose image
+        <StyledFileInput
+          title=""
+          type="file"
+          accept="image/*"
+          onChange={(e) => setBgImage(URL.createObjectURL(e.target.files[0]))}
+        />
+      </StyledLabel>  
   );
 }
 

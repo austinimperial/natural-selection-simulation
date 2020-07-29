@@ -67,7 +67,7 @@ function CustomInitialBugs() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></StyledTextArea>
-        <StyledP>{example}</StyledP>
+        <StyledP subtext >{example}</StyledP>
         <div>
           <StyledButton isInvalid={isInvalid} onClick={handleOnClick}>
             set initial bugs

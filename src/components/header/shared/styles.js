@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledButton = styled.button`
-    font-family: 'Barrio', cursive;
+    font-family: ${props => props.theme.titleFont}, sans-serif;
     font-size: 25px;
     border-radius: 50px;
     width: ${props => props.width};

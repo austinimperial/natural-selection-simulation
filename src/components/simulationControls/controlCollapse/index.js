@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {
     StyledContainer, 
+    StyledInnerCollapseContainer
 } from './styles'
 import Collapse from 'components/simulationControls/collapse'
 import FileInput from "components/simulationControls/fileInput/index";
@@ -25,9 +26,7 @@ function ControlCollapse() {
             <Collapse
                 isCollapsed={isCollapsed}
             >
-                <div
-                    style={{padding:'15px'}}
-                >
+                <StyledInnerCollapseContainer>
                     <PopulationSlider />
                     <BugSizeSlider />
                     <OffspringDistanceSlider />
@@ -35,7 +34,7 @@ function ControlCollapse() {
                     <MaxMutationSlider />
                     <PresetImageSelect />
                     <FileInput />                             
-                </div>      
+                </StyledInnerCollapseContainer>     
             </Collapse>
         </StyledContainer>
     )
