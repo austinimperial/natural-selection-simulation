@@ -12,9 +12,9 @@ function StretchFactorSlider() {
 
   return (
     <Slider
-      min={1}
+      min={0.8}
       max={25}
-      step={0.5}
+      step={0.2}
       initial={stretchFactor}
       name={"stretch factor"}
       doSomethingOnMouseUp={handleMouseUp}

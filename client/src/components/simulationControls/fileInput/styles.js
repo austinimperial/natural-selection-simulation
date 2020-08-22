@@ -15,7 +15,7 @@ export const StyledLabel = styled.label`
   overflow: hidden;
   border: 1px solid black;
   background-color: white;
-  margin: 10px 0px 15px 0px;
+  margin: 10px 0px 0px 0px;
   width: 95px;
   padding: 0px 0px 0px 5px;
   min-height: 20px;
