@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-
   display: flex;
   flex-direction: column;
 
@@ -17,8 +16,8 @@ export const StyledContainer = styled.div`
 
 export const StyledTextArea = styled.textarea`
   outline: none;
-  height: 50px;
   border: 1px solid black;
+  height: 75px;
   box-sizing: border-box;
   margin: 3px 0px 3px 0px;
   ${(props) =>
@@ -42,11 +41,11 @@ export const StyledButton = styled.button`
   color: black;
   appearance: none;
   cursor: pointer;
-  height: 20px;
   border: 1px solid black;
   background-color: white;
   border-radius: none;
   margin: 10px 0px 10px 0px;
+  height: 20px;
   font-family: ${props => props.theme.secondaryFont}, sans-serif;
   font-size: 12px;
 

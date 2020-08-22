@@ -9,4 +9,5 @@ export const StyledContainer = styled.div`
 export const StyledP = styled.p`
     font-size: 12px;
     margin: 10px 0px 0px 0px;
+    word-wrap: break-word;
 `

@@ -12,6 +12,8 @@ export const StyledButton = styled.button`
     outline: none;
     cursor: pointer;
     margin: 10px;
+    padding: 0px;
+    text-align: center;
 
     :hover {
         color: white;

@@ -7,7 +7,7 @@ function Collapse({children,isCollapsed,collapseContainerStyle,onClick}) {
 
     useEffect(() => {
         setHeight(containerRef.current.scrollHeight)
-    },[])
+    })
 
     return (
         <StyledContainer

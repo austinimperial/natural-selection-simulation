@@ -22,4 +22,5 @@ export const StyledLabel = styled.label`
   font-family: ${props => props.theme.secondaryFont};
   font-size: 12px;
   cursor: pointer;
+  -webkit-appearance: none;
 `
