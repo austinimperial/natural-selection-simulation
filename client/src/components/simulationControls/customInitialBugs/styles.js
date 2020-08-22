@@ -17,8 +17,9 @@ export const StyledContainer = styled.div`
 export const StyledTextArea = styled.textarea`
   outline: none;
   border: 1px solid black;
-  height: 101px;
+  min-height: 75px;
   box-sizing: border-box;
+  border-radius: 0px 0px 0px 0px;
   margin: 3px 0px 3px 0px;
   ${(props) =>
     props.isInvalid &&
