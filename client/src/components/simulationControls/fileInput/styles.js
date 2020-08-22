@@ -18,7 +18,7 @@ export const StyledLabel = styled.label`
   margin: 10px 0px 0px 0px;
   width: 95px;
   padding: 0px 0px 0px 5px;
-  height: 20px;
+  min-height: 20px;
   font-family: ${props => props.theme.secondaryFont};
   font-size: 12px;
   cursor: pointer;
