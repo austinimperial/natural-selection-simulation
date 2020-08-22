@@ -35,6 +35,7 @@ export const StyledSelect = styled.select`
   outline: none;
   font-family: ${props => props.theme.secondaryFont};
   font-size: 12px;
+  background-color: white;
   border-radius: 0px 20px 20px 0px;
   background-image: url('data:image/svg+xml;,${downArrowSvgString}');
   background-repeat: no-repeat;

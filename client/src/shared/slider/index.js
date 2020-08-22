@@ -6,7 +6,6 @@ import {
   StyledInputAndValueContainer,
   StyledInput
 } from "./styles";
-//import { StyledInput } from "shared/styles";
 
 function Slider({
   min,
@@ -48,6 +47,7 @@ function Slider({
           step={step}
           value={rangeValue}
           onMouseUp={handleMouseUp}
+          onTouchEnd={handleMouseUp}
           onChange={handleOnChange}
           sliderWidth={sliderWidth}
         ></StyledInput>
