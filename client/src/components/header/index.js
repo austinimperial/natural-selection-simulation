@@ -13,7 +13,7 @@ function Header() {
 
     return (
         <StyledContainer>
-            <StyledP>Bug Hunt Camoflage</StyledP>
+            <StyledP>Bug Hunt Camouflage</StyledP>
             { location.pathname === '/' ? <InfoLinkButton /> : <HomeLinkButton />}
         </StyledContainer>
     )
