@@ -5,6 +5,6 @@ export const colorListRegExp = new RegExp(
 );
 
 
-export const rgbArrayRegExp = new RegExp(/\[(([0-9]|[0-9][0-9]|[0-1][0-9][0-9]|[0-2][0-5][0-5]),){2}([0-9]|[0-9][0-9]|[0-1][0-9][0-9]|[0-2][0-5][0-5])\]c*/,'g')
+export const rgbArrayRegExp = new RegExp(/\[(([0-9]|[0-9][0-9]|[0-1][0-9][0-9]|[0-2][0-4][0-9]|[0-2][5][0-5]),){2}([0-9]|[0-9][0-9]|[0-1][0-9][0-9]|[0-2][0-4][0-9]|[0-2][5][0-5])\]c*/,'g')
 
 export const colorValueRegExp = new RegExp(/\d{1,3}/,'g')
