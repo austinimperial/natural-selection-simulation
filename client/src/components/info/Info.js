@@ -10,6 +10,7 @@ import {
   Ol,
 } from "./InfoStyles";
 import wilensky from "./photos/wilensky.png";
+import how_to_read_snapshots from './photos/how_to_read_snapshots.png'
 
 function Info() {
   return (
@@ -76,7 +77,7 @@ function Info() {
           selection). Either way, this is how you get variation in a population.
         </StyledP>
         <StyledP>
-            At this point we have enough material to 
+          More to follow...
         </StyledP>
 
         <StyledSectionHeader>What Does This Simulation Simulate?</StyledSectionHeader>
@@ -88,6 +89,14 @@ function Info() {
         <StyledP>
           In Progress
         </StyledP>
+
+        <StyledSectionHeader>How To Read Population Snapshots</StyledSectionHeader>
+        <img
+          style={{
+            width: "100%",
+          }}
+          src={how_to_read_snapshots}
+        />
 
         <StyledSectionHeader>History</StyledSectionHeader>
         <StyledP>

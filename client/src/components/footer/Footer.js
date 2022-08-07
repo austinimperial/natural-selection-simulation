@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom'
 import {
     StyledContainer,
     StyledP
-} from './styles'
+} from './FooterStyles'
 
 function Footer() {
     return (
         <StyledContainer>
             <StyledP>{citationDescription}<Link to='/info'>more info.</Link></StyledP>
-            <StyledP>{citation}</StyledP>
         </StyledContainer>
     )
 }

@@ -23,7 +23,7 @@ export const StyledContentColumn = styled.div`
     margin: 20px 0px 0px 0px;
     padding: 10px;
     width: 100%;
-    max-width: 600px;
+    max-width: 780px;
 `
 
 export const StyledP = styled.p`
