@@ -1,9 +1,11 @@
 import styled from "styled-components/macro";
 
-export const StyledContainer = styled.div`
+export const Container = styled.div`
+  background-color: #8fbfa7;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: ${({ isVertical }) => isVertical ? '0px' : '10px'};
 
   ${props => props.small && `
     justify-content: center;

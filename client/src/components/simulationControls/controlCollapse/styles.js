@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const StyledContainer = styled.div`
-    background-color: rgb(222,225,230);
+    background-color: #8fbfa7;
 `
 
 export const StyledInnerCollapseContainer = styled.div`

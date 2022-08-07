@@ -4,7 +4,7 @@ import {
 } from './styles'
 import Collapse from 'components/simulationControls/collapse'
 import CustomInitialBugs from "components/simulationControls/customInitialBugs/index";
-import CollapseBar from "components/simulationControls/collapse/collapseBar"
+import CollapseBar from "components/simulationControls/collapse/collapseBar/CollapseBar"
 
 function CustomBugCollapse() {
     // local state

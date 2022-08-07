@@ -21,7 +21,7 @@ function SvgContainer() {
   const [isDead,setIsDead] = useState(false)
 
   const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext);
-  const { bugs, getLivingBugNodes, flashOnDeath } = useContext(BugsContext);
+  const { bugs, getLivingBugNodes, flashOnDeath, deaths, setDeaths, populationSnapshots } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
   const { setCanvasOffset, setSvgContainerDimensions } = useContext(
     SvgDimensionsContext
@@ -45,6 +45,10 @@ function SvgContainer() {
   );
 
   const onDeath = () => {
+    if (populationSnapshots.length) {
+      setDeaths(prev => [...prev,populationSnapshots.length])
+    }
+
     if (flashOnDeath) {
       setIsDead(true)
     }
@@ -67,6 +71,10 @@ function SvgContainer() {
       },20)
     }
   },[isDead])
+
+  useEffect(() => {
+    console.log({deaths})
+  },[deaths])
 
   return (
     <StyledContainer1

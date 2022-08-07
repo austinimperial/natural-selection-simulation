@@ -23,6 +23,7 @@ function BugsProvider({ children }) {
   const [hungerTimer, setHungerTimer] = useState(3.5);
   const [stepCount, setStepCount] = useState(0);
   const [flashOnDeath, setFlashOnDeath] = useState(true);
+  const [deaths, setDeaths] = useState([]);
 
   // global state
   const { svgContainerDimensions } = useContext(SvgDimensionsContext);
@@ -104,6 +105,8 @@ function BugsProvider({ children }) {
     setStepCount,
     step,
     stepCount,
+    deaths,
+    setDeaths
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

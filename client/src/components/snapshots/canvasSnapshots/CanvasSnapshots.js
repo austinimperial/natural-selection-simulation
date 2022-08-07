@@ -1,15 +1,11 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
-import { StyledScrollBox } from "./styles";
 
-function CanvasSnapshots() {
+function CanvasSnapshots({width,height}) {
   // global state
   const {
     setSnapshotsCanvasRef,
-    screenDimensions,
-    stretchFactor,
     isVertical,
-    thickness,
   } = useContext(SnapshotsDisplayContext);
 
   // ref
@@ -20,24 +16,14 @@ function CanvasSnapshots() {
   }, []);
 
   return (
-    <StyledScrollBox
-      width={screenDimensions.width}
-      height={screenDimensions.height}
-      isVertical={isVertical}
-    >
       <canvas
         style={{
           'flexShrink':'0'
         }}
-        width={
-          screenDimensions.width * (isVertical ? thickness : stretchFactor)
-        }
-        height={
-          screenDimensions.height * (isVertical ? stretchFactor : thickness)
-        }
+        width={width}
+        height={height}
         ref={canvasRef}
-      ></canvas>
-    </StyledScrollBox>
+      ></canvas>    
   );
 }
 

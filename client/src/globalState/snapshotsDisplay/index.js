@@ -17,7 +17,7 @@ function SnapshotsDisplayProvider({ children }) {
   );
   const [organisms, setOrganisms] = useState([]);
   const [lineWidth, setLineWidth] = useState(5);
-  const [displaySvg, setDisplaySvg] = useState(false);
+  const [isShowingSvg, setDisplaySvg] = useState(false);
 
   // global state
   const { populationSize, populationSnapshots } = useContext(BugsContext);
@@ -28,7 +28,7 @@ function SnapshotsDisplayProvider({ children }) {
   // case to be sure. The logic boils down to this: If populationSnapshots is changing,
   // throttle the draw function. Don't otherwise.
   useEffect(() => {
-    if (displaySvg) return;
+    if (isShowingSvg) return;
     drawCanvas({
       snapshotsCanvasRef,
       populationSize,
@@ -42,7 +42,7 @@ function SnapshotsDisplayProvider({ children }) {
   }, [populationSnapshots]);
 
   useEffect(() => {
-    if (displaySvg) return;
+    if (isShowingSvg) return;
     drawCanvas({
       snapshotsCanvasRef,
       populationSize,
@@ -60,7 +60,7 @@ function SnapshotsDisplayProvider({ children }) {
     snapshotsCanvasRef,
     populationSize,
     thickness,
-    displaySvg,
+    isShowingSvg,
   ]);
 
   const handleResize = _.throttle(() => {
@@ -82,7 +82,7 @@ function SnapshotsDisplayProvider({ children }) {
   };
 
   useEffect(() => {
-    if (!displaySvg) return;
+    if (!isShowingSvg) return;
     const organisms = getOrganisms({
       populationSize,
       stretchFactor,
@@ -96,7 +96,7 @@ function SnapshotsDisplayProvider({ children }) {
   }, [populationSnapshots]);
 
   useEffect(() => {
-    if (!displaySvg) return;
+    if (!isShowingSvg) return;
     const organisms = getOrganisms({
       populationSize,
       stretchFactor,
@@ -113,7 +113,7 @@ function SnapshotsDisplayProvider({ children }) {
     isVertical,
     populationSize,
     thickness,
-    displaySvg,
+    isShowingSvg,
   ]);
 
   const value = {
@@ -131,7 +131,7 @@ function SnapshotsDisplayProvider({ children }) {
     lineWidth,
     setLineWidth,
     organisms,
-    displaySvg,
+    isShowingSvg,
     setDisplaySvg,
   };
 

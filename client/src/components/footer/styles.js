@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const StyledContainer = styled.div`
     background-color: rgb(188, 204, 200);

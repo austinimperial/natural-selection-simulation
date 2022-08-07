@@ -11,7 +11,7 @@ import OffspringDistanceSlider from "components/simulationControls/sliders/Offsp
 import GrowSpeedSlider from "components/simulationControls/sliders/GrowSpeedSlider";
 import MaxMutationSlider from "components/simulationControls/sliders/MaxMutationSlider";
 import PresetImageSelect from "components/simulationControls/presetImageSelect/index";
-import CollapseBar from "components/simulationControls/collapse/collapseBar"
+import CollapseBar from "components/simulationControls/collapse/collapseBar/CollapseBar"
 
 function ControlCollapse() {
     // local state

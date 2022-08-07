@@ -1,24 +1,29 @@
 import React, { useContext } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay";
 import StretchFactorSlider from "components/snapshots/snapshotsControls/stretchFactorSlider/index";
 import ThicknessSlider from "components/snapshots/snapshotsControls/thicknessSlider/index";
 import LineWidthSlider from "components/snapshots/snapshotsControls/lineWidthSlider/index";
 import SnapshotSwitchButton from "components/snapshots/snapshotsControls/snapshotSwitchButton/index";
-import { StyledContainer, StyledSliderContainer } from "./styles";
+import {  Container, StyledSliderContainer } from "./SnapshotsControlsStyles";
 
 function SnapshotsControls() {
   // global state
   const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext);
 
+  const { 
+    isVertical,
+  } = useContext(SnapshotsDisplayContext);
+
   return (
-    <StyledContainer small={xxs || xs || sm} big={md || lg || xl}>
+    < Container small={xxs || xs || sm} big={md || lg || xl} isVertical={isVertical}>
       <SnapshotSwitchButton />
       <StyledSliderContainer small={xxs || xs || sm} big={md || lg || xl}>
         <StretchFactorSlider />
         <ThicknessSlider />
         <LineWidthSlider />
       </StyledSliderContainer>
-    </StyledContainer>
+    </ Container>
   );
 }
 

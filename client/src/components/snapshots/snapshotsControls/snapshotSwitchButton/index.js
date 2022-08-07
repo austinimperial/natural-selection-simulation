@@ -4,21 +4,21 @@ import { StyledButton, StyledContainer } from "./styles";
 
 function SnapshotSwitchButton() {
   // global state
-  const { setDisplaySvg, displaySvg } = useContext(SnapshotsDisplayContext);
+  const { setDisplaySvg, isShowingSvg } = useContext(SnapshotsDisplayContext);
 
   return (
     <StyledContainer>
       <StyledButton
         left
         onClick={() => setDisplaySvg(true)}
-        isSelected={displaySvg}
+        isSelected={isShowingSvg}
       >
         lines
       </StyledButton>
       <StyledButton
         right
         onClick={() => setDisplaySvg(false)}
-        isSelected={!displaySvg}
+        isSelected={!isShowingSvg}
       >
         grid
       </StyledButton>

@@ -1,33 +1,20 @@
 import React, { useContext } from "react";
 import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
-import { StyledScrollBox, StyledPath, StyledBackground } from "./styles";
+import { StyledPath, Background } from "./SvgSnapshotsStyles";
 import uuid from "react-uuid";
 
-function SvgSnapshots() {
+function SvgSnapshots({width,height}) {
   // global state
   const {
-    screenDimensions,
-    stretchFactor,
-    isVertical,
-    thickness,
     organisms,
     lineWidth,
   } = useContext(SnapshotsDisplayContext);
 
   return (
-    <StyledScrollBox
-      width={screenDimensions.width}
-      height={screenDimensions.height}
-      isVertical={isVertical}
-    >
-      <StyledBackground>
+      <Background>
         <svg
-          width={
-            screenDimensions.width * (isVertical ? thickness : stretchFactor)
-          }
-          height={
-            screenDimensions.height * (isVertical ? stretchFactor : thickness)
-          }
+          width={width}
+          height={height}
         >
           {organisms.map((organism) => (
             <StyledPath
@@ -40,8 +27,7 @@ function SvgSnapshots() {
             ></StyledPath>
           ))}
         </svg>
-      </StyledBackground>
-    </StyledScrollBox>
+      </Background>
   );
 }
 

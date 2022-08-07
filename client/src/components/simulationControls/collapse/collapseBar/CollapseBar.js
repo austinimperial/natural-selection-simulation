@@ -2,7 +2,7 @@ import React from 'react'
 import {
     StyledCollapseBar,
     StyledP
-} from './styles'
+} from './CollapseBarStyles'
 
 function CollapseBar({label,style,onClick}) {
     return (

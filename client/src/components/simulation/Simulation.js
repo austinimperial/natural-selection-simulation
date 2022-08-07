@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
 import SvgContainer from "components/svgContainer/SvgContainer";
-import Snapshots from "components/snapshots/index";
+import Snapshots from "components/snapshots/Snapshots";
 import SimulationControls from "components/simulationControls/SimulationControls";
 import { StyledContainer, StyledSubContainer1 } from "./styles";
 
