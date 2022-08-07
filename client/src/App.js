@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Simulation from "components/simulation/Simulation";
-import Info from "components/info/index"
+import Info from "components/info/Info"
 import Header from "components/header/index"
 import Footer from "components/footer/index"
 import { StyledAppContainer, StyledSubContainer1 } from './AppStyles'

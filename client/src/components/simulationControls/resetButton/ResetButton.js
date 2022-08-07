@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { BugsContext } from "globalState/bugs/BugsProvider";
-import { ScreenSizesContext } from "globalState/screenSizes/index"
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
-import { StyledButton, StyledContainer } from "./styles";
-import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
+import { StyledButton, StyledContainer } from "./ResetButtonStyles";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/SnapshotDisplay";
 
 function ResetButton() {
   // global state
@@ -14,10 +13,10 @@ function ResetButton() {
     setBugs,
     getInitialBugs,
     setStepCount,
+    setDeaths
   } = useContext(BugsContext);
   const { svgContainerDimensions } = useContext(SvgDimensionsContext);
   const { resetCanvasDimens } = useContext(SnapshotsDisplayContext);
-  const { xxs, xs, sm } = useContext(ScreenSizesContext)
 
   const handleClick = () => {
     const newBugs = getInitialBugs(
@@ -29,12 +28,11 @@ function ResetButton() {
     setPopulationSnapshots([]);
     setStepCount(0);
     resetCanvasDimens();
+    setDeaths([])
   };
 
   return (
-    <StyledContainer
-      small={xxs || xs || sm}
-    >
+    <StyledContainer>
       <StyledButton onClick={handleClick}>reset</StyledButton>
     </StyledContainer>
   );

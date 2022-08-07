@@ -4,7 +4,7 @@ import { colorListRegExp }  from "./regExp";
 import { getArrayFromText } from './getArrayFromText'
 import { BugsContext } from "globalState/bugs/BugsProvider";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index"
-import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index"
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/SnapshotDisplay"
 import { ScreenSizesContext } from "globalState/screenSizes/index"
 import {
   StyledContainer,

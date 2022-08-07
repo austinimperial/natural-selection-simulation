@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/SnapshotDisplay";
 import { StyledButton, StyledContainer } from "./styles";
 
 function SnapshotSwitchButton() {

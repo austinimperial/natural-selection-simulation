@@ -7,7 +7,7 @@ import ScreenSizesProvider from "globalState/screenSizes/index";
 import BugsProvider from "globalState/bugs/BugsProvider";
 import BgImageProvider from "globalState/bgImage/index";
 import SvgDimensionsProvider from "globalState/svgContainerDimensions/index";
-import SnapshotsDisplayProvider from "globalState/snapshotsDisplay/index";
+import SnapshotsDisplayProvider from "globalState/snapshotsDisplay/SnapshotDisplay";
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from "styled-components";
 import { mainTheme } from './mainTheme'

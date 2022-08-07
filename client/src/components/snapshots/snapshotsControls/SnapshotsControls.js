@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
-import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/SnapshotDisplay";
 import StretchFactorSlider from "components/snapshots/snapshotsControls/stretchFactorSlider/index";
 import ThicknessSlider from "components/snapshots/snapshotsControls/thicknessSlider/index";
 import LineWidthSlider from "components/snapshots/snapshotsControls/lineWidthSlider/index";

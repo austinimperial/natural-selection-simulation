@@ -15,8 +15,4 @@ export const StyledButton = styled.button`
 
 export const StyledContainer = styled.div`
   margin: 10px 0px 0px 0px;
-    
-  ${props => props.small && `
-    margin: 15px;
-  `}
 `;

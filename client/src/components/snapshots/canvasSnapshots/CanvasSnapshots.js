@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect } from "react";
-import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/SnapshotDisplay";
 
 function CanvasSnapshots({width,height}) {
   // global state

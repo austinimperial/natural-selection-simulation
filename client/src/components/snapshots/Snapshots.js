@@ -6,7 +6,7 @@ import {
   StyledScrollBox,
   DeathsContainer
 } from "./SnapshotsStyles";
-import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/SnapshotDisplay";
 import { BugsContext } from "globalState/bugs/BugsProvider";
 import SnapshotsControls from "components/snapshots/snapshotsControls/SnapshotsControls";
 import CanvasSnapshots from "./canvasSnapshots/CanvasSnapshots";

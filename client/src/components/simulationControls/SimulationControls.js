@@ -4,17 +4,17 @@ import { BugsContext } from "globalState/bugs/BugsProvider";
 import { 
   StyledContainer,
 } from "./SimulationControlsStyles";
-import ControlCollapse from "components/simulationControls/controlCollapse/index"
+import ControlCollapse from "components/simulationControls/controlCollapse/ControlCollapse"
 import CustomBugCollapse from "components/simulationControls/customBugsCollapse/index"
 import FileInput from "components/simulationControls/fileInput/index";
-import ResetButton from "components/simulationControls/resetButton/index";
+import ResetButton from "components/simulationControls/resetButton/ResetButton";
 import PopulationSlider from "components/simulationControls/sliders/PopulationSlider";
 import BugSizeSlider from "components/simulationControls/sliders/BugSizeSlider";
 import OffspringDistanceSlider from "components/simulationControls/sliders/OffspringDistanceSlider";
 import GrowSpeedSlider from "components/simulationControls/sliders/GrowSpeedSlider";
 import MaxMutationSlider from "components/simulationControls/sliders/MaxMutationSlider";
 import PresetImageSelect from "components/simulationControls/presetImageSelect/index";
-import RandomStep from "components/simulationControls/randomStep/index";
+import RandomStep from "components/simulationControls/randomStep/RandomStep";
 import CustomInitialBugs from "components/simulationControls/customInitialBugs/index";
 import HungerTimerSlider from "./sliders/HungerTimerSlider";
 import FlashCheckbox from "./flash-checkbox/FlashCheckbox";
@@ -27,14 +27,6 @@ function SimulationControls() {
     <StyledContainer >
       <ControlCollapse />
       <CustomBugCollapse />
-      <div
-        style={{
-          display: 'flex'
-        }}
-      >
-        <ResetButton />
-        <RandomStep />        
-      </div>
     </StyledContainer>
   )
 

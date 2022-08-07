@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
+import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/SnapshotDisplay";
 import { StyledPath, Background } from "./SvgSnapshotsStyles";
 import uuid from "react-uuid";
 

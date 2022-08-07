@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
     StyledContainer, 
     StyledInnerCollapseContainer
-} from './styles'
+} from './ControlCollapseStyles'
 import Collapse from 'components/simulationControls/collapse'
 import FileInput from "components/simulationControls/fileInput/index";
 import PopulationSlider from "components/simulationControls/sliders/PopulationSlider";
@@ -12,6 +12,8 @@ import GrowSpeedSlider from "components/simulationControls/sliders/GrowSpeedSlid
 import MaxMutationSlider from "components/simulationControls/sliders/MaxMutationSlider";
 import PresetImageSelect from "components/simulationControls/presetImageSelect/index";
 import CollapseBar from "components/simulationControls/collapse/collapseBar/CollapseBar"
+import RandomStep from 'components/simulationControls/randomStep/RandomStep';
+import ResetButton from 'components/simulationControls/resetButton/ResetButton';
 
 function ControlCollapse() {
     // local state
@@ -33,7 +35,9 @@ function ControlCollapse() {
                     <GrowSpeedSlider />
                     <MaxMutationSlider />
                     <PresetImageSelect />
-                    <FileInput />                             
+                    <FileInput />         
+                    <ResetButton />
+                    <RandomStep />                     
                 </StyledInnerCollapseContainer>     
             </Collapse>
         </StyledContainer>

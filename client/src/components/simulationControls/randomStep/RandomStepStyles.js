@@ -5,10 +5,6 @@ export const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 10px 0px 0px 0px;
-    
-  ${props => props.small && `
-    margin: 15px;
-  `}
 `;
 
 export const StyledButton = styled.button`
