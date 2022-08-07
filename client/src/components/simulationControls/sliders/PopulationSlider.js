@@ -1,7 +1,7 @@
 import React, { useContext, useCallback } from "react";
 import { BugsContext } from "globalState/bugs/BugsProvider";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
-import Slider from "shared/slider/index";
+import Slider from "shared/slider/Slider";
 
 function PopulationSlider() {
   // global state

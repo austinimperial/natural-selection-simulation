@@ -5,10 +5,18 @@ export const StyledContainer1 = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 
-export const StyledContainer2 = styled.div`
-  position: relative;
+export const DeathOverlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: ${({ isVisible }) => isVisible ? 0.3 : 0};
+  transition: opacity ${({ durationInSec, isVisible }) => {
+      return (isVisible ? 0 : durationInSec)
+    }}s cubic-bezier(.76,.21,.19,.76);
+  background-color: red;
 `;
 
 export const StyledImgAndCanvasContainer = styled.div`
@@ -16,6 +24,7 @@ export const StyledImgAndCanvasContainer = styled.div`
   justify-content: flex-start;
   padding: 0px;
   overflow: hidden;
+  position: relative;
 `;
 
 export const StyledSvgCanvas = styled.div`

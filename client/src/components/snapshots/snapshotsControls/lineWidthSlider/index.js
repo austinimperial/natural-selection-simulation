@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
-import Slider from "shared/slider/index";
+import Slider from "shared/slider/Slider";
 
 function LineWidthSlider() {
   // global state

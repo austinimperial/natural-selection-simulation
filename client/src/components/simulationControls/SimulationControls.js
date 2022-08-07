@@ -1,10 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import { 
   StyledContainer,
-  // StyledSliderContainer,
-  // StyledButtonContainer
-} from "./styles";
+} from "./SimulationControlsStyles";
 import ControlCollapse from "components/simulationControls/controlCollapse/index"
 import CustomBugCollapse from "components/simulationControls/customBugsCollapse/index"
 import FileInput from "components/simulationControls/fileInput/index";
@@ -18,6 +17,7 @@ import PresetImageSelect from "components/simulationControls/presetImageSelect/i
 import RandomStep from "components/simulationControls/randomStep/index";
 import CustomInitialBugs from "components/simulationControls/customInitialBugs/index";
 import HungerTimerSlider from "./sliders/HungerTimerSlider";
+import FlashCheckbox from "./flash-checkbox/FlashCheckbox";
 
 function SimulationControls() {
   // global state
@@ -46,6 +46,7 @@ function SimulationControls() {
       <GrowSpeedSlider />
       <MaxMutationSlider />    
       <HungerTimerSlider />  
+      <FlashCheckbox />
       <PresetImageSelect />
       <FileInput />
       <ResetButton />

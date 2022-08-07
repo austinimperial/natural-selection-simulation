@@ -2,7 +2,7 @@ import React, { useState, useCallback, useContext, useEffect } from "react";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import eatAndSpawnNew from "./eatAndSpawnNew";
 import getInitialBugs from "./getInitialBugs";
-import getCustomInitialBugs from "./getCustomInitialBugs"
+import getCustomInitialBugs from "./getCustomInitialBugs";
 import getRandomLivingBugNode from "./getRandomLivingBugNode";
 import { Node, flatten, getLivingBugNodes } from "./tree";
 export const BugsContext = React.createContext();
@@ -22,6 +22,7 @@ function BugsProvider({ children }) {
   const [populationSnapshots, setPopulationSnapshots] = useState([]);
   const [hungerTimer, setHungerTimer] = useState(3.5);
   const [stepCount, setStepCount] = useState(0);
+  const [flashOnDeath, setFlashOnDeath] = useState(true);
 
   // global state
   const { svgContainerDimensions } = useContext(SvgDimensionsContext);
@@ -74,33 +75,35 @@ function BugsProvider({ children }) {
   );
 
   const value = {
-    populationSize,
-    setPopulationSize,
-    bugSize,
-    setBugSize,
-    maxMutationStep,
-    setMaxMutationStep,
-    maxOffspringDistance,
-    setMaxOffspringDistance,
-    growSpeed,
-    setGrowSpeed,
-    populationSnapshots,
-    setPopulationSnapshots,
     bugs,
-    setBugs,
+    bugSize,
     eatAndSpawnNew,
-    getInitialBugs,
-    Node,
+    flashOnDeath,
     flatten,
-    getRandomLivingBugNode,
+    getCustomInitialBugs,
+    getInitialBugs,
     getLivingBugNodes,
+    getRandomLivingBugNode,
+    growSpeed,
+    hungerTimer,
+    MAX_STEP_COUNT,
+    maxMutationStep,
+    maxOffspringDistance,
+    Node,
+    populationSize,
+    populationSnapshots,
+    setBugs,
+    setBugSize,
+    setFlashOnDeath,
+    setGrowSpeed,
+    setHungerTimer,
+    setMaxMutationStep,
+    setMaxOffspringDistance,
+    setPopulationSize,
+    setPopulationSnapshots,
+    setStepCount,
     step,
     stepCount,
-    setStepCount,
-    MAX_STEP_COUNT,
-    getCustomInitialBugs,
-    hungerTimer,
-    setHungerTimer
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

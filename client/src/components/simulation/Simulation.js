@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
-import SvgContainer from "components/svgContainer/index";
+import SvgContainer from "components/svgContainer/SvgContainer";
 import Snapshots from "components/snapshots/index";
-import SimulationControls from "components/simulationControls/index";
+import SimulationControls from "components/simulationControls/SimulationControls";
 import { StyledContainer, StyledSubContainer1 } from "./styles";
 
 function Simulation() {

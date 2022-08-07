@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useCallback } from "react";
+import React, { useContext, useEffect, useRef, useCallback, useState } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
 import { BugsContext } from "globalState/bugs/BugsProvider";
 import { BgImageContext } from "globalState/bgImage/index";
@@ -7,20 +7,21 @@ import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
 import HungerTimer from "components/hunger-timer/HungerTimer";
 import {
   StyledSvgCanvas,
-  StyledContainer2,
+  DeathOverlay,
   StyledBgImg,
   StyledImgAndCanvasContainer,
   StyledContainer1,
-} from "./styles";
+} from "./SvgContainerStyles";
 import Bug from "components/bug/index";
 import getContainerOffset from "./getContainerOffset";
 import DomColors from "components/domColors/index";
 const _ = require("lodash");
 
 function SvgContainer() {
-  // // global state
+  const [isDead,setIsDead] = useState(false)
+
   const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext);
-  const { bugs, getLivingBugNodes } = useContext(BugsContext);
+  const { bugs, getLivingBugNodes, flashOnDeath } = useContext(BugsContext);
   const { bgImage } = useContext(BgImageContext);
   const { setCanvasOffset, setSvgContainerDimensions } = useContext(
     SvgDimensionsContext
@@ -43,6 +44,12 @@ function SvgContainer() {
     [svgContainerRef, setCanvasOffset, setSvgContainerDimensions]
   );
 
+  const onDeath = () => {
+    if (flashOnDeath) {
+      setIsDead(true)
+    }
+  }
+
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -53,14 +60,22 @@ function SvgContainer() {
     handleResize();
   }, [handleResize]);
 
+  useEffect(() => {
+    if (isDead) {
+      setTimeout(() => {
+        setIsDead(false)
+      },20)
+    }
+  },[isDead])
+
   return (
     <StyledContainer1
       small={xxs || xs || sm}
       big={md || lg || xl}
     >
-      <HungerTimer />
-      <StyledContainer2>
+      <HungerTimer onDeath={onDeath} />
         <StyledImgAndCanvasContainer>
+          <DeathOverlay isVisible={isDead} durationInSec={2} />
           <StyledBgImg
             src={bgImage}
             small={xxs || xs || sm}
@@ -78,7 +93,6 @@ function SvgContainer() {
             ))}
           </StyledSvgCanvas>
         </StyledImgAndCanvasContainer>
-      </StyledContainer2>
       <DomColors />
     </StyledContainer1>
   );

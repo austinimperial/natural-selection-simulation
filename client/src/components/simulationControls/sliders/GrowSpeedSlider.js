@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BugsContext } from "globalState/bugs/BugsProvider";
 import { ScreenSizesContext } from "globalState/screenSizes/index"
-import Slider from "shared/slider/index";
+import Slider from "shared/slider/Slider";
 
 function GrowSpeedSlider() {
   // global state

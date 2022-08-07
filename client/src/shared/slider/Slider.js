@@ -5,7 +5,7 @@ import {
   StyledName,
   StyledInputAndValueContainer,
   StyledInput
-} from "./styles";
+} from "./SliderStyles";
 
 function Slider({
   min,
