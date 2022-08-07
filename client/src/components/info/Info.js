@@ -106,7 +106,7 @@ function Info() {
           <Li>
             <Bold>mid 90’s: </Bold>Steve Brewer of UMass made Bishop &
             Anderson's game into a computer program. The last version was
-            released on 6/10/1995. I rememberd gazing upon the Brewer's version
+            released on 6/10/1995. I remember gazing upon the Brewer's version
             while researching this section, but it appears now to have been
             removed by UMass.
           </Li>
