@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { downArrowSvgString } from 'shared/downArrow'
 
 export const StyledContainer = styled.div`

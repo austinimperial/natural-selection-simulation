@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { StyledContainer, StyledP, StyledTitleContainer } from "./styles";
 import { SnapshotsDisplayContext } from "globalState/snapshotsDisplay/index";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import CanvasSnapshots from "components/snapshots/canvasSnapshots/index";
 import SnapshotsControls from "components/snapshots/snapshotsControls/index";
 import SvgSnapshots from "components/snapshots/svgSnapshots/index";

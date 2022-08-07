@@ -18,10 +18,10 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "format": "prettier \"src/**/*.{js,html}\" --write"
   },
   "eslintConfig": {
@@ -39,6 +39,10 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {},
-  "engines" : { "node" : ">=0.12" }
+  "devDependencies": {
+    "react-app-rewired": "^2.2.1"
+  },
+  "engines": {
+    "node": ">=0.12"
+  }
 }

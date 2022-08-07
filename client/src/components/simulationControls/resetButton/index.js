@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import { ScreenSizesContext } from "globalState/screenSizes/index"
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import { StyledButton, StyledContainer } from "./styles";

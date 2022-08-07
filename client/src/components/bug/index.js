@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { StyledSvg } from "./styles";
 import { bugPath } from "./bugPath";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 
 function Bug({ bug }) {

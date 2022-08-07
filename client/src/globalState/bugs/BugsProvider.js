@@ -17,9 +17,10 @@ function BugsProvider({ children }) {
   const [populationSize, setPopulationSize] = useState(50);
   const [bugSize, setBugSize] = useState(12);
   const [maxMutationStep, setMaxMutationStep] = useState(27);
-  const [maxOffspringDistance, setMaxOffspringDistance] = useState(150);
+  const [maxOffspringDistance, setMaxOffspringDistance] = useState(300);
   const [growSpeed, setGrowSpeed] = useState(2);
   const [populationSnapshots, setPopulationSnapshots] = useState([]);
+  const [hungerTimer, setHungerTimer] = useState(3.5);
   const [stepCount, setStepCount] = useState(0);
 
   // global state
@@ -97,7 +98,9 @@ function BugsProvider({ children }) {
     stepCount,
     setStepCount,
     MAX_STEP_COUNT,
-    getCustomInitialBugs
+    getCustomInitialBugs,
+    hungerTimer,
+    setHungerTimer
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

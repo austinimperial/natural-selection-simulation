@@ -5,6 +5,7 @@ import HomeLinkButton from "components/header/homeLinkButton/index"
 import {
     StyledContainer,
     StyledP,
+    Subheader
 } from './styles'
 
 function Header() {
@@ -14,6 +15,7 @@ function Header() {
     return (
         <StyledContainer>
             <StyledP>Bug Hunt Camouflage</StyledP>
+            <Subheader>A tool for understanding the process of natural selection</Subheader>
             { location.pathname === '/' ? <InfoLinkButton /> : <HomeLinkButton />}
         </StyledContainer>
     )

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import getDocumentDimensions from "./canvas/getDocumentDimensions";
 import drawCanvas from "./canvas/drawCanvas";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import getOrganisms from "./svg/getOrganisms";
 export const SnapshotsDisplayContext = React.createContext();
 const _ = require("lodash");

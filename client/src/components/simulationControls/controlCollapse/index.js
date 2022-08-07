@@ -5,11 +5,11 @@ import {
 } from './styles'
 import Collapse from 'components/simulationControls/collapse'
 import FileInput from "components/simulationControls/fileInput/index";
-import PopulationSlider from "components/simulationControls/populationSlider/index";
-import BugSizeSlider from "components/simulationControls/bugSizeSlider/index";
-import OffspringDistanceSlider from "components/simulationControls/offspringDistanceSlider/index";
-import GrowSpeedSlider from "components/simulationControls/growSpeedSlider/index";
-import MaxMutationSlider from "components/simulationControls/maxMutationSlider/index";
+import PopulationSlider from "components/simulationControls/sliders/PopulationSlider";
+import BugSizeSlider from "components/simulationControls/sliders/BugSizeSlider";
+import OffspringDistanceSlider from "components/simulationControls/sliders/OffspringDistanceSlider";
+import GrowSpeedSlider from "components/simulationControls/sliders/GrowSpeedSlider";
+import MaxMutationSlider from "components/simulationControls/sliders/MaxMutationSlider";
 import PresetImageSelect from "components/simulationControls/presetImageSelect/index";
 import CollapseBar from "components/simulationControls/collapse/collapseBar"
 

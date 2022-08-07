@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ScreenSizesContext } from 'globalState/screenSizes/index'
 import { howToUseIt, prerequisites,relating, history, photoCredits } from './text'
 import { 
@@ -11,7 +11,7 @@ import {
 function Info() {
     // global state
     const { xxs, xs, sm, md, lg, xl } = useContext(ScreenSizesContext)
-
+    
     return (
         <StyledContainer>
             <StyledContentColumn

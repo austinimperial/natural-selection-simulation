@@ -1,8 +1,7 @@
 import React, { useContext, useCallback } from "react";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import { SvgDimensionsContext } from "globalState/svgContainerDimensions/index";
 import Slider from "shared/slider/index";
-import { StyledContainer } from './styles'
 
 function PopulationSlider() {
   // global state
@@ -37,7 +36,6 @@ function PopulationSlider() {
   );
 
   return (
-    <StyledContainer>
       <Slider
         min={10}
         max={80}
@@ -50,7 +48,6 @@ function PopulationSlider() {
           width: "200px",
         }}
       />
-    </StyledContainer>
   );
 }
 

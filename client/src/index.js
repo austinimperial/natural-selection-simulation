@@ -4,13 +4,14 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import ScreenSizesProvider from "globalState/screenSizes/index";
-import BugsProvider from "globalState/bugs/index";
+import BugsProvider from "globalState/bugs/BugsProvider";
 import BgImageProvider from "globalState/bgImage/index";
 import SvgDimensionsProvider from "globalState/svgContainerDimensions/index";
 import SnapshotsDisplayProvider from "globalState/snapshotsDisplay/index";
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from "styled-components";
 import { mainTheme } from './mainTheme'
+import { GlobalStyles } from "GlobalStyles";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.render(
               <BugsProvider>
                 <BgImageProvider>
                   <SnapshotsDisplayProvider>
+                    <GlobalStyles />
                     <App />
                   </SnapshotsDisplayProvider>
                 </BgImageProvider>

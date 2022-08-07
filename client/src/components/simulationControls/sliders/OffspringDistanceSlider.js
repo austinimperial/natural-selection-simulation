@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import Slider from "shared/slider/index";
-import { StyledContainer } from './styles'
 
 function OffspringDistanceSlider() {
   // global state
@@ -10,7 +9,6 @@ function OffspringDistanceSlider() {
   );
 
   return (
-    <StyledContainer>
       <Slider
         min={10}
         max={500}
@@ -24,7 +22,6 @@ function OffspringDistanceSlider() {
           width: "220px",
         }}
       />
-    </StyledContainer>
   );
 }
 

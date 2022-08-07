@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import getBugPalette from "./getBugPalette";
 import uuid from "react-uuid";
 import { StyledSwatch } from "./styles";

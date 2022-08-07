@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ScreenSizesContext } from "globalState/screenSizes/index";
 import { 
   StyledContainer,
@@ -9,14 +9,15 @@ import ControlCollapse from "components/simulationControls/controlCollapse/index
 import CustomBugCollapse from "components/simulationControls/customBugsCollapse/index"
 import FileInput from "components/simulationControls/fileInput/index";
 import ResetButton from "components/simulationControls/resetButton/index";
-import PopulationSlider from "components/simulationControls/populationSlider/index";
-import BugSizeSlider from "components/simulationControls/bugSizeSlider/index";
-import OffspringDistanceSlider from "components/simulationControls/offspringDistanceSlider/index";
-import GrowSpeedSlider from "components/simulationControls/growSpeedSlider/index";
-import MaxMutationSlider from "components/simulationControls/maxMutationSlider/index";
+import PopulationSlider from "components/simulationControls/sliders/PopulationSlider";
+import BugSizeSlider from "components/simulationControls/sliders/BugSizeSlider";
+import OffspringDistanceSlider from "components/simulationControls/sliders/OffspringDistanceSlider";
+import GrowSpeedSlider from "components/simulationControls/sliders/GrowSpeedSlider";
+import MaxMutationSlider from "components/simulationControls/sliders/MaxMutationSlider";
 import PresetImageSelect from "components/simulationControls/presetImageSelect/index";
 import RandomStep from "components/simulationControls/randomStep/index";
 import CustomInitialBugs from "components/simulationControls/customInitialBugs/index";
+import HungerTimerSlider from "./sliders/HungerTimerSlider";
 
 function SimulationControls() {
   // global state
@@ -43,7 +44,8 @@ function SimulationControls() {
       <BugSizeSlider />
       <OffspringDistanceSlider />
       <GrowSpeedSlider />
-      <MaxMutationSlider />     
+      <MaxMutationSlider />    
+      <HungerTimerSlider />  
       <PresetImageSelect />
       <FileInput />
       <ResetButton />

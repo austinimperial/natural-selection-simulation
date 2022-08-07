@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
-import { BugsContext } from "globalState/bugs/index";
+import { BugsContext } from "globalState/bugs/BugsProvider";
 import Slider from "shared/slider/index";
-import { StyledContainer } from './styles'
 
 function GrowSpeedSlider() {
   // global state
   const { maxMutationStep, setMaxMutationStep } = useContext(BugsContext);
 
   return (
-    <StyledContainer>
       <Slider
         min={0}
         max={255}
@@ -21,7 +19,6 @@ function GrowSpeedSlider() {
           width: "200px",
         }}
       />
-    </StyledContainer>
   );
 }
 
