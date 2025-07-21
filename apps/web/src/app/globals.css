@@ -79,7 +79,14 @@
   }
 }
 
-
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
 @theme {
   --color-mint-100: #6B7076;

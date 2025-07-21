@@ -24,7 +24,6 @@ function Bug({ bug }: { bug: BugData }) {
     step(bug);
   };
 
-  // Create keyframe animation for growing
   const growAnimation = isGrowing
     ? {
         animation: `grow ${growSpeed}s linear`,
@@ -38,6 +37,8 @@ function Bug({ bug }: { bug: BugData }) {
         position: 'absolute',
         left: `${bug.x * svgContainerDimensions.width + canvasOffset.left}px`,
         top: `${bug.y * svgContainerDimensions.height + canvasOffset.top}px`,
+        transform: `rotate(${bug.orientation}deg)`,
+        transformOrigin: 'center',
       }}
     >
       <svg
@@ -50,11 +51,7 @@ function Bug({ bug }: { bug: BugData }) {
         fill={`rgb(${bug.color[0]},${bug.color[1]},${bug.color[2]})`}
         onMouseEnter={hanldleMouseEnter}
         onTouchStart={hanldleMouseEnter}
-        style={{
-          ...growAnimation,
-          transform: `rotate(${bug.orientation})`,
-          transformOrigin: 'center',
-        }}
+        style={growAnimation}
       >
         <path d={bugPath} />
       </svg>
