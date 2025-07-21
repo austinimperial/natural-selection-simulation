@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { SnapshotsDisplayContext } from "../global-state/snapshotsDisplay/SnapshotDisplay";
 
@@ -14,7 +14,7 @@ function SnapshotsSvg({ width, height }: { width: number; height: number }) {
 
   return (
     <div className="bg-black">
-      <svg width={width} height={height}>
+      <svg width={width} height={height} aria-label="snapshots" role="img">
         {organisms.map((organism: OrganismType) => (
           <path
             className="hover:stroke-white"

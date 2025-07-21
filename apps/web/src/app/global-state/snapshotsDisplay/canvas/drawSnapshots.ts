@@ -1,7 +1,7 @@
 import _ from 'lodash';
-
+import type { PopulationSnapshot, BugData } from '@/app/global-state/bugs/BugsProvider';
 interface DrawSnapshotsParams {
-  populationSnapshots: any[][];
+  populationSnapshots: PopulationSnapshot[];
   screenDimensions: { width: number; height: number };
   populationSize: number;
   canvas: HTMLCanvasElement | null;
@@ -24,8 +24,8 @@ export const drawSnapshotsHorizontal = ({
   const rowHeight = (screenDimensions.height / populationSize) * thickness;
   if (!ctx) return;
   ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
-  populationSnapshots.forEach((ps: any[], rowIndex: number) => {
-    ps.forEach((bug: any, columnIndex: number) => {
+  populationSnapshots.forEach((ps: PopulationSnapshot, rowIndex: number) => {
+    ps.forEach((bug: PopulationSnapshot[number], columnIndex: number) => {
       ctx.fillStyle = `rgb(${bug.color[0]},${bug.color[1]},${bug.color[2]})`;
       ctx.fillRect(
         rowIndex * colWidth,
@@ -52,8 +52,8 @@ export const drawSnapshotsVertical = ({
     (screenDimensions.height * stretchFactor) / populationSnapshots.length;
   if (!ctx) return;
   ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
-  populationSnapshots.forEach((ps: any[], rowIndex: number) => {
-    ps.forEach((bug: any, columnIndex: number) => {
+  populationSnapshots.forEach((ps: PopulationSnapshot, rowIndex: number) => {
+    ps.forEach((bug: PopulationSnapshot[number], columnIndex: number) => {
       ctx.fillStyle = `rgb(${bug.color[0]},${bug.color[1]},${bug.color[2]})`;
       ctx.fillRect(
         columnIndex * colWidth,

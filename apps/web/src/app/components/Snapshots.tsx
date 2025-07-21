@@ -2,6 +2,7 @@
 
 import DeathDownArrow from '@repo/ui/DeathDownArrow';
 import DeathLeftArrow from '@repo/ui/DeathLeftArrow';
+import InfoBox from '@repo/ui/InfoBox';
 import { useContext } from 'react';
 import { BugsContext } from '../global-state/bugs/BugsProvider';
 import { SnapshotsDisplayContext } from '../global-state/snapshotsDisplay/SnapshotDisplay';
@@ -34,7 +35,7 @@ function Snapshots() {
       </div>
       <SnapshotsControls />
       <div
-        className="flex overflow-scroll overflow-x-scroll items-center justify-center"
+        className="flex overflow-scroll overflow-x-scroll items-center justify-center min-h-[600px]"
         style={{
           flexDirection: isVertical ? 'row-reverse' : 'column',
         }}
@@ -73,10 +74,16 @@ function Snapshots() {
             );
           })}
         </div>
-        {isShowingSvg ? (
-          <SvgSnapshots width={width} height={height} />
+        {populationSnapshots.length > 0 ? (
+          isShowingSvg ? (
+            <SvgSnapshots width={width} height={height} />
+          ) : (
+            <CanvasSnapshots width={width} height={height} />
+          )
         ) : (
-          <CanvasSnapshots width={width} height={height} />
+          <InfoBox variant="default">
+            eat some bugs to generate population snapshots
+          </InfoBox>
         )}
       </div>
     </div>

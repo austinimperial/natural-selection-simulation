@@ -22,12 +22,8 @@ export type BugData = {
 export type PopulationSnapshot = {
   color: [number, number, number];
   id: string;
-}[];
-
-export type CustomBugData = {
-  color: [number, number, number];
   clone: boolean;
-};
+}[];
 
 export type SvgDimensions = {
   width: number;
@@ -65,7 +61,7 @@ export type BugsContextType = {
   getCustomInitialBugs: (
     svgContainerDimensions: SvgDimensions,
     bugSize: number,
-    customColorArray: CustomBugData[]
+    customColorArray: PopulationSnapshot
   ) => Node;
   getInitialBugs: (
     svgContainerDimensions: SvgDimensions,
@@ -109,7 +105,7 @@ export const defaultBugData: BugData = {
   clone: false
 }
 
-const defaultNode: Node = {
+export const defaultNode: Node = {
   isRoot: true,
   data: defaultBugData,
   firstChild: null,
@@ -202,6 +198,7 @@ function BugsProvider({ children }: BugsProviderProps) {
       const newPopulationSnapshot = livingBugs.map((bug) => ({
         color: bug?.color ?? [0, 0, 0],
         id: bug?.id ?? '',
+        clone: bug?.clone ?? false,
       }));
 
       setStepCount((prev) => prev + 1);

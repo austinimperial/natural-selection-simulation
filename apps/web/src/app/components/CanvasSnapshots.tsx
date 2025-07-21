@@ -16,9 +16,6 @@ function CanvasSnapshots({ width, height }: { width: number; height: number }) {
 
   return (
     <canvas
-      style={{
-        flexShrink: '0',
-      }}
       width={width}
       height={height}
       ref={canvasRef}

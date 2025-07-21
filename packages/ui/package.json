@@ -4,7 +4,8 @@
   "private": true,
   "exports": {
     "./*": "./src/*.tsx",
-    "./FileInput": "./src/FileInput.tsx"
+    "./FileInput": "./src/FileInput.tsx",
+    "./Toggle": "./src/Toggle.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -15,11 +16,13 @@
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
+    "@repo/utils": "workspace:*",
     "eslint": "^9.31.0",
     "typescript": "5.8.2"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.2",
+    "@radix-ui/react-toggle-group": "^1.1.10",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }

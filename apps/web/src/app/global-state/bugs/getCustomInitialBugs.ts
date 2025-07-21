@@ -1,28 +1,19 @@
 import { v4 as uuid } from "uuid";
 import getRandCoors from "./getRandCoors";
 import { addChild, type Node } from "./tree";
+import  {type PopulationSnapshot, defaultNode } from "./BugsProvider";
 
 interface SvgDimensions {
   width: number;
   height: number;
 }
 
-interface CustomBugData {
-  color: [number, number, number];
-  clone: boolean;
-}
-
 export default function getCustomInitialBugs(
   svgContainerDimensions: SvgDimensions,
   bugSize: number,
-  customColorArray: CustomBugData[]
+  customColorArray: PopulationSnapshot
 ): Node {
-  const root: Node = {
-    isRoot: true,
-    data: null,
-    firstChild: null,
-    rightSibling: null,
-  };
+  const root: Node = defaultNode;
   for (let i = 0; i < customColorArray.length; i++) {
     const randCoors = getRandCoors(svgContainerDimensions, bugSize);
     addChild(root, {
