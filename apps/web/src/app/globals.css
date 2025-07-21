@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@source '../../../../packages/ui';
+
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  html {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  body {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  p {
+    font-family: var(--font-montserrat);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-montserrat);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+  }
+
+  @media (min-width: 640px) {
+    h1 {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+
+  @media (min-width: 640px) {
+    h2 {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+  }
+
+  @media (min-width: 640px) {
+    h3 {
+      font-size: var(--text-xl);
+    }
+  }
+
+  h4 {
+    font-size: var(--text-xs);
+  }
+
+  @media (min-width: 640px) {
+    h4 {
+      font-size: var(--text-sm);
+    }
+  }
+}
+
+
+
+@theme {
+  --color-mint-100: #6B7076;
+  --color-mint-200: #868F94;
+  --color-mint-300: #A2AEB1;
+  --color-mint-400: #BDCECD;
+  --color-mint-500: #d8ebe6;
+  --color-mint-600: #DDEEE6;
+  --color-mint-700: #E2F1E7;
+  --color-mint-800: #E7F4E9;
+  --color-mint-900: #ECF6EC;
+  --color-mint-1000: #F3F9F2;
+  --color-mint-1100: #F9FBF7;
+}
+
+body {
+  background-color: var(--color-mint-400);
+}
