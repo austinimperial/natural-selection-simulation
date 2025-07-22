@@ -14,6 +14,7 @@ import PopulationSlider from './PopulationSlider';
 import PresetImageSelect from './PresetImageSelect';
 import RandomStep from './RandomStep';
 import ResetButton from './ResetButton';
+import WorldWrapCheckbox from './WorldWrapCheckbox';
 
 function ControlCollapse() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -43,6 +44,7 @@ function ControlCollapse() {
           <ResetButton />
           <RandomStep />
           <FlashOnDeathCheckbox />
+          <WorldWrapCheckbox />
         </div>
       </Collapse>
     </div>

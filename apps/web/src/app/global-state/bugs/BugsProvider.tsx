@@ -1,6 +1,5 @@
 'use client';
 
-import _ from 'lodash';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { SvgDimensionsContext } from '../svgContainerDimensions/index';
 import eatAndSpawnNew from './eatAndSpawnNew';
@@ -54,7 +53,8 @@ export type BugsContextType = {
     maxOffspringDistance: number,
     svgContainerDimensions: SvgDimensions,
     bugSize: number,
-    phenotypicDistance: number
+    phenotypicDistance: number,
+    worldWrap: boolean
   ) => Node;
   flashOnDeath: boolean;
   flatten: (node: Node) => Node[];
@@ -93,6 +93,8 @@ export type BugsContextType = {
   stepCount: number;
   deaths: number[];
   setDeaths: React.Dispatch<React.SetStateAction<number[]>>;
+  worldWrap: boolean;
+  setWorldWrap: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const defaultBugData: BugData = {
@@ -100,28 +102,28 @@ export const defaultBugData: BugData = {
   x: 0,
   y: 0,
   isAlive: false,
-  color: [0,0,0],
+  color: [0, 0, 0],
   orientation: 0,
-  clone: false
-}
+  clone: false,
+};
 
 export const defaultNode: Node = {
   isRoot: true,
   data: defaultBugData,
   firstChild: null,
   rightSibling: null,
-}
+};
 
 export const BugsContext = React.createContext<BugsContextType>({
   bugs: defaultNode,
   bugSize: 0,
-  eatAndSpawnNew: () => (defaultNode),
+  eatAndSpawnNew: () => defaultNode,
   flashOnDeath: false,
   flatten: () => [],
-  getCustomInitialBugs: () => (defaultNode),
-  getInitialBugs: () => (defaultNode),
+  getCustomInitialBugs: () => defaultNode,
+  getInitialBugs: () => defaultNode,
   getLivingBugNodes: () => [],
-  getRandomLivingBugNode: () => (defaultNode),
+  getRandomLivingBugNode: () => defaultNode,
   growSpeed: 0,
   hungerTimer: 0,
   MAX_STEP_COUNT: 0,
@@ -143,6 +145,8 @@ export const BugsContext = React.createContext<BugsContextType>({
   stepCount: 0,
   deaths: [],
   setDeaths: () => {},
+  worldWrap: false,
+  setWorldWrap: () => {},
 });
 
 interface BugsProviderProps {
@@ -165,6 +169,7 @@ function BugsProvider({ children }: BugsProviderProps) {
   const [stepCount, setStepCount] = useState<number>(0);
   const [flashOnDeath, setFlashOnDeath] = useState<boolean>(true);
   const [deaths, setDeaths] = useState<number[]>([]);
+  const [worldWrap, setWorldWrap] = useState<boolean>(true);
 
   const { svgContainerDimensions } = useContext(
     SvgDimensionsContext
@@ -191,7 +196,8 @@ function BugsProvider({ children }: BugsProviderProps) {
         maxOffspringDistance,
         svgContainerDimensions,
         bugSize,
-        phenotypicDistance
+        phenotypicDistance,
+        worldWrap
       );
 
       const livingBugs = getLivingBugNodes(bugs).map((bug) => bug.data);
@@ -215,6 +221,7 @@ function BugsProvider({ children }: BugsProviderProps) {
       svgContainerDimensions,
       bugSize,
       stepCount,
+      worldWrap,
     ]
   );
 
@@ -249,6 +256,8 @@ function BugsProvider({ children }: BugsProviderProps) {
     stepCount,
     deaths,
     setDeaths,
+    worldWrap,
+    setWorldWrap,
   };
 
   return <BugsContext.Provider value={value}>{children}</BugsContext.Provider>;

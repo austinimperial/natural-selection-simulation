@@ -1,5 +1,5 @@
-import { type BugData, defaultBugData } from './BugsProvider';
 import { v4 as uuid } from 'uuid';
+import { type BugData, defaultBugData } from './BugsProvider';
 import getColorMutation from './getColorMutation';
 import getOffspringCoors from './getOffspringCoors';
 import { addChild, changeNodeData, createNode, type Node } from './tree';
@@ -16,7 +16,8 @@ export default function eatAndSpawnNew(
   maxOffspringDistance: number,
   svgContainerDimensions: SvgDimensions,
   bugSize: number,
-  phenotypicDistance: number
+  phenotypicDistance: number,
+  worldWrap: boolean = false
 ): Node {
   const newbugs = Object.assign(createNode({ data: defaultBugData }), bugs);
 
@@ -29,7 +30,8 @@ export default function eatAndSpawnNew(
     maxOffspringDistance,
     randomSurvivor.data!,
     svgContainerDimensions,
-    bugSize
+    bugSize,
+    worldWrap
   );
 
   const newBug: BugData = {

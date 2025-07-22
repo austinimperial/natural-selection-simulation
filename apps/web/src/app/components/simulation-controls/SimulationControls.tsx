@@ -16,6 +16,7 @@ import PopulationSlider from './PopulationSlider';
 import PresetImageSelect from './PresetImageSelect';
 import RandomStep from './RandomStep';
 import ResetButton from './ResetButton';
+import WorldWrapCheckbox from './WorldWrapCheckbox';
 
 function SimulationControls() {
   const { setBgImage } = useContext(BgImageContext);
@@ -43,6 +44,7 @@ function SimulationControls() {
         <PhenotypicDistanceSlider />
         <HungerTimerSlider />
         <FlashOnDeathCheckbox />
+        <WorldWrapCheckbox />
         <PresetImageSelect />
         <FileInput onChange={handleFileChange} />
         <ResetButton />
