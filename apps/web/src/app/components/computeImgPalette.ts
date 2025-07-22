@@ -1,13 +1,11 @@
 import uInt8ClampedArrayToPixels from '@repo/utils/image/uInt8ClampedArrayToPixels';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const quantize = require('quantize') as {
-  (
-    pixels: number[][],
-    maxColors: number
-  ): {
-    palette(): number[][];
-  };
+const quantize = require('quantize') as (
+  pixels: number[][],
+  maxColors: number
+) => {
+  palette(): number[][];
 };
 
 export default function computeImgPalette(
@@ -17,7 +15,6 @@ export default function computeImgPalette(
   colorCount: number,
   callback: (palette: number[][]) => void
 ): void {
-  console.log('computeImgPalette', url, x, y, colorCount);
   const img = new Image();
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');

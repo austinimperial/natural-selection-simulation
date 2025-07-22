@@ -76,9 +76,11 @@ function SvgContainer() {
           })}
         />
         {bgImage && (
-        <Image
-          src={bgImage}
-          alt="background"
+          <Image
+            src={bgImage}
+            alt="background"
+            width={800}
+            height={800}
             className="outline-none border-none absolute z-[-1] w-[84vh] h-[84vh] md:w-[75vh] md:h-[75vh]"
           />
         )}

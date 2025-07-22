@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@repo/utils';
 import type React from 'react';
 import type { InputHTMLAttributes, ReactNode } from 'react';
@@ -8,9 +10,9 @@ interface Props
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   variant?: FileInputVariant;
   children?: ReactNode;
-  onChange?: (files: FileList | null) => void;
   accept?: string;
   multiple?: boolean;
+  onChange?: (file: File | null) => void;
 }
 
 const FILE_INPUT_STYLES: Record<FileInputVariant, string> = {
@@ -21,15 +23,14 @@ export default function FileInput({
   variant = 'default',
   className,
   children,
-  onChange,
   accept = 'image/*',
   multiple = false,
+  onChange,
   ...rest
 }: Props): React.JSX.Element {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(e.target.files);
-    }
+    const file = e.target.files?.[0] || null;
+    onChange?.(file);
   };
 
   return (

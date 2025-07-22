@@ -24,10 +24,6 @@ const options: Option<string>[] = [
 function PresetImageSelect() {
   const { setBgImage, bgImage } = useContext(BgImageContext);
 
-  useEffect(() => {
-    setBgImage(sand);
-  }, []);
-
   return (
     <div>
       <p>preset background images</p>
@@ -35,7 +31,7 @@ function PresetImageSelect() {
         variant="default"
         options={options}
         value={bgImage || null}
-        onChange={(value) => setBgImage(value || '')}
+        onChange={(value) => setBgImage(value)}
         placeholder="Select"
       />
     </div>

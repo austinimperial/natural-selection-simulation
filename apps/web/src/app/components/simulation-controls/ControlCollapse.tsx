@@ -1,7 +1,8 @@
 'use client';
 
 import FileInput from '@repo/ui/FileInput';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { BgImageContext } from '../../global-state/bgImage/index';
 import Collapse from '../Collapse';
 import CollapseBar from '../CollapseBar';
 import BugSizeSlider from './BugSizeSlider';
@@ -16,6 +17,14 @@ import ResetButton from './ResetButton';
 
 function ControlCollapse() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { setBgImage } = useContext(BgImageContext);
+
+  const handleFileChange = (file: File | null) => {
+    if (file) {
+      console.log('file', file);
+      setBgImage(URL.createObjectURL(file));
+    }
+  };
 
   return (
     <div className="bg-[#8fbfa7]">
@@ -31,7 +40,7 @@ function ControlCollapse() {
           <GrowSpeedSlider />
           <PhenotypicDistanceSlider />
           <PresetImageSelect />
-          <FileInput />
+          <FileInput onChange={handleFileChange} />
           <ResetButton />
           <RandomStep />
           <FlashOnDeathCheckbox />
