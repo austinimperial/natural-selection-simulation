@@ -15,9 +15,9 @@ function StretchFactorSlider() {
 
   return (
     <Slider
-      min={0.8}
+      min={0.5}
       max={25}
-      step={0.2}
+      step={0.1}
       value={stretchFactor}
       name={'stretch factor'}
       unit=""

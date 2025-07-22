@@ -13,7 +13,7 @@ function SnapshotsSvg({ width, height }: { width: number; height: number }) {
   const { organisms, lineWidth } = useContext(SnapshotsDisplayContext);
 
   return (
-    <div className="bg-black transform rotate-90 sm:rotate-0 transition-transform duration-300">
+    <div className="bg-black">
       <svg width={width} height={height} aria-label="snapshots" role="img">
         {organisms.map((organism: OrganismType) => (
           <path

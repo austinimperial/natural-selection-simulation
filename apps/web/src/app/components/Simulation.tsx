@@ -6,7 +6,7 @@ import SimulationControls from './simulation-controls/SimulationControls';
 function Simulation() {
   return (
     <div className="flex flex-col">
-      <div className="flex justify-center flex-col md:flex-row gap-3 sm:p-4 ">
+      <div className="flex justify-center flex-col md:flex-row gap-3 md:p-4 ">
         <SimulationControls />
         <SvgContainer />
       </div>

@@ -66,7 +66,7 @@ function SvgContainer() {
   }, [handleResize]);
 
   return (
-    <div className="flex flex-col items-center justify-center relative flex-1 max-w-[700px] gap-3">
+    <div className="flex flex-col items-center justify-center relative flex-1 md:max-w-[80vh] gap-3">
       <HungerTimer onDeath={onDeath} />
       <div className="flex justify-start p-0 overflow-hidden relative w-full aspect-square">
         <div
