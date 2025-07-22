@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useContext } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { SnapshotsDisplayContext } from "../global-state/snapshotsDisplay/SnapshotDisplay";
+import { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { SnapshotsDisplayContext } from '../global-state/snapshotsDisplay/SnapshotDisplay';
 
 interface OrganismType {
   formattedColor: string;
@@ -13,7 +13,7 @@ function SnapshotsSvg({ width, height }: { width: number; height: number }) {
   const { organisms, lineWidth } = useContext(SnapshotsDisplayContext);
 
   return (
-    <div className="bg-black">
+    <div className="bg-black transform rotate-90 sm:rotate-0 transition-transform duration-300">
       <svg width={width} height={height} aria-label="snapshots" role="img">
         {organisms.map((organism: OrganismType) => (
           <path

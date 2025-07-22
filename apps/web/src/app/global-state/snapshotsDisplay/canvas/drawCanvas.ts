@@ -2,17 +2,14 @@ import type { RefObject } from 'react';
 import type { PopulationSnapshot } from '../../bugs/BugsProvider.tsx';
 import {
   drawSnapshotsHorizontal,
-  drawSnapshotsVertical,
   throttledDrawSnapshotsHorizontal,
-  throttledDrawSnapshotsVertical,
-} from './drawSnapshots';
+} from './drawSnapshots.ts';
 
 export default function drawCanvas({
   snapshotsCanvasRef,
   populationSize,
   populationSnapshots,
   screenDimensions,
-  isVertical,
   throttle,
   stretchFactor,
   thickness,
@@ -21,14 +18,13 @@ export default function drawCanvas({
   populationSize: number;
   populationSnapshots: PopulationSnapshot[];
   screenDimensions: { width: number; height: number };
-  isVertical: boolean;
   throttle: boolean;
   stretchFactor: number;
   thickness: number;
 }) {
   if (snapshotsCanvasRef === null) return;
 
-  if (!throttle && !isVertical)
+  if (!throttle)
     return drawSnapshotsHorizontal({
       populationSnapshots,
       screenDimensions,
@@ -38,27 +34,7 @@ export default function drawCanvas({
       thickness,
     });
 
-  if (!throttle && isVertical)
-    return drawSnapshotsVertical({
-      populationSnapshots,
-      screenDimensions,
-      populationSize,
-      canvas: snapshotsCanvasRef.current,
-      stretchFactor,
-      thickness,
-    });
-
-  if (!isVertical)
-    return throttledDrawSnapshotsHorizontal({
-      populationSnapshots,
-      screenDimensions,
-      populationSize,
-      canvas: snapshotsCanvasRef.current,
-      stretchFactor,
-      thickness,
-    });
-
-  throttledDrawSnapshotsVertical({
+  throttledDrawSnapshotsHorizontal({
     populationSnapshots,
     screenDimensions,
     populationSize,

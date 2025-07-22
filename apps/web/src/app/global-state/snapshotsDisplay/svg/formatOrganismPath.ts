@@ -3,8 +3,6 @@ import type { PopulationSnapshot } from '../../bugs/BugsProvider.tsx';
 import type { Organism } from '../SnapshotDisplay';
 import getColWidthHorizontal from './getColWidthHorizontal';
 import getPathHorizontal from './getPathHorizontal';
-import getPathVertical from './getPathVertical';
-import getRowHeightVertical from './getRowHeightVertical';
 
 type Props = {
   organismList: Organism[];
@@ -12,9 +10,9 @@ type Props = {
   populationSize: number;
   stretchFactor: number;
   thickness: number;
-  isVertical: boolean;
   populationSnapshots: PopulationSnapshot[];
 };
+
 // consumes a list of Organisms and formats the path and color for use in SVG element
 export const formatOrganismPath = ({
   organismList,
@@ -22,29 +20,8 @@ export const formatOrganismPath = ({
   populationSize,
   stretchFactor,
   thickness,
-  isVertical,
   populationSnapshots,
 }: Props) => {
-  if (isVertical) {
-    const colWidth =
-      (screenDimensions.width / populationSize) * parseFloat(String(thickness));
-
-    const rowHeight = getRowHeightVertical(
-      stretchFactor,
-      populationSnapshots,
-      screenDimensions
-    );
-
-    return organismList.map((org) => {
-      org.path = getPathVertical({
-        pointList: org.pointList,
-        colWidth,
-        rowHeight,
-      });
-      return org;
-    });
-  }
-
   const colWidth = getColWidthHorizontal(
     stretchFactor,
     populationSnapshots,

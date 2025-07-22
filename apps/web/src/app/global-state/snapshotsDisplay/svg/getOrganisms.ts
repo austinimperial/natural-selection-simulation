@@ -11,7 +11,6 @@ type Props = {
   stretchFactor: number;
   thickness: number;
   screenDimensions: { width: number; height: number };
-  isVertical: boolean;
   throttle: boolean;
 };
 
@@ -21,7 +20,6 @@ const getOrganisms = ({
   stretchFactor,
   thickness,
   screenDimensions,
-  isVertical,
   throttle,
 }: Props) => {
   const orgList = getOrganismList(populationSnapshots);
@@ -33,7 +31,6 @@ const getOrganisms = ({
       stretchFactor,
       thickness,
       populationSize,
-      isVertical,
       screenDimensions,
     });
   }
@@ -44,7 +41,6 @@ const getOrganisms = ({
     stretchFactor,
     thickness,
     populationSize,
-    isVertical,
     screenDimensions,
   });
 };

@@ -32,8 +32,6 @@ type SnapshotsDisplayContextType = {
   setScreenDimensions: React.Dispatch<
     React.SetStateAction<{ width: number; height: number }>
   >;
-  isVertical: boolean;
-  setIsVertical: React.Dispatch<React.SetStateAction<boolean>>;
   resetCanvasDimens: () => void;
   stretchFactor: number;
   setStretchFactor: React.Dispatch<React.SetStateAction<number>>;
@@ -52,7 +50,6 @@ export const SnapshotsDisplayContext =
   );
 
 function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
-  const [isVertical, setIsVertical] = useState(false);
   const [stretchFactor, setStretchFactor] = useState(1);
   const [thickness, setThickness] = useState(0.5);
   const [snapshotsCanvasRef, setSnapshotsCanvasRef] =
@@ -79,7 +76,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
       populationSize,
       populationSnapshots,
       screenDimensions,
-      isVertical,
       stretchFactor,
       thickness,
       throttle: true,
@@ -94,7 +90,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
       populationSize,
       populationSnapshots,
       screenDimensions,
-      isVertical,
       stretchFactor,
       thickness,
       throttle: false,
@@ -103,7 +98,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
   }, [
     screenDimensions,
     stretchFactor,
-    isVertical,
     snapshotsCanvasRef,
     populationSize,
     thickness,
@@ -113,8 +107,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
   const handleResize = _.throttle(() => {
     const { width, height } = getDocumentDimensions();
     setScreenDimensions({ width, height });
-    if (width < height) return setIsVertical(true);
-    if (height <= width) return setIsVertical(false);
   }, 200);
 
   useEffect(() => {
@@ -136,7 +128,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
       thickness,
       screenDimensions,
       populationSnapshots,
-      isVertical,
       throttle: true,
     });
     setOrganisms(organisms);
@@ -150,7 +141,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
       thickness,
       screenDimensions,
       populationSnapshots,
-      isVertical,
       throttle: false,
     });
     setOrganisms(organisms);
@@ -158,7 +148,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
   }, [
     screenDimensions,
     stretchFactor,
-    isVertical,
     populationSize,
     thickness,
     isShowingSvg,
@@ -169,8 +158,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
     setSnapshotsCanvasRef,
     screenDimensions,
     setScreenDimensions,
-    isVertical,
-    setIsVertical,
     resetCanvasDimens,
     stretchFactor,
     setStretchFactor,

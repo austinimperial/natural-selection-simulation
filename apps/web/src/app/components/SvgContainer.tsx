@@ -66,9 +66,9 @@ function SvgContainer() {
   }, [handleResize]);
 
   return (
-    <div className="flex flex-col items-center justify-center relative">
+    <div className="flex flex-col items-center justify-center relative flex-1 max-w-[700px] gap-3">
       <HungerTimer onDeath={onDeath} />
-      <div className="flex justify-start p-0 overflow-hidden relative">
+      <div className="flex justify-start p-0 overflow-hidden relative w-full aspect-square">
         <div
           className={clsx('absolute w-full h-full bg-red-500', {
             'opacity-0 transition-opacity duration-[1000ms] ': !isDead,
@@ -81,12 +81,12 @@ function SvgContainer() {
             alt="background"
             width={800}
             height={800}
-            className="outline-none border-none absolute z-[-1] w-[84vh] h-[84vh] md:w-[75vh] md:h-[75vh]"
+            className="outline-none border-none absolute z-[-1] w-full h-full object-cover"
           />
         )}
         <div
           ref={svgContainerRef}
-          className="outline-none overflow-hidden relative w-[84vh] h-[84vh] md:w-[75vh] md:h-[75vh]"
+          className="outline-none overflow-hidden relative w-full h-full"
         >
           {getLivingBugNodes(bugs).map((bug) => (
             <Bug key={bug?.data?.id} bug={bug.data} />

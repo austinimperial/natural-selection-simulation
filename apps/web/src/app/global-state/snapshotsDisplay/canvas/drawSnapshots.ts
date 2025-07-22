@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import type { PopulationSnapshot, BugData } from '@/app/global-state/bugs/BugsProvider';
+import type { PopulationSnapshot } from '@/app/global-state/bugs/BugsProvider';
+
 interface DrawSnapshotsParams {
   populationSnapshots: PopulationSnapshot[];
   screenDimensions: { width: number; height: number };
@@ -37,39 +38,7 @@ export const drawSnapshotsHorizontal = ({
   });
 };
 
-export const drawSnapshotsVertical = ({
-  populationSnapshots,
-  screenDimensions,
-  populationSize,
-  canvas,
-  stretchFactor,
-  thickness,
-}: DrawSnapshotsParams) => {
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const colWidth = (screenDimensions.width / populationSize) * thickness;
-  const rowHeight =
-    (screenDimensions.height * stretchFactor) / populationSnapshots.length;
-  if (!ctx) return;
-  ctx.clearRect(0, 0, screenDimensions.width, screenDimensions.height);
-  populationSnapshots.forEach((ps: PopulationSnapshot, rowIndex: number) => {
-    ps.forEach((bug: PopulationSnapshot[number], columnIndex: number) => {
-      ctx.fillStyle = `rgb(${bug.color[0]},${bug.color[1]},${bug.color[2]})`;
-      ctx.fillRect(
-        columnIndex * colWidth,
-        rowIndex * rowHeight,
-        colWidth + 1,
-        rowHeight + 1
-      );
-    });
-  });
-};
-
 export const throttledDrawSnapshotsHorizontal = _.throttle(
   drawSnapshotsHorizontal,
-  3000
-);
-export const throttledDrawSnapshotsVertical = _.throttle(
-  drawSnapshotsVertical,
   3000
 );

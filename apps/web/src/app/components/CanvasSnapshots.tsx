@@ -14,13 +14,7 @@ function CanvasSnapshots({ width, height }: { width: number; height: number }) {
     setSnapshotsCanvasRef(canvasRef as React.RefObject<HTMLCanvasElement>);
   }, [setSnapshotsCanvasRef]);
 
-  return (
-    <canvas
-      width={width}
-      height={height}
-      ref={canvasRef}
-    ></canvas>
-  );
+  return <canvas width={width} height={height} ref={canvasRef}></canvas>;
 }
 
 export default CanvasSnapshots;

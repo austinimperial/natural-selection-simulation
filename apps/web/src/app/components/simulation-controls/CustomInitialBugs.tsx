@@ -48,7 +48,7 @@ function CustomInitialBugs() {
   };
 
   return (
-    <div className="flex flex-col gap-2 p-3">
+    <div className="flex flex-col gap-2 p-3 sm:p-0">
       <p className="m-0 hidden md:block">custom initial bugs</p>
       <textarea
         className={`bg-white outline-none border min-h-[75px] box-border rounded-none my-0.5 ${isInvalid ? 'border-2 border-red-500' : 'border border-black'} w-full sm:w-full`}

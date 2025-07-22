@@ -59,7 +59,7 @@ const HungerTimer = ({ onDeath = () => {} }) => {
   }, [timer]);
 
   return (
-    <div className="flex flex-col items-start w-full p-4">
+    <div className="flex flex-col items-start w-full px-2 sm:px-0">
       <div className=" text-sm">Hunger Timer</div>
       <div className="h-5 w-full border border-black bg-white appearance-none box-border rounded-[20px] overflow-hidden">
         <div
