@@ -2,6 +2,7 @@ import './globals.css';
 import { Montserrat } from 'next/font/google';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Nav from './components/Nav';
 import Providers from './components/Providers';
 
 const montserrat = Montserrat({
@@ -17,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} font-sans`}>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-6">
+          <Nav />
           <Header />
           <Providers>{children}</Providers>
           <Footer />

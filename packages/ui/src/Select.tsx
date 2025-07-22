@@ -73,8 +73,6 @@ export default function Select<
     );
   }
 
-  console.log(options);
-
   useEffect(() => {
     // force a re-render when the value is cleared
     if (value === undefined) {

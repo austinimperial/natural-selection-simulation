@@ -22,18 +22,22 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "noUnusedVariables": "error",
-        "useExhaustiveDependencies": "warn"
+        "useExhaustiveDependencies": "warn",
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error"
       },
       "suspicious": {
         "noExplicitAny": "warn"
       },
       "style": {
-        "useConst": "error"
+        "useConst": "error",
+        "noNonNullAssertion": "off"
       },
       "a11y": {
         "noStaticElementInteractions": "off",
-        "useKeyWithClickEvents": "off"
+        "useKeyWithClickEvents": "off",
+        "noRedundantAlt": "off",
+        "noSvgWithoutTitle": "off"
       }
     }
   },

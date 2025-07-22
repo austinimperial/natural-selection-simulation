@@ -21,7 +21,6 @@ function ControlCollapse() {
 
   const handleFileChange = (file: File | null) => {
     if (file) {
-      console.log('file', file);
       setBgImage(URL.createObjectURL(file));
     }
   };
