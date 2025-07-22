@@ -7,6 +7,7 @@ import candy from './pics/candy.jpg';
 import carpet from './pics/carpet.jpg';
 import gravel from './pics/gravel.jpg';
 import leaves from './pics/leaves.jpg';
+import mars from './pics/mars.png';
 import moss from './pics/moss.png';
 import rocky_landscape from './pics/rocky_landscape.png';
 import sand from './pics/sand.jpg';
@@ -16,6 +17,7 @@ const options: Option<string>[] = [
   { value: sand, label: 'sand' },
   { value: rocky_landscape, label: 'rocky landscape' },
   { value: moss, label: 'moss' },
+  { value: mars, label: 'mars' },
   { value: candy, label: 'candy' },
   { value: carpet, label: 'carpet' },
   { value: gravel, label: 'gravel' },
