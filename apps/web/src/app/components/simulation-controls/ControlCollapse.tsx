@@ -33,7 +33,7 @@ function ControlCollapse() {
         onClick={() => setIsCollapsed((prev) => !prev)}
       />
       <Collapse isCollapsed={isCollapsed}>
-        <div className="p-[15px] flex flex-col gap-4">
+        <div className="flex flex-col gap-4 p-3">
           <PopulationSlider />
           <BugSizeSlider />
           <OffspringDistanceSlider />

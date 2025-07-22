@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Collapse from "../Collapse";
-import CollapseBar from "../CollapseBar";
-import CustomInitialBugs from "./CustomInitialBugs";
+import React, { useState } from 'react';
+import Collapse from '../Collapse';
+import CollapseBar from '../CollapseBar';
+import CustomInitialBugs from './CustomInitialBugs';
 
 function CustomBugCollapse() {
   const [isCollapsed, setIsCollapsed] = useState(true);

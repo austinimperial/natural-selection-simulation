@@ -35,7 +35,7 @@ function SimulationControls() {
       </div>
 
       {/* Desktop controls - hide on small screens, show on medium and larger */}
-      <div className="hidden md:flex flex-col gap-3 flex-1 max-w-[240px] pr-5">
+      <div className="hidden md:flex flex-col gap-3 flex-1 max-w-[240px]">
         <PopulationSlider />
         <BugSizeSlider />
         <OffspringDistanceSlider />

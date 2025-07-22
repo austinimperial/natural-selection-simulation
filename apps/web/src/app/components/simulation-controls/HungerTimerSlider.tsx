@@ -13,8 +13,8 @@ function HungerTimerSlider() {
 
   return (
     <Slider
-      min={1}
-      max={15}
+      min={0.5}
+      max={5}
       step={0.1}
       value={hungerTimer}
       name={'hunger timer (seconds)'}
