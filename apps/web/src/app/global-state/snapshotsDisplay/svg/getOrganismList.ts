@@ -1,4 +1,4 @@
-import type { PopulationSnapshot } from '@/app/global-state/bugs/BugsProvider.tsx';
+import type { PopulationSnapshot } from '@/app/global-state/bugs/BugsProvider';
 import type { Organism } from '../SnapshotDisplay.tsx';
 
 function updatePointlist(

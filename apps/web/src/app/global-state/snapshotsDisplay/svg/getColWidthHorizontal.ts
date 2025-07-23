@@ -1,4 +1,4 @@
-import type { PopulationSnapshot } from '@/app/global-state/bugs/BugsProvider.tsx';
+import type { PopulationSnapshot } from '@/app/global-state/bugs/BugsProvider';
 
 const getColWidthHorizontal = (
   stretchFactor: number,

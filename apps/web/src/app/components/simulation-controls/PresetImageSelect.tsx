@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import Select, { type Option } from '@repo/ui/Select';
-import { useContext } from 'react';
-import { BgImageContext } from '../../global-state/bgImage/index';
-import candy from './pics/candy.jpg';
-import carpet from './pics/carpet.jpg';
-import gravel from './pics/gravel.jpg';
-import leaves from './pics/leaves.jpg';
-import mars from './pics/mars.png';
-import moss from './pics/moss.png';
-import rocky_landscape from './pics/rocky_landscape.png';
-import sand from './pics/sand.jpg';
-import white from './pics/white.jpg';
+import Select, { type Option } from "@repo/ui/Select";
+import { useContext } from "react";
+import { BgImageContext } from "../../global-state/bgImage/index";
+import candy from "./pics/candy.jpg";
+import carpet from "./pics/carpet.jpg";
+import gravel from "./pics/gravel.jpg";
+import leaves from "./pics/leaves.jpg";
+import mars from "./pics/mars.png";
+import moss from "./pics/moss.png";
+import rocky_landscape from "./pics/rocky_landscape.png";
+import sand from "./pics/sand.jpg";
+import white from "./pics/white.jpg";
 
 const options: Option<string>[] = [
-  { value: sand, label: 'sand' },
-  { value: rocky_landscape, label: 'rocky landscape' },
-  { value: moss, label: 'moss' },
-  { value: mars, label: 'mars' },
-  { value: candy, label: 'candy' },
-  { value: carpet, label: 'carpet' },
-  { value: gravel, label: 'gravel' },
-  { value: leaves, label: 'leaves' },
-  { value: white, label: 'white' },
+  { value: sand.src, label: "sand" },
+  { value: rocky_landscape.src, label: "rocky landscape" },
+  { value: moss.src, label: "moss" },
+  { value: mars.src, label: "mars" },
+  { value: candy.src, label: "candy" },
+  { value: carpet.src, label: "carpet" },
+  { value: gravel.src, label: "gravel" },
+  { value: leaves.src, label: "leaves" },
+  { value: white.src, label: "white" },
 ];
 
 function PresetImageSelect() {

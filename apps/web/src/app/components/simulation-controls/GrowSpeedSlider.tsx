@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Slider from '@repo/ui/Slider';
-import React, { useContext } from 'react';
-import { BugsContext } from '../../global-state/bugs/BugsProvider';
+import Slider from "@repo/ui/Slider";
+import { useContext } from "react";
+import { BugsContext } from "../../global-state/bugs/BugsProvider";
 
 function GrowSpeedSlider() {
   const { growSpeed, setGrowSpeed } = useContext(BugsContext);
@@ -17,8 +17,8 @@ function GrowSpeedSlider() {
       max={10}
       step={0.5}
       value={growSpeed}
-      name={'grow speed'}
-      unit={'s'}
+      name={"grow speed"}
+      unit={"s"}
       onValueCommit={onChange}
       onValueChange={onChange}
     />

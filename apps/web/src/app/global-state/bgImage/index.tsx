@@ -1,6 +1,6 @@
-'use client';
-import React, { useState } from 'react';
-import mars from '../../components/simulation-controls/pics/mars.png';
+"use client";
+import React, { useState } from "react";
+import mars from "../../components/simulation-controls/pics/mars.png";
 
 interface BgImageContextType {
   bgImage: string | null;
@@ -8,7 +8,7 @@ interface BgImageContextType {
 }
 
 export const BgImageContext = React.createContext<BgImageContextType>({
-  bgImage: mars,
+  bgImage: mars.src,
   setBgImage: () => {},
 } as BgImageContextType);
 
@@ -17,7 +17,7 @@ interface BgImageProviderProps {
 }
 
 function BgImageProvider({ children }: BgImageProviderProps) {
-  const [bgImage, setBgImage] = useState<string | null>(mars);
+  const [bgImage, setBgImage] = useState<string | null>(mars.src);
 
   const value: BgImageContextType = {
     bgImage,

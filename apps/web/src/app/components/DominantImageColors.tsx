@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useContext, useEffect, useState } from 'react';
-import { v4 as uuid } from 'uuid';
-import { BgImageContext } from '../global-state/bgImage/index';
-import { SvgDimensionsContext } from '../global-state/svgContainerDimensions/index';
-import computeImgPalette from './computeImgPalette';
+import { useContext, useEffect, useState } from "react";
+import { v4 as uuid } from "uuid";
+import { BgImageContext } from "../global-state/bgImage/index";
+import { SvgDimensionsContext } from "../global-state/svgContainerDimensions/index";
+import computeImgPalette from "./computeImgPalette";
 
 function DomImageColors({ maxColorCount }: { maxColorCount: number }) {
   const [palette, setPalette] = useState(
@@ -16,9 +16,9 @@ function DomImageColors({ maxColorCount }: { maxColorCount: number }) {
 
   useEffect(() => {
     if (!bgImage) return;
-  
+
     computeImgPalette(
-      new URL(bgImage.src, window.location.href).href,
+      new URL(bgImage, window.location.href).href,
       svgContainerDimensions.width,
       svgContainerDimensions.height,
       maxColorCount,
@@ -34,8 +34,8 @@ function DomImageColors({ maxColorCount }: { maxColorCount: number }) {
           const isVeryLight =
             color[0] > 240 && color[1] > 240 && color[2] > 240;
           const swatchClasses = isVeryLight
-            ? 'h-[20px] w-[20px] border border-black'
-            : 'h-5 w-5';
+            ? "h-[20px] w-[20px] border border-black"
+            : "h-5 w-5";
           return (
             <div
               key={uuid()}

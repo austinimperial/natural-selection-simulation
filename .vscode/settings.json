@@ -1,35 +1,41 @@
 {
+  "[javascript][javascriptreact][json][jsonc][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[css][html][markdown][mdx][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "biome.lsp.trace.server": "verbose",
+  "biome.lsp.bin": "./node_modules/.bin/biome",
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.organizeImports.biome",
+    "source.fixAll"
+  ],
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "biomejs.biome",
-  "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+  "editor.tabSize": 2,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).*.ts",
+    "*.tsx": "$(capture).*.tsx",
+    "package.json": "*.config.cjs, *.config.js, *.config.mjs, *.config.ts, .infisical.json, .ncurc.json, .prettier*, .tool-versions, biome.json, bun.lock, components.json, knip.json, next-env.*, package-lock.json, tsconfig.*, vercel.*"
   },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
+  "explorer.sortOrderLexicographicOptions": "lower",
+  "git.autofetch": true,
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "playwright.reuseBrowser": true,
+  "search.exclude": {
+    "bun.lock": true,
+    "**/packages/data/src/**/*": true,
+    "**/Inter/variableBase64.ts": true
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "editor.codeActionsOnSave": {
-    "quickfix.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
-  },
-  "typescript.suggest.autoImports": true,
-  "typescript.preferences.includePackageJsonAutoImports": "auto",
-  "typescript.suggest.includeCompletionsForModuleExports": true,
-  "typescript.suggest.includeCompletionsWithSnippetText": true,
-  "editor.quickSuggestions": {
-    "other": true,
-    "comments": false,
-    "strings": true
-  },
-  "editor.suggest.insertMode": "replace",
-  "editor.acceptSuggestionOnCommitCharacter": true,
-  "editor.acceptSuggestionOnEnter": "on"
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "/**/node_modules/@tremor/react*",
+    "/**/node_modules/react-datepicker/dist/date_utils*"
+  ],
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

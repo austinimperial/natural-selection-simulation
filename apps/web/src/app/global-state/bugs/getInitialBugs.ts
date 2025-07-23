@@ -13,7 +13,18 @@ export default function getInitialBugs(
   populationSize: number,
   bugSize: number
 ): Node {
-  const root = createNode({ isRoot: true });
+  const root = createNode({
+    data: {
+      id: "",
+      x: 0,
+      y: 0,
+      isAlive: false,
+      color: [0, 0, 0],
+      orientation: 0,
+      clone: false,
+    },
+    isRoot: true,
+  });
   for (let i = 0; i < populationSize; i++) {
     const randCoors = getRandCoors(svgContainerDimensions, bugSize);
     addChild(root, {
