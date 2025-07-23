@@ -28,7 +28,7 @@ function ResetButton() {
     setBugs(newBugs);
     setPopulationSnapshots([]);
     setStepCount(0);
-    resetCanvasDimens();
+    resetCanvasDimens?.();
     setDeaths([]);
   };
 

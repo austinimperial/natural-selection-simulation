@@ -1,11 +1,7 @@
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      readonly NODE_ENV: "development" | "production" | "test";
-      readonly NEXT_PUBLIC_API_URL?: string;
-      readonly NEXT_PUBLIC_VERCEL_URL?: string;
-      readonly VERCEL_URL?: string;
-    }
+declare namespace NodeJS {
+  export interface ProcessEnv {
+    APP_ENV: 'development' | 'test' | 'preview' | 'staging' | 'production';
+    NEXT_PUBLIC_TEST: string;
   }
 }
 
