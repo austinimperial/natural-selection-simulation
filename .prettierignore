@@ -1,0 +1,17 @@
+.coverage/
+.next/
+.vercel/
+packages/data/src/
+*.min.css
+*.min.js
+**/.cache/
+**/.coverage/
+**/.deepeval/
+**/.next/
+**/.react-email/
+**/.tmp/
+**/.turbo/
+**/.vercel/
+**/dist/
+**/node_modules/
+**/playwright/results/

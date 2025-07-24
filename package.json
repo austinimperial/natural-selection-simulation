@@ -8,13 +8,17 @@
     "format": "node_modules/@biomejs/biome/bin/biome format --write .",
     "format:check": "node_modules/@biomejs/biome/bin/biome format .",
     "lint:biome": "node_modules/@biomejs/biome/bin/biome lint .",
-    "typecheck": "turbo run check-types"
+    "typecheck": "turbo run check-types",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",
     "@types/lodash": "^4.17.20",
     "autoprefixer": "^10.4.21",
+    "lint-staged": "latest",
     "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.11",
     "turbo": "^2.5.5",
     "typescript": "^5.8.3"
@@ -47,5 +51,9 @@
     "glob": "^11.0.3",
     "radix-ui": "^1.4.2",
     "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "biome check --write",
+    "*.{css,md,json}": "prettier --write"
   }
 }
