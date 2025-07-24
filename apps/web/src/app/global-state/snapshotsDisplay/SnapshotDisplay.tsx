@@ -80,7 +80,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
       thickness,
       throttle: true,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [populationSnapshots]);
 
   useEffect(() => {
@@ -94,7 +93,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
       thickness,
       throttle: false,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     screenDimensions,
     stretchFactor,
@@ -144,7 +142,6 @@ function SnapshotsDisplayProvider({ children }: { children: React.ReactNode }) {
       throttle: false,
     });
     setOrganisms(organisms);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     screenDimensions,
     stretchFactor,

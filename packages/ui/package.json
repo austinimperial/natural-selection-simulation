@@ -8,7 +8,7 @@
     "./Toggle": "./src/Toggle.tsx"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
+    "lint": "biome lint src",
     "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"
   },
@@ -17,7 +17,6 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "@repo/utils": "workspace:*",
-    "eslint": "^9.31.0",
     "typescript": "5.8.2"
   },
   "dependencies": {

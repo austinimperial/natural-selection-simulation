@@ -1,6 +1,5 @@
 import uInt8ClampedArrayToPixels from '@repo/utils/image/uInt8ClampedArrayToPixels';
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const quantize = require('quantize') as (
   pixels: number[][],
   maxColors: number

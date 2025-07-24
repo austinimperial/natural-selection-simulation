@@ -4,6 +4,8 @@
   "scripts": {
     "setup": "bun packages/scripts/src/setup.ts",
     "dev": "bun packages/scripts/src/dev.ts",
+    "serve": "bun packages/scripts/src/serve.ts",
+    "build": "turbo run build",
     "lint": "turbo run lint",
     "format": "node_modules/@biomejs/biome/bin/biome format --write .",
     "format:check": "node_modules/@biomejs/biome/bin/biome format .",
