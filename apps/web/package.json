@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "infisical run --env dev -- next dev --turbopack",
-    "build": "infisical run --env dev -- next build",
-    "start": "infisical run --env dev -- next start",
-    "lint": "next lint",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "biome lint src",
+    "test:integration": "vitest run --project integration",
+    "test:unit": "vitest run --project unit",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {

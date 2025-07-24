@@ -30,7 +30,7 @@ export default async function envLoad(
     const userHasProductionAccess =
       crossRuntimeSpawnSync(["git", "config", "user.email"])
         .stdout.toString()
-        .trim() === "michaelhays36@gmail.com";
+        .trim() === "austin.imperial1@gmail.com";
 
     environment = (
       await prompts({
