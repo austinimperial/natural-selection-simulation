@@ -1,6 +1,5 @@
 import './globals.css';
 import { Montserrat } from 'next/font/google';
-import Footer from './components/Footer';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Providers from './components/Providers';
@@ -22,7 +21,6 @@ export default function RootLayout({
           <Nav />
           <Header />
           <Providers>{children}</Providers>
-          <Footer />
         </div>
       </body>
     </html>

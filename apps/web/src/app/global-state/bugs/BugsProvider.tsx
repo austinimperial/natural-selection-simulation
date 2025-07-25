@@ -50,7 +50,7 @@ export type BugsContextType = {
     eatenBug: BugData,
     bugs: Node,
     getRandomLivingBugNode: (bugs: Node) => Node,
-    maxOffspringDistance: number,
+    maxOffspringRadius: number,
     svgContainerDimensions: SvgDimensions,
     bugSize: number,
     phenotypicDistance: number,
@@ -74,7 +74,7 @@ export type BugsContextType = {
   hungerTimer: number;
   MAX_STEP_COUNT: number;
   phenotypicDistance: number;
-  maxOffspringDistance: number;
+  maxOffspringRadius: number;
   populationSize: number;
   populationSnapshots: PopulationSnapshot[];
   setBugs: React.Dispatch<React.SetStateAction<Node>>;
@@ -83,7 +83,7 @@ export type BugsContextType = {
   setGrowSpeed: React.Dispatch<React.SetStateAction<number>>;
   setHungerTimer: React.Dispatch<React.SetStateAction<number>>;
   setPhenotypicDistance: React.Dispatch<React.SetStateAction<number>>;
-  setMaxOffspringDistance: React.Dispatch<React.SetStateAction<number>>;
+  setmaxOffspringRadius: React.Dispatch<React.SetStateAction<number>>;
   setPopulationSize: React.Dispatch<React.SetStateAction<number>>;
   setPopulationSnapshots: React.Dispatch<
     React.SetStateAction<PopulationSnapshot[]>
@@ -128,7 +128,7 @@ export const BugsContext = React.createContext<BugsContextType>({
   hungerTimer: 0,
   MAX_STEP_COUNT: 0,
   phenotypicDistance: 0,
-  maxOffspringDistance: 0,
+  maxOffspringRadius: 0,
   populationSize: 0,
   populationSnapshots: [],
   setBugs: () => {},
@@ -137,7 +137,7 @@ export const BugsContext = React.createContext<BugsContextType>({
   setGrowSpeed: () => {},
   setHungerTimer: () => {},
   setPhenotypicDistance: () => {},
-  setMaxOffspringDistance: () => {},
+  setmaxOffspringRadius: () => {},
   setPopulationSize: () => {},
   setPopulationSnapshots: () => {},
   setStepCount: () => {},
@@ -160,7 +160,7 @@ function BugsProvider({ children }: BugsProviderProps) {
   const [populationSize, setPopulationSize] = useState<number>(50);
   const [bugSize, setBugSize] = useState<number>(12);
   const [phenotypicDistance, setPhenotypicDistance] = useState<number>(8);
-  const [maxOffspringDistance, setMaxOffspringDistance] = useState<number>(300);
+  const [maxOffspringRadius, setmaxOffspringRadius] = useState<number>(300);
   const [growSpeed, setGrowSpeed] = useState<number>(2);
   const [populationSnapshots, setPopulationSnapshots] = useState<
     PopulationSnapshot[]
@@ -193,7 +193,7 @@ function BugsProvider({ children }: BugsProviderProps) {
         eatenBug,
         bugs!,
         getRandomLivingBugNode,
-        maxOffspringDistance,
+        maxOffspringRadius,
         svgContainerDimensions,
         bugSize,
         phenotypicDistance,
@@ -217,7 +217,7 @@ function BugsProvider({ children }: BugsProviderProps) {
     [
       bugs,
       phenotypicDistance,
-      maxOffspringDistance,
+      maxOffspringRadius,
       svgContainerDimensions,
       bugSize,
       stepCount,
@@ -239,7 +239,7 @@ function BugsProvider({ children }: BugsProviderProps) {
     hungerTimer,
     MAX_STEP_COUNT,
     phenotypicDistance,
-    maxOffspringDistance,
+    maxOffspringRadius,
     populationSize,
     populationSnapshots,
     setBugs,
@@ -248,7 +248,7 @@ function BugsProvider({ children }: BugsProviderProps) {
     setGrowSpeed,
     setHungerTimer,
     setPhenotypicDistance,
-    setMaxOffspringDistance,
+    setmaxOffspringRadius,
     setPopulationSize,
     setPopulationSnapshots,
     setStepCount,

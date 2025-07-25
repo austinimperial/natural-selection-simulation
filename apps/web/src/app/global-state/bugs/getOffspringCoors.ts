@@ -11,14 +11,14 @@ interface Coordinates {
 }
 
 export default function getOffspringCoors(
-  maxOffspringDistance: number,
+  maxOffspringRadius: number,
   parent: BugData,
   svgContainerDimensions: SvgDimensions,
   bugSize: number,
   worldWrap: boolean = false
 ): Coordinates {
   // get random point within given radius
-  const randRadius = Math.floor(Math.random() * maxOffspringDistance);
+  const randRadius = Math.floor(Math.random() * maxOffspringRadius);
   const randDegree = Math.floor(Math.random() * 360);
   const randRadian = (randDegree * Math.PI) / 180;
   const xStep = Math.cos(randRadian) * randRadius;

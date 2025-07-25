@@ -1,9 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @source '../../../../packages/ui';
 
 @layer base {
-
   *,
   *::before,
   *::after {
@@ -36,6 +35,7 @@
   h3,
   h4 {
     font-family: var(--font-montserrat);
+    margin-bottom: 1rem;
   }
 
   h1 {
@@ -83,23 +83,24 @@
   from {
     transform: scale(0);
   }
+
   to {
     transform: scale(1);
   }
 }
 
 @theme {
-  --color-mint-100: #6B7076;
-  --color-mint-200: #868F94;
-  --color-mint-300: #A2AEB1;
-  --color-mint-400: #BDCECD;
+  --color-mint-100: #6b7076;
+  --color-mint-200: #868f94;
+  --color-mint-300: #a2aeb1;
+  --color-mint-400: #bdcecd;
   --color-mint-500: #d8ebe6;
-  --color-mint-600: #DDEEE6;
-  --color-mint-700: #E2F1E7;
-  --color-mint-800: #E7F4E9;
-  --color-mint-900: #ECF6EC;
-  --color-mint-1000: #F3F9F2;
-  --color-mint-1100: #F9FBF7;
+  --color-mint-600: #ddeee6;
+  --color-mint-700: #e2f1e7;
+  --color-mint-800: #e7f4e9;
+  --color-mint-900: #ecf6ec;
+  --color-mint-1000: #f3f9f2;
+  --color-mint-1100: #f9fbf7;
 }
 
 body {

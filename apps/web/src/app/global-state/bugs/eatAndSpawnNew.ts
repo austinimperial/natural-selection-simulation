@@ -13,7 +13,7 @@ export default function eatAndSpawnNew(
   eatenBug: BugData,
   bugs: Node,
   getRandomLivingBugNode: (bugs: Node) => Node,
-  maxOffspringDistance: number,
+  maxOffspringRadius: number,
   svgContainerDimensions: SvgDimensions,
   bugSize: number,
   phenotypicDistance: number,
@@ -27,7 +27,7 @@ export default function eatAndSpawnNew(
   // spawn new
   const randomSurvivor = getRandomLivingBugNode(newbugs);
   const offspringCoors = getOffspringCoors(
-    maxOffspringDistance,
+    maxOffspringRadius,
     randomSurvivor.data!,
     svgContainerDimensions,
     bugSize,

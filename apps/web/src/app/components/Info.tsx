@@ -1,136 +1,206 @@
 import Image from 'next/image';
-import React from 'react';
 import how_to_read_snapshots from './photos/how_to_read_snapshots.png';
 import wilensky from './photos/wilensky.png';
 
 function Info() {
   return (
     <div className="flex justify-center">
-      <div className="mt-5 p-2.5 w-full max-w-[780px]">
-        <div className="text-center  text-2xl mt-2.5">Intro</div>
-        <p className=" text-base mb-2.5">
-          I made (or rather improved upon) this simlation because understanding
-          natural selection is fundamental to our study of life. Everyone can
-          and should know it. Plus, it's really cool!
-        </p>
-        <div className="text-center  text-2xl mt-2.5">TLDR;</div>
-        <p className=" text-base mb-2.5">
-          This is an evolution simulation. Hover over a bug to eat it. Try to
-          eat as many bugs as you can without letting your "hunger timer" run
-          down to zero. After a minute or so of eating bugs, you will notice
-          that the bugs will be harder to find. That's because the population is
-          evolving to be more camouflaged with the environment.
-        </p>
-        <div className="text-center  text-2xl mt-2.5">
-          How Does Natural Selection Work?
-        </div>
-        <p className=" text-base mb-2.5">
-          If evolution is the observed phenomenon of hereditary change over
-          time, then natural selection is the mechanism of that change. As for
-          how it works, Richard Dawkins puts it most succinctly. Natural
-          selection is "the differential survival of replicators."
+      <div className="flex flex-col mt-5 p-2.5 w-full max-w-[780px] h2:mb-3">
+        <h2 className="text-center text-2xl mt-2.5">What is this game?</h2>
+        <p className="text-base mb-2.5">
+          This interactive simulation lets you experience evolution of
+          camouflage in real time. Acting as a bug-eating predator, your actions
+          become the selection pressure that drives the evolution of the bug
+          population.
         </p>
 
-        <p className=" text-base mb-2.5">
-          Or, to expand this into a few bullet points:
+        <h2 className="text-center text-2xl mt-2.5">How to play</h2>
+        <p className="text-base mb-2.5">
+          You are a predator hunting bugs. Eat them by hovering your mouse over
+          them (or tapping if on mobile). Your hunger timer counts down
+          constantly, and you’ll need to keep eating to survive. If you do die,
+          you can keep playing, but the objective should be to go as long as you
+          can without dying. In just a few minutes of playing, you'll see the
+          bug population evolve a camouflage strategy. It's a classic survival
+          of the fittest situation - the bugs that are harder to see against the
+          background image will tend to survive and procreate.
         </p>
 
-        <ul className="mb-2.5">
+        <h2 className="text-center text-2xl mt-2.5">This is too easy!</h2>
+        <p className="text-base mb-2.5">
+          If the default settings are too easy, it can feel like you're
+          pretending to go after the easiest-to-see bugs just to 'make the
+          simulation work'. Doing so is a good demonstration of artificial
+          selection, like what we do with our staple crops. But luckily, there's
+          a way to get good old fashioned natural selection. If the default
+          settings feel too easy, just alter the settings! Make the game harder
+          by decreasing the hunger timer or making the bugs smaller.{' '}
+          <b>
+            You should be able to adjust the settings so that the optimal
+            hunting strategy to go after the most conspicuous bugs
+          </b>
+          . Similarly, if you're living a care free life pursuing a 'combing'
+          strategy (i.e. just dragging the cursor around until you get a bug)
+          you should be able to alter the settings so that this is not the most
+          effective strategy. As long as it feels like the genuinely best
+          strategy is to hunt for the most conspicuous bugs, you'll see the bug
+          population evolve to be more camouflaged with its environment.
+        </p>
+
+        <h2 className="text-center text-2xl mt-2.5">
+          How does the simulation work?
+        </h2>
+        <ul className="mb-2.5 list-disc pl-5">
           <li>
-            Some things in the world make copies of themselves - they replicate.
+            This species of bug, let's call it <em>scarabidus chromatis</em> has
+            a single gene that controls its color.
           </li>
           <li>
-            The copying process is really good, but not perfect. There is
-            variation among replicators.
+            The bug population begins with each bug having a randomly chosen
+            color. That is to say, each bug has a different allele of the color
+            gene.
           </li>
           <li>
-            Because variation exists, some replicators are better at replicating
-            than others.
+            The population stays constant—when you eat a bug, it’s immediately
+            replaced.
           </li>
           <li>
-            In a world of finite resources, replicators replicating means that
-            other replicators can't replicate.
+            The replacement is a child of a randomly selected surviving bug.
           </li>
           <li>
-            Successful replicators are thus metaphorically "selected" by nature.
+            The child inherits the parent’s color gene, but with a small
+            mutation in its red, green, and blue (RGB) values.
+          </li>
+          <li>
+            The only trait that evolves is color, which affects how visible bugs
+            are against the background.
+          </li>
+          <li>
+            Bugs that blend in are less likely to be eaten, so their genes
+            (colors) are more likely to persist.
+          </li>
+          <li>
+            Over time, the population evolves to match the background—an
+            adaptive response to selection pressure.
           </li>
         </ul>
-        <p className=" text-base mb-2.5">
-          Let's pursue these points in further detail.
+
+        <h2 className="text-center text-2xl mt-2.5">Simulation controls</h2>
+        <ul className="mb-2.5 list-disc pl-5">
+          <li>
+            <span className="font-bold">Population Size:</span> Total number of
+            bugs present at any time.
+          </li>
+          <li>
+            <span className="font-bold">Phenotypic Distance:</span> Controls how
+            much the color gene can change with each reproduction. For example,
+            if the parent bug's color gene is RGB(50,50,50) and the phenotypic
+            distance is set to 7, the offspring bug will be either RGB(59,59,59)
+            or RGB(43,43,43)
+          </li>
+          <li>
+            <span className="font-bold">Custom Initial Bugs:</span> Instead of
+            randomly chosen colors, you can set whatever colors you want in the
+            initial population
+          </li>
+          <li>
+            <span className="font-bold">Background:</span> Changes the
+            environment to test camouflage under different conditions.
+          </li>
+          <li>
+            <span className="font-bold">Grow Speed:</span> If the bugs just pop
+            into existence fully formed it tends to catch the eye, making them
+            easier to spot. This could potentially skew the simulation by giving
+            you, the predator, a hunting strategy that does not depend on color.
+            Having the bugs grow slowly diminishes this effect.
+          </li>
+          <li>
+            <span className="font-bold">Max Offspring Radius:</span>This is the
+            maximum distance that an offspring bug will spawn from its parent.
+          </li>
+          <li>
+            <span className="font-bold">World Wrap:</span>If the offspring
+            distance is out of bounds, it will wrap around, like in Pac Man. If
+            world wrap is off, bugs will tend to cluster around the edges.{' '}
+          </li>
+          <li>
+            <span className="font-bold">Flash on Death:</span> When you die of
+            starvation the screen flashes red. Turn it off if this is annoying
+            to you.
+          </li>
+          <li>
+            <span className="font-bold">Random Step:</span> You can let the
+            simulation run for a given number of steps. Instead of you choosing
+            which bugs are eaten, a random bug is chosen each step. See the
+            section below about genetic drift
+          </li>
+        </ul>
+
+        <h2 className="text-center text-2xl mt-2.5">A note on genetic drift</h2>
+        <p className="text-base mb-2.5"></p>
+        <p className="text-base mb-2.5">
+          Genetic drift is the random fluctuation of allele frequencies in a
+          population. In other words, it is evolution in the <em>absence</em> of
+          selection pressures. It's somewhat counterintuitive. For example, if
+          you start out with, say, 50 different alleles in a population, and
+          leave it to a random process to choose which ones get to replicate,
+          you end up with a severe reduction in the overall number of alleles in
+          the population. Those alleles 'drifted' to a higher frequency purely
+          by chance. This games's 'random step' feature lets you simulate
+          genetic drift. Reset the game and select a random step of 500. You
+          will see that the diversity of the initial population is not
+          sustained. A few lucky alleles will have drifted to higher
+          frequencies.
         </p>
 
-        <p className=" text-base mb-2.5">
-          As it turns out, there are things in the world that, because of their
-          physical structure, automatically assemble copies of themselves.
-          Dawkins points out that while replicators can in principle be made out
-          of any material, the one's we are most familiar with are the moleules
-          we call our genes. Or more specifically, the strands of DNA contained
-          in most of our cells.
-        </p>
-
-        <p className=" text-base mb-2.5">
-          It's hard to overstate what amazing trick replication is. For
-          comparison, if a salt molecule is like putting on flip flops, then DNA
-          is like intercepting an cruise missile by shooting a laser out of your
-          butt.
-        </p>
-
-        <p className=" text-base mb-2.5">
-          Paradoxially, any replicator worth it's salt will have in imperfect
-        </p>
-
-        <div className="text-center  text-2xl mt-2.5">
-          What Does This Simulation Simulate?
-        </div>
-        <p className=" text-base mb-2.5">In Progress</p>
-
-        <div className="text-center  text-2xl mt-2.5">
-          How Does the Simulation Work?
-        </div>
-        <p className=" text-base mb-2.5">In Progress</p>
-
-        <div className="text-center  text-2xl mt-2.5">
+        <h2 className="text-center text-2xl mt-2.5">
           How To Read Population Snapshots
-        </div>
+        </h2>
         <Image
           src={how_to_read_snapshots}
           alt="How to read population snapshots"
           width={780}
           height={400}
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
+          style={{ width: '100%', height: 'auto' }}
         />
-
-        <div className="text-center  text-2xl mt-2.5">History</div>
-        <p className=" text-base mb-2.5">
-          This simulation, like its own bugs, has evolved over time. I've
-          discerned at least three preceeding generations in the lineage:
+        <p className="text-base mb-2.5">
+          Population snapshots tell the story of the evolving bug population.
+          Switch from 'grid' view to 'line' view to trace the survival of
+          individual bugs throughout the simulation.
         </p>
-        <ol className="mb-2.5">
+
+        <h2 className="text-center text-2xl mt-2.5">
+          A Brief History of the Simulation
+        </h2>
+        <p className="text-base mb-2.5">
+          This simulation is part of a long tradition of teaching evolution
+          through interactive models:
+        </p>
+        <ol className="mb-2.5 list-decimal pl-5">
           <li>
-            <span className="font-bold">June, 1986: </span> Beth Bishop and
-            Charles Anderson describe a "board game" in
-            <a href="https://files.eric.ed.gov/fulltext/ED272383.pdf">
-              EVOLUTION BY NATURAL SELECTION: A TEACHING MODULE
+            <span className="font-bold">1986:</span> Bishop & Anderson create{' '}
+            <a
+              className="underline"
+              href="https://files.eric.ed.gov/fulltext/ED272383.pdf"
+            >
+              a classroom activity using colored beads.
             </a>
-            . Played by hand, their game involved colored beads on a blanket.
           </li>
           <li>
-            <span className="font-bold">mid 90's: </span>Steve Brewer of UMass
-            made Bishop & Anderson's game into a computer program. The last
-            version was released on 6/10/1995. I remember gazing upon the
-            Brewer's version while researching this section, but it appears now
-            to have been removed by UMass.
+            <span className="font-bold">1990s:</span> Steve Brewer develops a
+            computer version at UMass. I once saw this webpage years ago, but
+            it's since been taken down.
           </li>
           <li>
-            <span className="font-bold">2005: </span>Uri Wilensky and M. Novak
-            <a href="http://modelingcommons.org/browse/one_model/1454#model_tabs_browse_info">
-              implemented the game
-            </a>{' '}
-            (below) in Wilensky's NetLogo platform , a general-purpose
-            population simulator.
+            <span className="font-bold">2005:</span> Wilensky and Novak
+            implement a NetLogo version (
+            <a
+              className="underline"
+              href="http://modelingcommons.org/browse/one_model/1454#model_tabs_browse_info"
+            >
+              view here
+            </a>
+            ).
           </li>
         </ol>
         <Image
@@ -138,38 +208,37 @@ function Info() {
           alt="Wilensky NetLogo implementation"
           width={780}
           height={400}
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
+          style={{ width: '100%', height: 'auto' }}
         />
-        <p className=" text-base mb-2.5">
-          The present iteration of this simulation, I'm happy to introduce the
-          following new features:
+
+        <p className="text-base mb-2.5">
+          This is Wilensky and Novaks' version. My version introduces several
+          new features:
         </p>
-        <ol className="mb-2.5">
+        <ol className="mb-2.5 list-decimal pl-5">
           <li>
-            <span className="font-bold">Population Snapshots:</span> graphical
-            representation of bug lineage
+            <span className="font-bold">Population Snapshots:</span> Visualize
+            allele frequencies changing over time.
           </li>
           <li>
-            <span className="font-bold">Hunger Timer:</span>Makes for a more
-            realistic simulation by introducing a time constraint
+            <span className="font-bold">Hunger Timer:</span> Makes contrast
+            hunting the optimal strategy
           </li>
           <li>
-            <span className="font-bold">Dominant Colors:</span> A quick
-            subjective comparision of bug colors vs. environment colors
+            <span className="font-bold">Dominant Colors:</span> Compare bug
+            colors with the background in real time.
           </li>
           <li>
-            <span className="font-bold">Random Step:</span> Allows users to
-            simulate genetic drift
+            <span className="font-bold">Random Step:</span> Simulate genetic
+            drift.
           </li>
           <li>
-            <span className="font-bold">Custom Initial Bugs:</span> Allows users
-            to choose the intial set of bugs
+            <span className="font-bold">Custom Initial Bugs:</span> Set the
+            starting alleles manually.
           </li>
         </ol>
-        <div className="text-center  text-2xl mt-2.5">Photo credits</div>
+
+        <h2 className="text-center text-2xl mt-2.5">Photo Credits</h2>
         <ul className="mb-2.5">
           <li>
             <span className="font-bold">sand:</span> "Sand from Gobi Desert" by
@@ -194,10 +263,8 @@ function Info() {
             Studio/Shutterstock
           </li>
           <li>
-            <span className="font-bold">grass:</span>{' '}
-            <a href="https://www.pennington.com/all-products/grass-seed/resources/how-to-bring-your-lawn-back-to-life-in-5-simple-steps">
-              Pennington
-            </a>
+            <span className="font-bold">everything else:</span> generated with
+            chatGPT
           </li>
         </ul>
       </div>

@@ -1,15 +1,14 @@
 'use client';
 
 import Slider from '@repo/ui/Slider';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { BugsContext } from '../../global-state/bugs/BugsProvider';
 
 function OffspringDistanceSlider() {
-  const { setMaxOffspringDistance, maxOffspringDistance } =
-    useContext(BugsContext);
+  const { setmaxOffspringRadius, maxOffspringRadius } = useContext(BugsContext);
 
   const onChange = (newValue: number) => {
-    setMaxOffspringDistance(newValue);
+    setmaxOffspringRadius(newValue);
   };
 
   return (
@@ -17,8 +16,8 @@ function OffspringDistanceSlider() {
       min={10}
       max={500}
       step={5}
-      value={maxOffspringDistance}
-      name={'max offspring distance'}
+      value={maxOffspringRadius}
+      name={'max offspring radius'}
       unit={'px'}
       onValueCommit={onChange}
       onValueChange={onChange}
