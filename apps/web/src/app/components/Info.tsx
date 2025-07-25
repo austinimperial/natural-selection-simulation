@@ -158,13 +158,13 @@ function Info() {
           leave it to a random process to choose which ones get to replicate,
           you end up with a severe reduction in the overall number of alleles in
           the population. Those alleles 'drifted' to a higher frequency purely
-          by chance. This games's 'random step' feature lets you simulate
-          genetic drift. Reset the game and select a random step of 500. You
-          will see that the diversity of the initial population is not
-          sustained. A few lucky alleles will have drifted to higher
-          frequencies. In the real world, multiple evolutionary forces act
-          simultaneously on a population. Disentangling their relative influence
-          is a central challenge for evolutionary biologists.
+          by chance. This game's 'random step' feature lets you simulate genetic
+          drift. Reset the game and select a random step of 500. You will see
+          that the diversity of the initial population is not sustained. A few
+          lucky alleles will have drifted to higher frequencies. In the real
+          world, multiple evolutionary forces act simultaneously on a
+          population. Disentangling their relative influence is a central
+          challenge for evolutionary biologists.
         </p>
 
         <h2 className="text-center text-2xl mt-2.5">
