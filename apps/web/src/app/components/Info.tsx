@@ -20,9 +20,9 @@ function Info() {
           them (or tapping if on mobile). Your hunger timer counts down
           constantly, and you’ll need to keep eating to survive. If you do die,
           you can keep playing, but the objective should be to go as long as you
-          can without dying. In just a few minutes of playing, you'll see the
-          bug population evolve a camouflage strategy. It's a classic survival
-          of the fittest situation - the bugs that are harder to see against the
+          can without dying. In about 1-3 minutes of playing, you'll see the bug
+          population evolve a camouflage strategy. It's a classic survival of
+          the fittest situation - the bugs that are harder to see against the
           background image will tend to survive and procreate.
         </p>
 
@@ -31,20 +31,19 @@ function Info() {
           If the default settings are too easy, it can feel like you're
           pretending to go after the easiest-to-see bugs just to 'make the
           simulation work'. Doing so is a good demonstration of artificial
-          selection, like what we do with our staple crops. But luckily, there's
-          a way to get good old fashioned natural selection. If the default
-          settings feel too easy, just alter the settings! Make the game harder
-          by decreasing the hunger timer or making the bugs smaller.{' '}
+          selection, but it's not what we're after. Luckily, there's a way to
+          get genuine natural selection - just alter the settings! If the
+          defaults feel too easy, make the game harder by decreasing the hunger
+          timer or making the bugs smaller.{' '}
           <b>
-            You should be able to adjust the settings so that the optimal
-            hunting strategy is to go after the most conspicuous bugs
-          </b>
-          . Similarly, if you're living a care free life pursuing a 'combing'
-          strategy (i.e. just dragging the cursor around until you get a bug)
-          you should be able to alter the settings so that this is not the most
-          effective strategy. As long as it feels to you like the best strategy
-          is to hunt for the most conspicuous bugs, you'll see the bug
-          population evolve to be more camouflaged with its environment.
+            You should adjust the settings so that the optimal hunting strategy
+            is to go after the most conspicuous bugs.
+          </b>{' '}
+          If you do this, you'll see genuine natural selection. Similarly, if
+          you're living a care free life pursuing a 'combing' strategy (i.e.
+          just dragging the cursor around until you get a bug, without really
+          looking) you should be able to alter the settings so that this is not
+          the most effective strategy.
         </p>
 
         <h2 className="text-center text-2xl mt-2.5">
@@ -84,6 +83,19 @@ function Info() {
             adaptive response to selection pressure.
           </li>
         </ul>
+
+        <h2 className="text-center text-2xl mt-2.5">Why does it matter?</h2>
+        <p className="text-base mb-2.5">
+          Natural selection is powerful not because it is guided by an
+          intelligent designer, but because it isn’t. This simulation helps
+          reveal how adaptive traits can emerge from simple rules. There is no
+          master plan, no top-down design—just blind variation and differential
+          survival. What looks like purposeful camouflage is actually the result
+          of numerous mindless steps. The bugs aren’t trying to evolve; they’re
+          the subject of an algorithm. This bottom-up process is the essence of
+          evolution by natural selection and the key to understanding the beauty
+          of the biological world.
+        </p>
 
         <h2 className="text-center text-2xl mt-2.5">Simulation controls</h2>
         <ul className="mb-2.5 list-disc pl-5">
@@ -150,11 +162,13 @@ function Info() {
           genetic drift. Reset the game and select a random step of 500. You
           will see that the diversity of the initial population is not
           sustained. A few lucky alleles will have drifted to higher
-          frequencies.
+          frequencies. In the real world, multiple evolutionary forces act
+          simultaneously on a population. Disentangling their relative influence
+          is a central challenge for evolutionary biologists.
         </p>
 
         <h2 className="text-center text-2xl mt-2.5">
-          How To Read Population Snapshots
+          How to read population snapshots
         </h2>
         <Image
           src={how_to_read_snapshots}
@@ -163,11 +177,20 @@ function Info() {
           height={400}
           style={{ width: '100%', height: 'auto' }}
         />
-        <p className="text-base mb-2.5">
-          Population snapshots tell the story of the evolving bug population.
-          Switch from 'grid' view to 'line' view to trace the survival of
-          individual bugs throughout the simulation.
-        </p>
+        <ul className="mb-2.5 list-disc pl-5">
+          <li className="mt-3">
+            Population snapshots tell the story of the evolving bug population.
+          </li>
+          <li>Each vertical band is a snapshot of the actual population.</li>
+          <li>
+            When a bug is eaten and another procreates, the allele frequencies
+            change.
+          </li>
+          <li>
+            Switch from 'grid' view to 'line' view to trace the survival of
+            individual bugs throughout the simulation.
+          </li>
+        </ul>
 
         <h2 className="text-center text-2xl mt-2.5">
           A Brief History of the Simulation
@@ -193,14 +216,14 @@ function Info() {
           </li>
           <li>
             <span className="font-bold">2005:</span> Wilensky and Novak
-            implement a NetLogo version (
+            implement{' '}
             <a
               className="underline"
               href="http://modelingcommons.org/browse/one_model/1454#model_tabs_browse_info"
             >
-              view here
+              a NetLogo version
             </a>
-            ).
+            .
           </li>
         </ol>
         <Image
