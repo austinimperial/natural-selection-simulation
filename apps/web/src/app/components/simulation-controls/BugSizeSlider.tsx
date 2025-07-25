@@ -1,7 +1,7 @@
 'use client';
 
 import Slider from '@repo/ui/Slider';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { BugsContext } from '../../global-state/bugs/BugsProvider';
 
 function BugSizeSlider() {
@@ -19,6 +19,7 @@ function BugSizeSlider() {
       value={bugSize}
       name={'bug size'}
       unit={'px'}
+      tooltipContent="Controls the size of the bugs. Smaller bugs are harder to spot, making the game more challenging and encouraging hunting based on color visibility."
       onValueCommit={onChange}
       onValueChange={onChange}
     />

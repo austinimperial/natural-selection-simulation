@@ -19,6 +19,7 @@ function PhenotypicDistanceSlider() {
       value={phenotypicDistance}
       name={'phenotypic distance'}
       unit={''}
+      tooltipContent="Controls how different each offprings will be from its parent"
       onValueCommit={onChange}
       onValueChange={onChange}
     />

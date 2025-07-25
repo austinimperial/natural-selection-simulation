@@ -51,6 +51,7 @@ function PopulationSlider() {
       value={populationSize}
       name={'population'}
       unit=""
+      tooltipContent="Total number of bugs present at any time."
       onValueCommit={handleValueCommit}
       onValueChange={handleValueChange}
     />

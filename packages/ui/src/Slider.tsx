@@ -1,4 +1,6 @@
 import * as SliderPrimitive from '@radix-ui/react-slider';
+import * as Tooltip from '@radix-ui/react-tooltip';
+import { CircleQuestionMark } from 'lucide-react';
 
 interface SliderProps {
   min: number;
@@ -7,6 +9,7 @@ interface SliderProps {
   step: number;
   name: string;
   unit?: string;
+  tooltipContent?: string;
   onValueChange?: (value: number) => void;
   onValueCommit: (value: number) => void;
 }
@@ -18,6 +21,7 @@ function Slider({
   step,
   name,
   unit,
+  tooltipContent,
   onValueChange,
   onValueCommit,
 }: SliderProps) {
@@ -31,7 +35,27 @@ function Slider({
 
   return (
     <div className="flex flex-col items-start w-full">
-      <div className="text-sm">{name}</div>
+      <div className="flex items-center">
+        <div className="text-sm">{name}</div>
+        {tooltipContent && (
+          <Tooltip.Provider>
+            <Tooltip.Root delayDuration={0}>
+              <Tooltip.Trigger asChild>
+                <CircleQuestionMark size={16} className="cursor-pointer ml-2" />
+              </Tooltip.Trigger>
+              <Tooltip.Portal>
+                <Tooltip.Content
+                  className="bg-gray-900 text-white text-xs rounded px-2 py-1 max-w-xs z-50"
+                  sideOffset={5}
+                >
+                  {tooltipContent}
+                  <Tooltip.Arrow className="fill-gray-900" />
+                </Tooltip.Content>
+              </Tooltip.Portal>
+            </Tooltip.Root>
+          </Tooltip.Provider>
+        )}
+      </div>
       <div className="flex items-center w-full">
         <SliderPrimitive.Root
           className="relative flex items-center select-none touch-none w-full max-w-[170px] h-5"

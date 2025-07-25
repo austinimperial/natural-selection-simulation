@@ -19,6 +19,7 @@ function OffspringDistanceSlider() {
       value={maxOffspringRadius}
       name={'max offspring radius'}
       unit={'px'}
+      tooltipContent="This is the maximum distance that an offspring bug will spawn from its parent."
       onValueCommit={onChange}
       onValueChange={onChange}
     />

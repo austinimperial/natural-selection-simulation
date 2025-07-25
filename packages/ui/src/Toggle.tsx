@@ -1,8 +1,7 @@
-"use client";
+'use client';
 
-import React from "react";
-import * as ToggleGroup from "@radix-ui/react-toggle-group";
-import { cn } from "@repo/utils";
+import * as ToggleGroup from '@radix-ui/react-toggle-group';
+import { cn } from '@repo/utils';
 
 interface ToggleProps {
   value: boolean;
@@ -12,17 +11,23 @@ interface ToggleProps {
   className?: string;
 }
 
-function Toggle({ value, onValueChange, leftLabel, rightLabel, className }: ToggleProps) {
+function Toggle({
+  value,
+  onValueChange,
+  leftLabel,
+  rightLabel,
+  className,
+}: ToggleProps) {
   return (
     <ToggleGroup.Root
       type="single"
-      value={value ? "right" : "left"}
+      value={value ? 'right' : 'left'}
       onValueChange={(newValue) => {
         if (newValue) {
-          onValueChange(newValue === "right");
+          onValueChange(newValue === 'right');
         }
       }}
-      className={cn("flex", className)}
+      className={cn('flex', className)}
     >
       <ToggleGroup.Item
         value="left"
@@ -40,4 +45,4 @@ function Toggle({ value, onValueChange, leftLabel, rightLabel, className }: Togg
   );
 }
 
-export default Toggle; 
+export default Toggle;

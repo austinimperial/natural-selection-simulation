@@ -19,6 +19,7 @@ function HungerTimerSlider() {
       value={hungerTimer}
       name={'hunger timer (seconds)'}
       unit="s"
+      tooltipContent="Controls how quickly your hunger timer counts down. Lower values make the game harder and encourage hunting the most visible bugs."
       onValueChange={onChange}
       onValueCommit={onChange}
     />
