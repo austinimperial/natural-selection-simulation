@@ -7,6 +7,7 @@ function Header() {
       <p className="text-center text-xl">
         A tool for understanding the process of natural selection
       </p>
+      <div className="flex gap-3">(works best on desktop)</div>
     </div>
   );
 }

@@ -26,26 +26,6 @@ function Info() {
           background image will tend to survive and procreate.
         </p>
 
-        <h2 className="text-center text-2xl mt-2.5">This is too easy!</h2>
-        <p className="text-base mb-2.5">
-          If the default settings are too easy, it can feel like you're
-          pretending to go after the easiest-to-see bugs just to 'make the
-          simulation work'. Doing so is a good demonstration of artificial
-          selection, but it's not what we're after. Luckily, there's a way to
-          get genuine natural selection - just alter the settings! If the
-          defaults feel too easy, make the game harder by decreasing the hunger
-          timer or making the bugs smaller.{' '}
-          <b>
-            You should adjust the settings so that the optimal hunting strategy
-            is to go after the most conspicuous bugs.
-          </b>{' '}
-          If you do this, you'll see genuine natural selection. Similarly, if
-          you're living a care free life pursuing a 'combing' strategy (i.e.
-          just dragging the cursor around until you get a bug, without really
-          looking) you should be able to alter the settings so that this is not
-          the most effective strategy.
-        </p>
-
         <h2 className="text-center text-2xl mt-2.5">
           How does the simulation work?
         </h2>
@@ -84,17 +64,24 @@ function Info() {
           </li>
         </ul>
 
-        <h2 className="text-center text-2xl mt-2.5">Why does it matter?</h2>
+        <h2 className="text-center text-2xl mt-2.5">This is too easy!</h2>
         <p className="text-base mb-2.5">
-          Natural selection is powerful not because it is guided by an
-          intelligent designer, but because it isn’t. This simulation helps
-          reveal how adaptive traits can emerge from simple rules. There is no
-          master plan, no top-down design—just blind variation and differential
-          survival. What looks like purposeful camouflage is actually the result
-          of numerous mindless steps. The bugs aren’t trying to evolve; they’re
-          the subject of an algorithm. This bottom-up process is the essence of
-          evolution by natural selection and the key to understanding the beauty
-          of the biological world.
+          If the default settings are too easy, it can feel like you're
+          pretending to go after the easiest-to-see bugs just to 'make the
+          simulation work'. Doing so is a good demonstration of artificial
+          selection, but it's not what we're after. Luckily, there's a way to
+          get genuine natural selection - just alter the settings! If the
+          defaults feel too easy, make the game harder by decreasing the hunger
+          timer or making the bugs smaller.{' '}
+          <b>
+            You should adjust the settings so that the optimal hunting strategy
+            is to go after the most conspicuous bugs.
+          </b>{' '}
+          If you do this, you'll see genuine natural selection. Similarly, if
+          you're living a care free life pursuing a 'combing' strategy (i.e.
+          just dragging the cursor around until you get a bug, without really
+          looking) you should be able to alter the settings so that this is not
+          the most effective strategy.
         </p>
 
         <h2 className="text-center text-2xl mt-2.5">Simulation controls</h2>
@@ -148,6 +135,19 @@ function Info() {
           </li>
         </ul>
 
+        <h2 className="text-center text-2xl mt-2.5">Why does it matter?</h2>
+        <p className="text-base mb-2.5">
+          Natural selection is powerful not because it is guided by an
+          intelligent designer, but because it isn’t. This simulation helps
+          reveal how adaptive traits can emerge from simple rules. There is no
+          master plan, no top-down design—just blind variation and differential
+          survival. What looks like purposeful camouflage is actually the result
+          of numerous mindless steps. The bugs aren’t trying to evolve; they’re
+          the subject of an algorithm. This bottom-up process is the essence of
+          evolution by natural selection and the key to understanding the beauty
+          of the biological world.
+        </p>
+
         <h2 className="text-center text-2xl mt-2.5">A note on genetic drift</h2>
         <p className="text-base mb-2.5"></p>
         <p className="text-base mb-2.5">
@@ -196,8 +196,8 @@ function Info() {
           A Brief History of the Simulation
         </h2>
         <p className="text-base mb-2.5">
-          This simulation is part of a long tradition of teaching evolution
-          through interactive models:
+          I didn't come up with this simulation. There have been at least 3
+          previous iterations:
         </p>
         <ol className="mb-2.5 list-decimal pl-5">
           <li>
