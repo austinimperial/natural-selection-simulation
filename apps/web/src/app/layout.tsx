@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} font-sans`}>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 mb-[100px]">
           <Nav />
           <Header />
           <Providers>{children}</Providers>
