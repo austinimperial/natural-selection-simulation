@@ -51,7 +51,7 @@ function PopulationSlider() {
       value={populationSize}
       name={'population'}
       unit=""
-      tooltipContent="Total number of bugs present at any time."
+      tooltipContent="Total number of bugs present at any time. When you eat a bug, a surviving bug is randomly chosen to procreate. So the population stays constant."
       onValueCommit={handleValueCommit}
       onValueChange={handleValueChange}
     />
