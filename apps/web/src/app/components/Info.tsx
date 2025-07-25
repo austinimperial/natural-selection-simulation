@@ -37,13 +37,13 @@ function Info() {
           by decreasing the hunger timer or making the bugs smaller.{' '}
           <b>
             You should be able to adjust the settings so that the optimal
-            hunting strategy to go after the most conspicuous bugs
+            hunting strategy is to go after the most conspicuous bugs
           </b>
           . Similarly, if you're living a care free life pursuing a 'combing'
           strategy (i.e. just dragging the cursor around until you get a bug)
           you should be able to alter the settings so that this is not the most
-          effective strategy. As long as it feels like the genuinely best
-          strategy is to hunt for the most conspicuous bugs, you'll see the bug
+          effective strategy. As long as it feels to you like the best strategy
+          is to hunt for the most conspicuous bugs, you'll see the bug
           population evolve to be more camouflaged with its environment.
         </p>
 
