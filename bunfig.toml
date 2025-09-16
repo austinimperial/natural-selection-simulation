@@ -1,0 +1,6 @@
+[test]
+# Disable Bun's built-in test runner detection
+enabled = false
+
+# Or alternatively, exclude test files from Bun's detection
+# exclude = ["**/*.spec.ts", "**/*.test.ts"]

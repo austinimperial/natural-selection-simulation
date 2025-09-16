@@ -1,0 +1,20 @@
+{
+  "name": "@repo/scripts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "deps:outdated": "bun outdated",
+    "lint": "biome lint src",
+    "check-types": "tsgo --noEmit"
+  },
+  "dependencies": {
+    "@repo/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*"
+  }
+}

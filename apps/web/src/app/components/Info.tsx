@@ -1,0 +1,299 @@
+import Image from 'next/image';
+import how_to_read_snapshots from './photos/how_to_read_snapshots.png';
+import wilensky from './photos/wilensky.png';
+
+function Info() {
+  return (
+    <div className="flex justify-center">
+      <div className="h2:mb-3 mt-5 flex w-full max-w-[780px] flex-col p-2.5">
+        <h2 className="mt-2.5 text-center text-2xl">What is this game?</h2>
+        <p className="mb-2.5 text-base">
+          This interactive simulation lets you experience evolution of
+          camouflage in real time. Acting as a bug-eating predator, your actions
+          become the selection pressure that drives the evolution of the bug
+          population.
+        </p>
+
+        <h2 className="mt-2.5 text-center text-2xl">How to play</h2>
+        <p className="mb-2.5 text-base">
+          You are a predator hunting bugs. Eat them by hovering your mouse over
+          them (or tapping if on mobile). Your hunger timer counts down
+          constantly, and you’ll need to keep eating to survive. If you do die,
+          you can keep playing, but the objective should be to go as long as you
+          can without dying. In about 1-3 minutes of playing, you'll see the bug
+          population evolve a camouflage strategy. It's a classic survival of
+          the fittest situation - the bugs that are harder to see against the
+          background image will tend to survive and procreate.
+        </p>
+
+        <h2 className="mt-2.5 text-center text-2xl">
+          How does the simulation work?
+        </h2>
+        <ul className="mb-2.5 list-disc pl-5">
+          <li>
+            This species of bug, let's call it <em>scarabidus chromatis</em> has
+            a single gene that controls its color.
+          </li>
+          <li>
+            The bug population begins with each bug having a randomly chosen
+            color. That is to say, each bug has a different allele of the color
+            gene.
+          </li>
+          <li>
+            The population stays constant—when you eat a bug, it’s immediately
+            replaced.
+          </li>
+          <li>
+            The replacement is a child of a randomly selected surviving bug.
+          </li>
+          <li>
+            The child inherits the parent’s color gene, but with a small
+            mutation in its red, green, and blue (RGB) values.
+          </li>
+          <li>
+            The only trait that evolves is color, which affects how visible bugs
+            are against the background.
+          </li>
+          <li>
+            Bugs that blend in are less likely to be eaten, so their genes
+            (colors) are more likely to persist.
+          </li>
+          <li>
+            Over time, the population evolves to match the background—an
+            adaptive response to selection pressure.
+          </li>
+        </ul>
+
+        <h2 className="mt-2.5 text-center text-2xl">This is too easy!</h2>
+        <p className="mb-2.5 text-base">
+          If the default settings are too easy, it can feel like you're
+          pretending to go after the easiest-to-see bugs just to 'make the
+          simulation work'. Doing so is a good demonstration of artificial
+          selection, but it's not what we're after. Luckily, there's a way to
+          get genuine natural selection - just alter the settings! If the
+          defaults feel too easy, make the game harder by decreasing the hunger
+          timer or making the bugs smaller.{' '}
+          <b>
+            You should adjust the settings so that the optimal hunting strategy
+            is to go after the most conspicuous bugs.
+          </b>{' '}
+          If you do this, you'll see genuine natural selection. Similarly, if
+          you're living a care free life pursuing a 'combing' strategy (i.e.
+          just dragging the cursor around until you get a bug, without really
+          looking) you should be able to alter the settings so that this is not
+          the most effective strategy.
+        </p>
+
+        <h2 className="mt-2.5 text-center text-2xl">Simulation controls</h2>
+        <ul className="mb-2.5 list-disc pl-5">
+          <li>
+            <span className="font-bold">Population Size:</span> Total number of
+            bugs present at any time.
+          </li>
+          <li>
+            <span className="font-bold">Phenotypic Distance:</span> Controls how
+            much the color gene can change with each reproduction. For example,
+            if the parent bug's color gene is RGB(50,50,50) and the phenotypic
+            distance is set to 7, the offspring bug will be either RGB(59,59,59)
+            or RGB(43,43,43)
+          </li>
+          <li>
+            <span className="font-bold">Custom Initial Bugs:</span> Instead of
+            randomly chosen colors, you can set whatever colors you want in the
+            initial population
+          </li>
+          <li>
+            <span className="font-bold">Background:</span> Changes the
+            environment to test camouflage under different conditions.
+          </li>
+          <li>
+            <span className="font-bold">Grow Speed:</span> If the bugs just pop
+            into existence fully formed it tends to catch the eye, making them
+            easier to spot. This could potentially skew the simulation by giving
+            you, the predator, a hunting strategy that does not depend on color.
+            Having the bugs grow slowly diminishes this effect.
+          </li>
+          <li>
+            <span className="font-bold">Max Offspring Radius:</span>This is the
+            maximum distance that an offspring bug will spawn from its parent.
+          </li>
+          <li>
+            <span className="font-bold">World Wrap:</span>If the offspring
+            distance is out of bounds, it will wrap around to the other side. If
+            world wrap is off, bugs will tend to cluster around the edges.{' '}
+          </li>
+          <li>
+            <span className="font-bold">Flash on Death:</span> When you die of
+            starvation the screen flashes red. Turn it off if this is annoying
+            to you.
+          </li>
+          <li>
+            <span className="font-bold">Random Step:</span> You can let the
+            simulation run for a given number of steps. Instead of you choosing
+            which bugs are eaten, a random bug is chosen each step. See the
+            section below about genetic drift
+          </li>
+        </ul>
+
+        <h2 className="mt-2.5 text-center text-2xl">Why does it matter?</h2>
+        <p className="mb-2.5 text-base">
+          Natural selection is powerful not because it is guided by an
+          intelligent designer, but because it isn’t. This simulation helps
+          reveal how adaptive traits can emerge from simple rules. There is no
+          master plan, no top-down design—just blind variation and differential
+          survival. What looks like purposeful camouflage is actually the result
+          of numerous mindless steps. The bugs aren’t trying to evolve; they’re
+          the subject of an algorithm. This bottom-up process is the essence of
+          evolution by natural selection and the key to understanding the beauty
+          of the biological world.
+        </p>
+
+        <h2 className="mt-2.5 text-center text-2xl">A note on genetic drift</h2>
+        <p className="mb-2.5 text-base"></p>
+        <p className="mb-2.5 text-base">
+          Genetic drift is the random fluctuation of allele frequencies in a
+          population. In other words, it is evolution in the <em>absence</em> of
+          selection pressures. It's somewhat counterintuitive. For example, if
+          you start out with, say, 50 different alleles in a population, and
+          leave it to a random process to choose which ones get to replicate,
+          you end up with a severe reduction in the overall number of alleles in
+          the population. Those alleles 'drifted' to a higher frequency purely
+          by chance. This game's 'random step' feature lets you simulate pure
+          genetic drift. Reset the game and select a random step of 500. You
+          will see that the diversity of the initial population is not
+          sustained. A few lucky alleles will have drifted to higher
+          frequencies. In the real world, multiple evolutionary forces (e.g.
+          natural selection and genetic drift) act simultaneously on a
+          population. Disentangling their relative influence is a central
+          challenge for evolutionary biologists.
+        </p>
+
+        <h2 className="mt-2.5 text-center text-2xl">
+          How to read population snapshots
+        </h2>
+        <Image
+          src={how_to_read_snapshots}
+          alt="How to read population snapshots"
+          width={780}
+          height={400}
+          style={{ width: '100%', height: 'auto' }}
+        />
+        <ul className="mb-2.5 list-disc pl-5">
+          <li className="mt-3">
+            Population snapshots tell the story of the evolving bug population.
+          </li>
+          <li>Each vertical band is a snapshot of the actual population.</li>
+          <li>
+            When a bug is eaten and another procreates, the allele frequencies
+            change.
+          </li>
+          <li>
+            Switch from 'grid' view to 'line' view to trace the survival of
+            individual bugs throughout the simulation.
+          </li>
+        </ul>
+
+        <h2 className="mt-2.5 text-center text-2xl">
+          A brief history of the simulation
+        </h2>
+        <p className="mb-2.5 text-base">
+          I didn't come up with this simulation. There have been at least 3
+          previous iterations:
+        </p>
+        <ol className="mb-2.5 list-decimal pl-5">
+          <li>
+            <span className="font-bold">1986:</span> Bishop & Anderson create{' '}
+            <a
+              className="underline"
+              href="https://files.eric.ed.gov/fulltext/ED272383.pdf"
+            >
+              a classroom activity using colored beads.
+            </a>
+          </li>
+          <li>
+            <span className="font-bold">1990s:</span> Steve Brewer develops a
+            computer version at UMass. I once saw this webpage years ago, but
+            it's since been taken down.
+          </li>
+          <li>
+            <span className="font-bold">2005:</span> Wilensky and Novak
+            implement{' '}
+            <a
+              className="underline"
+              href="http://modelingcommons.org/browse/one_model/1454#model_tabs_browse_info"
+            >
+              a NetLogo version
+            </a>
+            .
+          </li>
+        </ol>
+        <Image
+          src={wilensky}
+          alt="Wilensky NetLogo implementation"
+          width={780}
+          height={400}
+          style={{ width: '100%', height: 'auto' }}
+        />
+
+        <p className="mb-2.5 text-base">
+          This is Wilensky and Novaks' version. My version introduces several
+          new features:
+        </p>
+        <ol className="mb-2.5 list-decimal pl-5">
+          <li>
+            <span className="font-bold">Population Snapshots:</span> Visualize
+            allele frequencies changing over time.
+          </li>
+          <li>
+            <span className="font-bold">Hunger Timer:</span> Makes contrast
+            hunting the optimal strategy
+          </li>
+          <li>
+            <span className="font-bold">Dominant Colors:</span> Compare bug
+            colors with the background in real time.
+          </li>
+          <li>
+            <span className="font-bold">Random Step:</span> Simulate genetic
+            drift.
+          </li>
+          <li>
+            <span className="font-bold">Custom Initial Bugs:</span> Set the
+            starting alleles manually.
+          </li>
+        </ol>
+
+        <h2 className="mt-2.5 text-center text-2xl">Photo credits</h2>
+        <ul className="mb-2.5">
+          <li>
+            <span className="font-bold">sand:</span> "Sand from Gobi Desert" by
+            Siim Sepp – Own work. Licensed under CC BY-SA 3.0 via Wikimedia
+            Commons.
+          </li>
+          <li>
+            <span className="font-bold">candy:</span> Marco Guidi/EyeEm/Getty
+            Images
+          </li>
+          <li>
+            <span className="font-bold">carpet:</span>{' '}
+            <a href="https://www.homedepot.com/p/TrafficMASTER-Lake-View-Dovetail-Texture-12-ft-Carpet-HD102-102-1200-AB/308243816">
+              Home Depot
+            </a>
+          </li>
+          <li>
+            <span className="font-bold">gravel:</span> Pet Solutions
+          </li>
+          <li>
+            <span className="font-bold">leaves:</span> Minerva
+            Studio/Shutterstock
+          </li>
+          <li>
+            <span className="font-bold">everything else:</span> generated with
+            chatGPT
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default Info;

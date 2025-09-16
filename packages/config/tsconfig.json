@@ -1,0 +1,5 @@
+{
+  "extends": "./ts/base.json",
+  "include": ["ts/**/*", "vitest/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

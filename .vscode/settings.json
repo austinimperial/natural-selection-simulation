@@ -1,0 +1,14 @@
+{
+  "vitest.enable": true,
+  "vitest.disabledWorkspaceFolders": [],
+  "vitest.include": ["**/*.spec.ts", "**/*.test.ts"],
+  "vitest.exclude": ["**/node_modules/**", "**/dist/**"],
+
+  // Disable Bun test runner completely
+  "bun.enable": false,
+  "bun.test.enable": false,
+
+  // Ensure only Vitest is used for testing
+  "testing.defaultGutterClickAction": "run",
+  "testing.automaticallyOpenPeekView": "never"
+}

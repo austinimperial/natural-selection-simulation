@@ -1,9 +1,9 @@
-**/*.pem
-**/*.tsbuildinfo
-**/.env
-**/.DS_Store
-**/coverage.json
-
+.coverage/
+.next/
+.vercel/
+packages/data/src/
+*.min.css
+*.min.js
 **/.cache/
 **/.coverage/
 **/.deepeval/
@@ -15,6 +15,3 @@
 **/dist/
 **/node_modules/
 **/playwright/results/
-
-/run.ts
-/data/
