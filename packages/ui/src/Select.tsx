@@ -117,13 +117,13 @@ const SelectItem = React.forwardRef<
     )}
     {...props}
   >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+    <span className="flex mr-2 h-3.5 w-3.5 items-center justify-center">
       <RadixSelect.ItemIndicator>
         <Check className="h-4 w-4" />
       </RadixSelect.ItemIndicator>
     </span>
 
-    <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
+    <RadixSelect.ItemText className="ml-2">{children}</RadixSelect.ItemText>
   </RadixSelect.Item>
 ));
 SelectItem.displayName = RadixSelect.Item.displayName;
