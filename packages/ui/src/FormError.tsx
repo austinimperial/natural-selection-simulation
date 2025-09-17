@@ -35,7 +35,6 @@ export default function FormError({
       {field && <div className="hidden" data-form-error={field} />}
 
       <div
-        data-testid={field ? `form-error-${field}` : 'form-error'}
         className={cn(
           'rounded-md border border-red-500 bg-red-50 px-3 py-2 leading-relaxed text-red-600',
           className

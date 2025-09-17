@@ -25,7 +25,6 @@ export default function NavItem({
 
   return (
     <div
-      data-testid="main-nav-item"
       className={cn(
         className,
         'flex h-6 items-center gap-3 border-r-[3px] border-transparent'

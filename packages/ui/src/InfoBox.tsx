@@ -33,11 +33,10 @@ export default function InfoBox({
   className,
   children,
 }: Props) {
-  const IconComponent = iconMap[variant];
+  const Icon = iconMap[variant];
 
   return (
     <div
-      data-testid="info-box"
       className={cn(
         variantMap[variant],
         'flex items-start gap-4 rounded-lg border p-4 transition-colors',
@@ -48,7 +47,7 @@ export default function InfoBox({
         className
       )}
     >
-      <IconComponent
+      <Icon
         absoluteStrokeWidth
         strokeWidth={1.5}
         size={18}
