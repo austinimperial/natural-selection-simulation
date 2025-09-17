@@ -1,13 +1,13 @@
 import { pathToFileURL } from 'node:url';
 import consola from 'consola';
-import load from './loadEnvironment';
+import loadEnvironment from './loadEnvironment';
 
 const current = import.meta.url;
 const executedFrom = pathToFileURL(process.argv[1]);
 const isDirectExecution = current === executedFrom?.href;
 
 if (isDirectExecution) {
-  await load(process.env.APP_ENV);
+  await loadEnvironment(process.env.APP_ENV);
   await dev();
 }
 

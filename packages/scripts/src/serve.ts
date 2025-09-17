@@ -2,11 +2,14 @@ import { pathToFileURL } from 'node:url';
 import consola from 'consola';
 import loadEnvironment from './loadEnvironment.ts';
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await loadEnvironment();
+const current = import.meta.url;
+const executedFrom = pathToFileURL(process.argv[1]);
+const isDirectExecution = current === executedFrom?.href;
+
+if (isDirectExecution) {
+  await loadEnvironment(process.env.APP_ENV);
   await serve();
 }
-
 async function serve() {
   consola.info(`Serving up ${process.env.APP_ENV} environment...`);
 
