@@ -9,7 +9,7 @@
     "lint": "biome lint src",
     "test:integration": "vitest run --project integration",
     "test:unit": "vitest run --project unit",
-    "check-types": "tsgo --noEmit"
+    "check-types": "bun pm cache rm && tsgo --noEmit"
   },
   "dependencies": {
     "next": "15.5.3",

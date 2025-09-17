@@ -39,8 +39,8 @@ async function setup() {
     await cleanupDirectories();
     await installDependencies();
     consola.success('Setup completed successfully!');
-  } catch (error) {
-    consola.error('Setup failed:', error);
+  } catch (error: unknown) {
+    consola.error('Setup failed:', (error as any)?.message ?? '', error ?? '');
     process.exit(1);
   }
 }
@@ -107,6 +107,6 @@ async function installDependencies() {
     });
     consola.success('Dependencies installed with bun');
   } catch {
-    consola.error('dependencies failed to install with frozen lockfile');
+    throw Error('dependencies failed to install with frozen lockfile');
   }
 }
