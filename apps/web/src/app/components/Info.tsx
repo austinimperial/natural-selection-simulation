@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import how_to_read_snapshots from './photos/how_to_read_snapshots.png';
-import wilensky from './photos/wilensky.png';
+import how_to_read_snapshots from '@/assets/how_to_read_snapshots.png';
+import wilensky from '@/assets/wilensky.png';
 
 function Info() {
   return (
