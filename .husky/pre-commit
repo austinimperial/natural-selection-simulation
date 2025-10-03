@@ -1,0 +1,21 @@
+#!/bin/sh
+
+branch=$(git symbolic-ref --short HEAD)
+
+# if [ "$branch" = "staging" ] || [ "$branch" = "production" ]; then
+#   echo "Committing to $branch is not allowed."
+#   exit 1
+# fi
+
+max_branch_name_length=50
+
+if [ ${#branch} -gt $max_branch_name_length ]; then
+  echo "Branch name cannot be longer than $max_branch_name_length characters."
+  exit 1
+fi
+
+if command -v bun >/dev/null 2>&1; then
+  bun lint-staged
+else
+  npx lint-staged
+fi

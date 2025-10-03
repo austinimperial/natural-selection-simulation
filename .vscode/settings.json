@@ -1,0 +1,5 @@
+{
+  // Disable Bun test runner completely
+  "bun.enable": false,
+  "bun.test.enable": false
+}

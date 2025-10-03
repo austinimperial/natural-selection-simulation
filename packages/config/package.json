@@ -1,0 +1,14 @@
+{
+  "name": "@repo/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "tsconfig/*.json",
+    "tsconfig/*.d.ts"
+  ],
+  "devDependencies": {
+    "@total-typescript/ts-reset": "0.6.1",
+    "@typescript/native-preview": "latest"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@repo/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "biome lint src",
+    "check-types": "bun pm cache rm && tsgo --noEmit"
+  },
+  "dependencies": {
+    "next": "15.5.3",
+    "quantize": "^1.0.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5.6",
+    "typescript": "^5",
+    "@repo/config": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "@repo/utils": "workspace:*"
+  }
+}

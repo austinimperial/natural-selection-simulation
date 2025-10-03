@@ -1,0 +1,13 @@
+node_modules/
+**/*/node_modules
+.turbo/
+.vercel/
+.husky/
+.git/
+.DS_Store
+*.lockb
+dist/
+build/
+.next/
+out/
+coverage/ 
