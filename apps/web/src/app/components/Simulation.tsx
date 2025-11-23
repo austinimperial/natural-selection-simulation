@@ -1,6 +1,7 @@
 import BugsProvider from '../providers/bugs/BugsProvider.tsx';
 import SnapshotsDisplayProvider from '../providers/snapshots/SnapshotsProvider.tsx';
 import SvgDimensionsProvider from '../providers/svg-container/SvgContainerProvider.tsx';
+import AllBugComposites from './AllBugComposites.tsx';
 import Snapshots from './Snapshots';
 import SvgContainer from './SvgContainer';
 import SimulationControls from './simulation-controls/SimulationControls';
@@ -17,6 +18,7 @@ function Simulation() {
             </div>
 
             <Snapshots />
+            <AllBugComposites />
           </SnapshotsDisplayProvider>
         </SvgDimensionsProvider>
       </BugsProvider>
