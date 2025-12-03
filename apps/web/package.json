@@ -10,7 +10,7 @@
     "check-types": "bun pm cache rm && tsgo --noEmit"
   },
   "dependencies": {
-    "next": "15.5.3",
+    "next": "15.5.7",
     "quantize": "^1.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
